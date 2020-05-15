@@ -1,0 +1,59 @@
+{
+  "name": "patofinder",
+  "version": "0.1.0",
+  "description": "",
+  "author": "Nathan Botelho <nimbotelho@gmail.com> (https://github.com/notelho)",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.js",
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
+    "build:cjs": "npx tsc -p tsconfig.cjs.json",
+    "build:esm": "npx tsc -p tsconfig.esm.json",
+    "build:umd": "webpack",
+    "test": "jest --verbose",
+    "watch": "echo \"Soon\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/notelho/patofinder"
+  },
+  "files": [
+    "lib",
+    "esm",
+    "umd"
+  ],
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/notelho/patofinder/issues"
+  },
+  "homepage": "https://github.com/notelho/patofinder#readme",
+  "peerDependencies": {},
+  "devDependencies": {
+    "@babel/parser": "^7.9.6",
+    "@babel/types": "^7.9.6",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
+    "commitizen": "^4.1.2",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-import-helpers": "^1.0.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "npx": "^10.2.2",
+    "prettier": "^1.18.2",
+    "pretty-format": "^26.0.1",
+    "ts-loader": "^6.0.4",
+    "tslint": "^6.1.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "typescript": "^3.6.2"
+  }
+}
