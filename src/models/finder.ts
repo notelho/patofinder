@@ -9,7 +9,6 @@ export class Finder {
 
     constructor(type: SearchType) {
 
-
         this.type = type;
 
         this.analyzer = new Analyzer()
