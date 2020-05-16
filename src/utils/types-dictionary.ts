@@ -22,7 +22,7 @@ export const typesDictionary = {
     },
 
     "stream": {
-        "type": "deep"
+        "type": "miner"
     },
 
     "js": {

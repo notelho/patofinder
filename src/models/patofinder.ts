@@ -23,7 +23,7 @@ export class Patofinder {
 
             const foundPaths = await scanner.getPaths();
 
-            // for (let path of foundPaths) {
+            // for (const path of foundPaths) {
             //     console.log(path);
             // }
 

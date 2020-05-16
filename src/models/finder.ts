@@ -1,17 +1,19 @@
-import Analyzer from "./analyzer";
 import SearchType from "../interfaces/search-type";
+import UrlAnalyzer from "./url-analyzer";
 
 export class Finder {
 
-    analyzer: Analyzer;
+    private analyzer: UrlAnalyzer;
 
-    type: SearchType;
+    private type: SearchType;
 
     constructor(type: SearchType) {
 
         this.type = type;
 
-        this.analyzer = new Analyzer()
+        // this.miner = new UrlMiner();
+
+        // this.filter = new UrlFilter();
 
     }
 
