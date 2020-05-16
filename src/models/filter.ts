@@ -17,13 +17,21 @@ export class Filter {
 
         const html = this.html;
 
-        const matches = html.match(validator);
+        const parsedHtml = this.html.split('\"')
+
+        const matches = parsedHtml.filter(row => row.trim().match(validator));
+
+        // console.log(matches);
+
 
         // console.log('=======================================\n');
         // console.log(this.html);
         // console.log('=======================================\n');
         // console.log(matches);
         // console.log('=======================================\n');
+
+
+
 
         this.src = matches;
 
