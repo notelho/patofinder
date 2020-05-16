@@ -21,8 +21,13 @@ export class Patofinder {
             const scanner = new Scanner(this.url);
             const finder = new Finder(this.type);
 
-            const foundUrls = await scanner.getPaths();
-            const foundMatches = await finder.find(foundUrls);
+            const foundPaths = await scanner.getPaths();
+
+            // for (let path of foundPaths) {
+            //     console.log(path);
+            // }
+
+            const foundMatches = await finder.find(foundPaths);
 
             return foundMatches;
 

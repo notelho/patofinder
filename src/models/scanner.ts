@@ -1,6 +1,6 @@
 import axios from 'axios';
 import SearchUrl from "../interfaces/search-url"
-import Filter from "./filter";
+import regExpUrl from '../utils/regexp-url';
 
 export class Scanner {
 
@@ -14,7 +14,9 @@ export class Scanner {
 
         const request = await axios.get(this.url);
 
-        return request.data;
+        const html = request.data;
+
+        return html;
 
     }
 
@@ -22,9 +24,11 @@ export class Scanner {
 
         const html = await this.getHtml();
 
-        const urls = new Filter(html).paths();
+        const parsedHtml = html.split('\"');
 
-        const paths = urls.ignore().source();
+        const validator = regExpUrl;
+
+        const paths = parsedHtml.filter(row => row.trim().match(validator));
 
         return paths;
     }

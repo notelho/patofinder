@@ -1,3 +1,3 @@
-export type SearchType = 'mp3' | 'png' | 'gif' | 'jpg' | 'streaming';
+export type SearchType = 'js' | 'svg ' | 'css' | 'mp3' | 'png' | 'gif' | 'jpg' | 'stream';
 
 export default SearchType;

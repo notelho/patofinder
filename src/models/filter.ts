@@ -1,60 +1,41 @@
-import regExpUrl from '../constants/regexp-url';
+import regExpUrl from '../utils/regexp-url';
 
 export class Filter {
 
-    private html: string;
+    // private html: string;
 
-    private src: any;
+    // private src: any;
 
-    constructor(html: string) {
-        this.html = html;
-        this.src = html;
-    }
+    // constructor(html: string) {
+    //     this.html = html;
+    //     this.src = html;
+    // }
 
-    paths() {
+    // paths(): this {
 
-        const validator = regExpUrl;
+    //     const validator = regExpUrl;
 
-        const html = this.html;
+    //     const html = this.html;
 
-        const parsedHtml = this.html.split('\"')
+    //     const parsedHtml = html.split('\"')
 
-        const matches = parsedHtml.filter(row => row.trim().match(validator));
+    //     const matches = parsedHtml.filter(row => row.trim().match(validator));
 
-        // console.log(matches);
+    //     this.src = matches;
 
+    //     return this;
+    // }
 
-        // console.log('=======================================\n');
-        // console.log(this.html);
-        // console.log('=======================================\n');
-        // console.log(matches);
-        // console.log('=======================================\n');
+    // ignore(): this {
 
 
+    //     return this;
 
+    // }
 
-        this.src = matches;
-
-
-        // string.match(geturl).length
-        // 2
-
-        // string.match(geturl)
-        // http://vimeo.com/8122132, http://www.flickr.com/photos/pmorgan/32606683/
-
-
-        return this;
-    }
-
-    ignore() {
-
-
-        return this;
-    }
-
-    source() {
-        return this.src;
-    }
+    // source(): any {
+    //     return this.src;
+    // }
 
 }
 
