@@ -1,7 +1,7 @@
-// export class Analyzer {
+export class Analyzer {
 
-//     constructor() {
+    // constructor() {   }
 
-//     }
+}
 
-// }
+export default Analyzer;

@@ -1,21 +1,24 @@
+import SearchUrl from "../interfaces/search-url"
 
+export class Scanner {
 
-// export class Scanner {
+    private url: SearchUrl;
 
-//     constructor() {
+    constructor(url: SearchUrl) {
+        this.url = url;
+    }
 
+    public async getHtml(): Promise<string> {
 
+        return ''
 
-//     }
+    }
 
-//     + getUrls
+    public async getPaths(): Promise<string[]> {
 
-//     + getHtml
+        return []
+    }
 
-//     + getPaths
+}
 
-//     + getHeaders
-
-
-
-// }
+export default Scanner;

@@ -28,3 +28,27 @@
 // if (!args._[0]) {
 //     cli.showHelp();
 // }
+
+
+// const parser = new Args({
+//     version: "0.1.0",
+//     addHelp: true,
+//     description: "Pato finder options",
+// });
+
+// const args = new args(url | urls, type)
+
+
+// // patofinder
+
+
+// // patofinder --path https:www.google.com --type png
+
+
+// // new Args
+// // new Scanner ( path );
+
+// // args .path
+// // args .type
+
+// // await scanner.getUrls()
