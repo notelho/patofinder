@@ -16,6 +16,8 @@ export interface SearchDictionary {
 
     "css": SearchEnvironment;
 
+    "php": SearchEnvironment;
+
 }
 
 export default SearchDictionary

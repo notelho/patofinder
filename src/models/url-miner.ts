@@ -9,9 +9,22 @@ export class UrlMiner extends UrlAnalyzer {
 
     public async run(paths: string[]): Promise<string[]> {
 
+        // deep-scanner
 
 
-        return []
+        // console.log(paths);
+
+        // pega todos os paths
+        // roda o ffmprobe pra cada um
+
+        // se encontrar, retorna os matches em um array
+
+        // se não, faz um deepscan
+
+
+
+
+        return paths
 
     }
 

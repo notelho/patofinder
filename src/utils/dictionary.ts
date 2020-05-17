@@ -6,6 +6,7 @@ import videoDictionary from './dictionary/video';
 import streamDictionary from './dictionary/stream';
 import javascriptDictionary from './dictionary/javascript';
 import cssDictionary from './dictionary/css';
+import phpDictionary from "./dictionary/php";
 
 export const searchDictionary: SearchDictionary = {
     "url": urlDictionary,
@@ -15,6 +16,7 @@ export const searchDictionary: SearchDictionary = {
     "stream": streamDictionary,
     "javascript": javascriptDictionary,
     "css": cssDictionary,
+    "php": phpDictionary,
 }
 
 export default searchDictionary;
