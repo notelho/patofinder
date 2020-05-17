@@ -20,24 +20,15 @@ export class UrlFilter extends UrlAnalyzer {
             const urls: string[] = [];
 
             for (const path of paths) {
-
                 for (const extension of extensions) {
-
                     if (path.includes(extension)) {
-
-                        // console.log(path);
-
                         urls.push(path);
-
                         break;
-
                     }
-
                 }
-
             }
 
-            resolve(paths);
+            resolve(urls);
 
         })
 

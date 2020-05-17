@@ -1,7 +1,5 @@
 // export * from './public/find';
 
-// export * from './interfaces/search-type';
-// export * from './interfaces/search-url';
 
 import find from './public/find';
 
