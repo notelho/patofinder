@@ -1,4 +1,4 @@
-import searchDictionary from '../utils/search-dictionary';
+import searchDictionary from '../utils/dictionary';
 import SearchUrl from "../interfaces/search-url";
 import SearchType from "../interfaces/search-type";
 import UrlFilter from "./url-filter";

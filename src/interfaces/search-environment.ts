@@ -4,9 +4,7 @@ export interface SearchEnvironment {
 
     analyzer: SearchFilter;
 
-    breakpoint?: number;
-
-    extensions?: string[];
+    extensions: string[];
 
 }
 

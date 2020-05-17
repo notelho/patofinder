@@ -1,5 +1,4 @@
 import SearchType from "../interfaces/search-type";
-import SearchEnvironment from "../interfaces/search-environment";
 
 export abstract class UrlAnalyzer {
 

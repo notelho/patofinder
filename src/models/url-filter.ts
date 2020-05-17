@@ -1,6 +1,6 @@
 import UrlAnalyzer from "./url-analyzer";
 import SearchType from "../interfaces/search-type";
-import searchDictionary from '../utils/search-dictionary';
+import searchDictionary from '../utils/dictionary';
 
 export class UrlFilter extends UrlAnalyzer {
 
@@ -10,7 +10,10 @@ export class UrlFilter extends UrlAnalyzer {
 
     public async run(paths: string[]): Promise<string[]> {
 
-        const extensions = searchDictionary[this.type].extensions as string[];
+        const type = this.type
+        const dictionary = searchDictionary;
+        const environment = dictionary[type];
+        const extensions = environment.extensions;
 
         return new Promise(resolve => {
 
