@@ -1,3 +1,3 @@
-export type SearchType = 'img' | 'audio' | 'video' | 'stream' | 'javascript' | 'css';
+export type SearchType = 'url' | 'img' | 'audio' | 'video' | 'stream' | 'javascript' | 'css';
 
 export default SearchType;

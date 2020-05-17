@@ -2,6 +2,8 @@ import SearchEnvironment from "./search-environment";
 
 export interface SearchDictionary {
 
+    "url": SearchEnvironment;
+
     "img": SearchEnvironment;
 
     "audio": SearchEnvironment;

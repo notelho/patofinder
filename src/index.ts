@@ -7,11 +7,12 @@ async function test() {
 
     // const matches = await find('http://radiosaovivo.net/embed/guaruja-florianopolis/', 'stream');
     // const matches = await find('https://massafm.com.br/home/', 'stream');
-    const matches = await find('https://radiosaovivo.net/guaruja-florianopolis/', 'img');
+    const matches = await find('http://www.radios.com.br/play/14', 'url');
 
-    // console.log(matches);
+    // for (const match of matches) {
+    //     console.log(match);
+    // }
 
 }
 
 test();
-
