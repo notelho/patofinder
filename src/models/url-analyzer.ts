@@ -1,14 +1,15 @@
 import SearchType from "../interfaces/search-type";
+import SearchEnvironment from "../interfaces/search-environment";
 
 export abstract class UrlAnalyzer {
 
-    private type: SearchType;
+    protected type: SearchType;
 
     constructor(type: SearchType) {
         this.type = type;
     }
 
-    public abstract run(paths: string[]): string[];
+    public abstract async run(paths: string[]): Promise<string[]>;
 
 }
 

@@ -1,7 +1,9 @@
-import SearchUrl from "../interfaces/search-url"
-import SearchType from "../interfaces/search-type"
+import searchDictionary from '../utils/search-dictionary';
+import SearchUrl from "../interfaces/search-url";
+import SearchType from "../interfaces/search-type";
+import UrlFilter from "./url-filter";
+import UrlMiner from "./url-miner";
 import Scanner from "./scanner";
-import { Finder } from "./finder";
 
 export class Patofinder {
 
@@ -18,18 +20,21 @@ export class Patofinder {
 
         try {
 
+            const type = this.type;
+            const dictionary = searchDictionary;
+            const environment = dictionary[type];
+            const analyzer = environment.analyzer;
+
             const scanner = new Scanner(this.url);
-            const finder = new Finder(this.type);
 
-            const foundPaths = await scanner.getPaths();
+            const tester = (analyzer === 'filter') ?
+                new UrlFilter(type) :
+                new UrlMiner(type);
 
-            // for (const path of foundPaths) {
-            //     console.log(path);
-            // }
+            const paths = await scanner.getPaths();
+            const matches = await tester.run(paths);
 
-            const foundMatches = await finder.find(foundPaths);
-
-            return foundMatches;
+            return matches;
 
         } catch (error) {
 
