@@ -1,5 +1,8 @@
 import EnvironmentMiner from '../../interfaces/environment-miner';
 
+const ffprobe = require('ffprobe');
+const ffprobeStatic = require('ffprobe-static');
+
 export const stream: EnvironmentMiner = {
 
     analyzer: "miner",
@@ -8,11 +11,14 @@ export const stream: EnvironmentMiner = {
 
     filterRule: async (data: any): Promise<boolean> => {
 
-        const extensions: string[] = data.extensions;
-        const ffdata: any = data.ffdata;
-        const streams: any[] = ffdata.streams;
+        const { extensions, path } = data;
 
-        if (extensions && ffdata && streams) {
+        const info = await ffprobe(path, { path: ffprobeStatic.path });
+
+        if (extensions && path && info) {
+
+            const streams: any[] = info.streams;
+
             for (const streaming of streams) {
 
                 let streamingPoints: number = 0;
@@ -38,7 +44,7 @@ export const stream: EnvironmentMiner = {
         }
 
         return false;
-    },
+    }
 };
 
 export default stream;

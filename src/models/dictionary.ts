@@ -44,7 +44,7 @@ export class Dictionary {
         return this.environment.extensions;
     }
 
-    public get rule(): FilterRule {
+    public get filterRule(): FilterRule {
         return (this.environment as EnvironmentMiner).filterRule;
     }
 

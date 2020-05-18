@@ -1,36 +1,43 @@
 import SearchType from "../interfaces/search-type";
+import TypePaths from "../interfaces/type-paths";
 import Dictionary from "./dictionary";
-
-const ffprobe = require('ffprobe');
-const ffprobeStatic = require('ffprobe-static');
 
 export class Regulator {
 
-    private paths: string[];
+    private paths: TypePaths;
 
-    constructor(paths: string[], type: SearchType) {
+    private type: SearchType;
+
+    constructor(paths: TypePaths, type: SearchType) {
         this.paths = paths;
+        this.type = type;
     }
 
-    public async applyRule(): Promise<string[]> {
+    public async applyRule(): Promise<TypePaths> {
+
+        const matches: TypePaths = [];
 
         const paths = this.paths;
-
-        const matches: string[] = [];
+        const type = this.type;
 
         const dictionary = new Dictionary(type);
         const extensions = dictionary.extensions;
-        const rule = dictionary.rule;
+        const filterRule = dictionary.filterRule;
 
-        for (const path of this.paths) {
+        for (const path of paths) {
+
             try {
-                const ffdata = await ffprobe(path, { path: ffprobeStatic.path });
-                if (await rule({ ffdata, extensions })) {
+
+                const result = await filterRule({ path, extensions });
+
+                if (result) {
                     matches.push(path);
                 }
+
             } catch (error) {
                 continue;
             }
+
         }
         return matches;
     }
