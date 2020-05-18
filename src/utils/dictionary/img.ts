@@ -1,22 +1,11 @@
-import SearchEnvironment from "../../interfaces/search-environment";
+import EnvironmentFilter from '../../interfaces/environment-filter';
 
-export const imgDictionary: SearchEnvironment = {
-    "analyzer": "filter",
-    "extensions": [
-        ".jpg",
-        ".jpeg",
-        ".svg",
-        ".png",
-        ".gif",
-        ".gifv",
-        ".tiff",
-        ".psd",
-        ".pdf",
-        ".eps",
-        ".ai",
-        ".indd",
-        ".raw",
-    ]
+export const img: EnvironmentFilter = {
+
+    type: "filter",
+
+    extensions: [".jpg", ".jpeg", ".svg", ".png", ".gif", ".gifv", ".tiff", ".psd", ".pdf", ".eps", ".ai", ".indd", ".raw"]
+
 };
 
-export default imgDictionary;
+export default img;

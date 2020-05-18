@@ -1,10 +1,11 @@
-import SearchEnvironment from "../../interfaces/search-environment";
+import EnvironmentFilter from '../../interfaces/environment-filter';
 
-export const cssDictionary: SearchEnvironment = {
-    "analyzer": "filter",
-    "extensions": [
-        ".css",
-    ]
+export const css: EnvironmentFilter = {
+
+    type: "filter",
+
+    extensions: [".css"]
+
 };
 
-export default cssDictionary;
+export default css;

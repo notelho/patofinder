@@ -1,10 +1,11 @@
-import SearchEnvironment from "../../interfaces/search-environment";
+import EnvironmentFilter from '../../interfaces/environment-filter';
 
-export const javascriptDictionary: SearchEnvironment = {
-    "analyzer": "filter",
-    "extensions": [
-        ".js",
-    ]
+export const javascript: EnvironmentFilter = {
+
+    type: "filter",
+
+    extensions: [".js"]
+
 };
 
-export default javascriptDictionary;
+export default javascript;

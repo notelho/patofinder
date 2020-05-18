@@ -4,7 +4,7 @@ import searchDictionary from "../utils/dictionary";
 const ffprobe = require('ffprobe');
 const ffprobeStatic = require('ffprobe-static');
 
-export class Searcher {
+export class Regulator {
 
     private paths: string[];
 
@@ -12,42 +12,27 @@ export class Searcher {
         this.paths = paths;
     }
 
-    public async getMatches(type: SearchType): Promise<string[]> {
+    public async applyRule(type: SearchType): Promise<string[]> {
 
         const matches: string[] = [];
-
         const dictionary = searchDictionary;
         const environment = dictionary[type];
         const extensions = environment.extensions;
-        const typeRule = environment.rule as (data: any) => boolean;
-
-        // apply exclude rule
+        const rule = environment.rule as (data: any) => boolean;
 
         for (const path of this.paths) {
-
             try {
-
                 const ffdata = await ffprobe(path, { path: ffprobeStatic.path });
-
-                if (typeRule({ ffdata, extensions })) {
-
+                if (await rule({ ffdata, extensions })) {
                     matches.push(path);
-
                 }
-
             } catch (error) {
-
-                // console.log(error); // temp
-
                 continue;
-
             }
-
         }
-
         return matches;
     }
 
 }
 
-export default Searcher;
+export default Regulator;

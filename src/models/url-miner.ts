@@ -1,6 +1,6 @@
 import Analyzer from "./analyzer";
 import SearchType from "../interfaces/search-type";
-import Searcher from "./searcher";
+import Regulator from "./regulator";
 
 export class UrlMiner extends Analyzer {
 
@@ -19,9 +19,11 @@ export class UrlMiner extends Analyzer {
 
         let matches: string[] = [];
 
+        // apply exclude rule
+
         // let hasSearch: boolean = true;
 
-        matches = await new Searcher(urls).getMatches(type);
+        matches = await new Regulator(urls, type).apply( );
 
         // console.log(matches);
 
