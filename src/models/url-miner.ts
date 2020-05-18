@@ -1,7 +1,8 @@
-import UrlAnalyzer from "./url-analyzer";
+import Analyzer from "./analyzer";
 import SearchType from "../interfaces/search-type";
+import Searcher from "./searcher";
 
-export class UrlMiner extends UrlAnalyzer {
+export class UrlMiner extends Analyzer {
 
     constructor(type: SearchType) {
         super(type);
@@ -9,22 +10,31 @@ export class UrlMiner extends UrlAnalyzer {
 
     public async run(paths: string[]): Promise<string[]> {
 
-        // deep-scanner
+        const type = this.type;
 
+        const urls: string[] = [
+            'https://freesound.org/data/previews/518/518425_11289675-lq.mp3',
+            'http://8903.brasilstream.com.br:8903/stream?1589752897235',
+        ];
 
-        // console.log(paths);
+        let matches: string[] = [];
+
+        // let hasSearch: boolean = true;
+
+        matches = await new Searcher(urls).getMatches(type);
+
+        // console.log(matches);
+
 
         // pega todos os paths
         // roda o ffmprobe pra cada um
 
-        // se encontrar, retorna os matches em um array
-
-        // se não, faz um deepscan
+        // do {
 
 
+        // } while (hasSearch || matches.length === 0);
 
-
-        return paths
+        return matches;
 
     }
 

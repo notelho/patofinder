@@ -1,8 +1,8 @@
-import UrlAnalyzer from "./url-analyzer";
+import Analyzer from "./analyzer";
 import SearchType from "../interfaces/search-type";
 import searchDictionary from '../utils/dictionary';
 
-export class UrlFilter extends UrlAnalyzer {
+export class UrlFilter extends Analyzer {
 
     constructor(type: SearchType) {
         super(type);
@@ -29,9 +29,7 @@ export class UrlFilter extends UrlAnalyzer {
             }
 
             resolve(urls);
-
         })
-
     }
 
 }

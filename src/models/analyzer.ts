@@ -1,6 +1,6 @@
 import SearchType from "../interfaces/search-type";
 
-export abstract class UrlAnalyzer {
+export abstract class Analyzer {
 
     protected type: SearchType;
 
@@ -12,4 +12,4 @@ export abstract class UrlAnalyzer {
 
 }
 
-export default UrlAnalyzer;
+export default Analyzer;
