@@ -11,25 +11,16 @@ export class Scanner {
     }
 
     public async getHtml(): Promise<string> {
-
         const request = await axios.get(this.url);
-
         const html = request.data;
-
         return html;
-
     }
 
     public async getPaths(): Promise<string[]> {
-
         const html = await this.getHtml();
-
-        const parsedHtml = html.split('\"');
-
+        const parsedHtml = html.split('\"'); // temp
         const validator = regexpUrl;
-
         const paths = parsedHtml.filter(row => row.trim().match(validator));
-
         return paths;
     }
 

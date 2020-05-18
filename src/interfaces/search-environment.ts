@@ -6,6 +6,8 @@ export interface SearchEnvironment {
 
     extensions: string[];
 
+    rule?: (data?: any) => boolean;
+
 }
 
 export default SearchEnvironment;
