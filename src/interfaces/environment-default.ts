@@ -1,9 +1,9 @@
-import TypeFilter from "./type-filter";
+import TypeAnalyzer from "./type-analyzer";
 import TypeExtensions from "./type-extensions";
 
 export interface EnvironmentDefault {
 
-    type: TypeFilter;
+    analyzer: TypeAnalyzer;
 
     extensions: TypeExtensions;
 

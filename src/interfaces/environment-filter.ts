@@ -3,7 +3,7 @@ import EnvironmentDefault from "./environment-default";
 
 export interface EnvironmentFilter extends EnvironmentDefault {
 
-    type: 'filter';
+    analyzer: 'filter';
 
     extensions: TypeExtensions;
 

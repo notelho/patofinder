@@ -1,5 +1,5 @@
 import SearchType from "../interfaces/search-type";
-import searchDictionary from "../utils/dictionary";
+import Dictionary from "./dictionary";
 
 const ffprobe = require('ffprobe');
 const ffprobeStatic = require('ffprobe-static');
@@ -8,17 +8,19 @@ export class Regulator {
 
     private paths: string[];
 
-    constructor(paths: string[]) {
+    constructor(paths: string[], type: SearchType) {
         this.paths = paths;
     }
 
-    public async applyRule(type: SearchType): Promise<string[]> {
+    public async applyRule(): Promise<string[]> {
+
+        const paths = this.paths;
 
         const matches: string[] = [];
-        const dictionary = searchDictionary;
-        const environment = dictionary[type];
-        const extensions = environment.extensions;
-        const rule = environment.rule as (data: any) => boolean;
+
+        const dictionary = new Dictionary(type);
+        const extensions = dictionary.extensions;
+        const rule = dictionary.rule;
 
         for (const path of this.paths) {
             try {

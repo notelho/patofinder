@@ -1,6 +1,7 @@
 import axios from 'axios';
 import SearchUrl from "../interfaces/search-url"
 import regexpUrl from '../utils/regexp/url';
+import TypePaths from '../interfaces/type-paths';
 
 export class Scanner {
 
@@ -16,7 +17,7 @@ export class Scanner {
         return html;
     }
 
-    public async getPaths(): Promise<string[]> {
+    public async getPaths(): Promise<TypePaths> {
         const html = await this.getHtml();
         const parsedHtml = html.split('\"'); // temp
         const validator = regexpUrl;

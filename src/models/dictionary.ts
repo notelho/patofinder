@@ -1,3 +1,9 @@
+import SearchType from '../interfaces/search-type';
+import EnvironmentFilter from '../interfaces/environment-filter';
+import EnvironmentMiner from '../interfaces/environment-miner';
+import FilterRule from '../interfaces/filter-rule';
+import TypeExtensions from '../interfaces/type-extensions';
+import TypeAnalyzer from '../interfaces/type-analyzer';
 import url from '../utils/dictionary/url';
 import img from '../utils/dictionary/img';
 import audio from '../utils/dictionary/audio';
@@ -6,11 +12,6 @@ import stream from '../utils/dictionary/stream';
 import javascript from '../utils/dictionary/javascript';
 import css from '../utils/dictionary/css';
 import php from '../utils/dictionary/php';
-
-import SearchType from '../interfaces/search-type';
-import EnvironmentFilter from '../interfaces/environment-filter';
-import EnvironmentMiner from '../interfaces/environment-miner';
-import FilterRule from '../interfaces/filter-rule';
 
 export class Dictionary {
 
@@ -31,26 +32,22 @@ export class Dictionary {
         this.selectedType = type;
     }
 
-    getExtensions() {
-
-        const type: SearchType = this.selectedType;
-        const environment: EnvironmentFilter | EnvironmentMiner = this.availableTypes[type];
-        const extensions = environment.extensions;
-
-        return extensions;
+    public get environment(): EnvironmentFilter | EnvironmentMiner {
+        return this.availableTypes[this.selectedType] as EnvironmentFilter | EnvironmentMiner;
     }
 
-    getRule() {
+    public get analyzer(): TypeAnalyzer {
+        return this.environment.analyzer;
+    }
 
-        const type: SearchType = this.selectedType;
-        const environment: EnvironmentFilter | EnvironmentMiner = this.availableTypes[type];
-        const miner = environment as EnvironmentMiner;
-        const rule = miner.filterRule;
+    public get extensions(): TypeExtensions {
+        return this.environment.extensions;
+    }
 
-        return rule;
+    public get rule(): FilterRule {
+        return (this.environment as EnvironmentMiner).filterRule;
     }
 
 }
 
-
-
+export default Dictionary;

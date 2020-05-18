@@ -2,7 +2,7 @@ import EnvironmentFilter from '../../interfaces/environment-filter';
 
 export const img: EnvironmentFilter = {
 
-    type: "filter",
+    analyzer: "filter",
 
     extensions: [".jpg", ".jpeg", ".svg", ".png", ".gif", ".gifv", ".tiff", ".psd", ".pdf", ".eps", ".ai", ".indd", ".raw"]
 

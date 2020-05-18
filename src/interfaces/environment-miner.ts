@@ -4,7 +4,7 @@ import FilterRule from './filter-rule';
 
 export interface EnvironmentMiner extends EnvironmentDefault {
 
-    type: 'miner';
+    analyzer: 'miner';
 
     extensions: TypeExtensions;
 

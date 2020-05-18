@@ -2,7 +2,7 @@ import EnvironmentFilter from '../../interfaces/environment-filter';
 
 export const css: EnvironmentFilter = {
 
-    type: "filter",
+    analyzer: "filter",
 
     extensions: [".css"]
 

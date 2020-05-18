@@ -2,7 +2,7 @@ import EnvironmentFilter from '../../interfaces/environment-filter';
 
 export const php: EnvironmentFilter = {
 
-    type: "filter",
+    analyzer: "filter",
 
     extensions: [".php"]
 

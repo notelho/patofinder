@@ -1,4 +1,5 @@
 import SearchType from "../interfaces/search-type";
+import TypePaths from "../interfaces/type-paths";
 
 export abstract class Analyzer {
 
@@ -8,7 +9,7 @@ export abstract class Analyzer {
         this.type = type;
     }
 
-    public abstract async run(paths: string[]): Promise<string[]>;
+    public abstract async run(paths: TypePaths): Promise<TypePaths>;
 
 }
 

@@ -1,6 +1,7 @@
-import Analyzer from "./analyzer";
 import SearchType from "../interfaces/search-type";
-import searchDictionary from '../utils/dictionary';
+import TypePaths from "../interfaces/type-paths";
+import Dictionary from "./dictionary";
+import Analyzer from "./analyzer";
 
 export class UrlFilter extends Analyzer {
 
@@ -8,16 +9,15 @@ export class UrlFilter extends Analyzer {
         super(type);
     }
 
-    public async run(paths: string[]): Promise<string[]> {
+    public async run(paths: TypePaths): Promise<TypePaths> {
 
-        const type = this.type
-        const dictionary = searchDictionary;
-        const environment = dictionary[type];
-        const extensions = environment.extensions;
+        const type = this.type;
+        const dictionary = new Dictionary(type);
+        const extensions = dictionary.extensions;
 
         return new Promise(resolve => {
 
-            const urls: string[] = [];
+            const urls: TypePaths = [];
 
             for (const path of paths) {
                 for (const extension of extensions) {
