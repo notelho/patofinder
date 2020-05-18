@@ -1,6 +1,5 @@
 import TypePath from "../interfaces/type-path";
 import SearchType from "../interfaces/search-type";
-import TypeExtensions from "../interfaces/type-extensions";
 
 export class Ignorer {
 

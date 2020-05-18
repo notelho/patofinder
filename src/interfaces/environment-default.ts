@@ -1,11 +1,11 @@
 import TypeAnalyzer from "./type-analyzer";
-import TypeExtensions from "./type-extensions";
+import TypeExtension from "./type-extension";
 
 export interface EnvironmentDefault {
 
     analyzer: TypeAnalyzer;
 
-    extensions: TypeExtensions;
+    extensions: TypeExtension[];
 
 }
 

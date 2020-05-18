@@ -1,4 +1,4 @@
-import TypeExtensions from "./type-extensions";
+import TypeExtension from "./type-extension";
 import EnvironmentDefault from "./environment-default";
 import FilterRule from './filter-rule';
 import FilterPreferences from "./filter-preferences";
@@ -7,9 +7,9 @@ export interface EnvironmentMiner extends EnvironmentDefault {
 
     analyzer: 'miner';
 
-    extensions: TypeExtensions;
+    extensions: TypeExtension[];
 
-    ignore: FilterPreferences;
+    preferences?: FilterPreferences;
 
     filterRule: FilterRule;
 

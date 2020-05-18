@@ -2,7 +2,7 @@ import SearchType from '../interfaces/search-type';
 import EnvironmentFilter from '../interfaces/environment-filter';
 import EnvironmentMiner from '../interfaces/environment-miner';
 import FilterRule from '../interfaces/filter-rule';
-import TypeExtensions from '../interfaces/type-extensions';
+import TypeExtension from '../interfaces/type-extension';
 import TypeAnalyzer from '../interfaces/type-analyzer';
 import url from '../utils/dictionary/url';
 import img from '../utils/dictionary/img';
@@ -40,7 +40,7 @@ export class Dictionary {
         return this.environment.analyzer;
     }
 
-    public get extensions(): TypeExtensions {
+    public get extensions(): TypeExtension[] {
         return this.environment.extensions;
     }
 

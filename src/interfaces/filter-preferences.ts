@@ -1,4 +1,4 @@
-import TypeExtensions from "./type-extensions";
+import TypeExtension from "./type-extension";
 import TypePath from "./type-path";
 import SearchType from "./search-type";
 
@@ -8,13 +8,13 @@ export interface FilterPreferences {
 
     ignoringKeys: string[];
 
-    TypeExtensions | TypePath | string[];
+    // TypeExtension[] | TypePath | string[];
 
-    .ignoreSearchType(['img', "css", "php"])
-    .ignoreCustomTypes(['.min.js', '.min', '.json'])
-    .ignoreSearchKeys(['google', 'analytics', 'store', 'apple', 'cdnjs', 'cloudflare', 'jquery', 'ajax', 'm2d'])
-    .orderByKeys(['stream', 'player', ';'])
-    .getSourcePaths();
+    // .ignoreSearchType(['img', "css", "php"])
+    // .ignoreCustomTypes(['.min.js', '.min', '.json'])
+    // .ignoreSearchKeys(['google', 'analytics', 'store', 'apple', 'cdnjs', 'cloudflare', 'jquery', 'ajax', 'm2d'])
+    // .orderByKeys(['stream', 'player', ';'])
+    // .getSourcePaths();
 
 
 }
