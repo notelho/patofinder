@@ -17,23 +17,14 @@ export class Dictionary {
     readonly selectedType: SearchType;
 
     readonly availableTypes = {
-
-        "url": url,
-
-        "img": img,
-
-        "audio": audio,
-
-        "video": video,
-
-        "stream": stream,
-
-        "javascript": javascript,
-
-        "css": css,
-
-        "php": php,
-
+        'url': url,
+        'img': img,
+        'audio': audio,
+        'video': video,
+        'stream': stream,
+        'javascript': javascript,
+        'css': css,
+        'php': php,
     };
 
     constructor(type: SearchType) {
@@ -43,23 +34,20 @@ export class Dictionary {
     getExtensions() {
 
         const type: SearchType = this.selectedType;
-
         const environment: EnvironmentFilter | EnvironmentMiner = this.availableTypes[type];
-
         const extensions = environment.extensions;
 
         return extensions;
-
     }
 
     getRule() {
 
         const type: SearchType = this.selectedType;
+        const environment: EnvironmentFilter | EnvironmentMiner = this.availableTypes[type];
+        const miner = environment as EnvironmentMiner;
+        const rule = miner.filterRule;
 
-        const miner = this.availableTypes[this.selectedType] as EnvironmentMiner;
-
-        return miner.filterRule;
-
+        return rule;
     }
 
 }
