@@ -1,6 +1,6 @@
-import SearchUrl from "../interfaces/search-url";
 import SearchType from "../interfaces/search-type";
-import TypePaths from "../interfaces/type-paths";
+import SearchUrl from "../interfaces/search-url";
+import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
 import UrlFilter from "./url-filter";
 import UrlMiner from "./url-miner";
@@ -17,7 +17,7 @@ export class Patofinder {
         this.type = type;
     }
 
-    public async find(): Promise<TypePaths> {
+    public async find(): Promise<TypePath[]> {
 
         try {
 

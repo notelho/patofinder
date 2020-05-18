@@ -6,8 +6,6 @@ export interface FilterPreferences {
 
     ignoringTypes: SearchType[];
 
-
-
     ignoringKeys: string[];
 
     TypeExtensions | TypePath | string[];

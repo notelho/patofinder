@@ -1,23 +1,19 @@
 import SearchType from "../interfaces/search-type";
-import TypePaths from "../interfaces/type-paths";
+import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
 
 export class Regulator {
 
-    private paths: TypePaths;
-
     private type: SearchType;
 
-    constructor(paths: TypePaths, type: SearchType) {
-        this.paths = paths;
+    constructor(type: SearchType) {
         this.type = type;
     }
 
-    public async applyRule(): Promise<TypePaths> {
+    public async applyRuleFor(paths: TypePath[]): Promise<TypePath[]> {
 
-        const matches: TypePaths = [];
+        const matches: TypePath[] = [];
 
-        const paths = this.paths;
         const type = this.type;
 
         const dictionary = new Dictionary(type);
@@ -28,10 +24,9 @@ export class Regulator {
 
             try {
 
-                const result = await filterRule({ path, extensions });
-
-                if (result) {
+                if (await filterRule({ path, extensions })) {
                     matches.push(path);
+                    break;
                 }
 
             } catch (error) {
@@ -39,6 +34,7 @@ export class Regulator {
             }
 
         }
+
         return matches;
     }
 

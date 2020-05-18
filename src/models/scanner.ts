@@ -1,7 +1,7 @@
 import axios from 'axios';
 import SearchUrl from "../interfaces/search-url"
+import TypePath from '../interfaces/type-path';
 import regexpUrl from '../utils/regexp/url';
-import TypePaths from '../interfaces/type-paths';
 
 export class Scanner {
 
@@ -17,13 +17,10 @@ export class Scanner {
         return data;
     }
 
-    public async getPaths(): Promise<TypePaths> {
+    public async getPaths(): Promise<TypePath[]> {
         const data = await this.getData();
-        const validator = regexpUrl;
-        const singleQuotesParsed = data.split('\'');
-        const doubleQuotesParsed = data.split('\"');
-        const singleQuotesPaths = singleQuotesParsed.filter(row => row.trim().match(validator));
-        const doubleQuotesPaths = doubleQuotesParsed.filter(row => row.trim().match(validator));
+        const singleQuotesPaths = data.split('\'').filter(row => row.trim().match(regexpUrl));
+        const doubleQuotesPaths = data.split('\"').filter(row => row.trim().match(regexpUrl));
         const concatedPaths = ([] as string[]).concat(singleQuotesPaths, doubleQuotesPaths);
         const concatedSet = new Set(concatedPaths);
         const uniquePaths = Array.from(concatedSet);

@@ -1,27 +1,19 @@
-import TypePaths from "../interfaces/type-paths";
+import TypePath from "../interfaces/type-path";
 import SearchType from "../interfaces/search-type";
 import TypeExtensions from "../interfaces/type-extensions";
 
 export class Ignorer {
 
-    private paths: TypePaths;
+    private type: SearchType;
 
-    constructor(paths: TypePaths) {
-        this.paths = paths;
+    constructor(type: SearchType) {
+        this.type = type;
     }
 
-    ignoreSearchType(type: SearchType): Ignorer {
+    from(paths: TypePath[]) {
+
 
         return this;
-    }
-
-    ignoreCustomTypes(extensions: TypeExtensions): Ignorer {
-
-        return this;
-    }
-
-    source() {
-        return this.paths;
     }
 
 }
