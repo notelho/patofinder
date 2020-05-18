@@ -11,18 +11,23 @@ export class Scanner {
         this.url = url;
     }
 
-    public async getHtml(): Promise<string> {
+    public async getData(): Promise<string> {
         const request = await axios.get(this.url);
-        const html = request.data;
-        return html;
+        const data = request.data;
+        return data;
     }
 
     public async getPaths(): Promise<TypePaths> {
-        const html = await this.getHtml();
-        const parsedHtml = html.split('\"'); // temp
+        const data = await this.getData();
         const validator = regexpUrl;
-        const paths = parsedHtml.filter(row => row.trim().match(validator));
-        return paths;
+        const singleQuotesParsed = data.split('\'');
+        const doubleQuotesParsed = data.split('\"');
+        const singleQuotesPaths = singleQuotesParsed.filter(row => row.trim().match(validator));
+        const doubleQuotesPaths = doubleQuotesParsed.filter(row => row.trim().match(validator));
+        const concatedPaths = ([] as string[]).concat(singleQuotesPaths, doubleQuotesPaths);
+        const concatedSet = new Set(concatedPaths);
+        const uniquePaths = Array.from(concatedSet);
+        return uniquePaths;
     }
 
 }
