@@ -1,35 +1,40 @@
 import SearchType from "../interfaces/search-type";
+import SearchUrl from "../interfaces/search-url";
 import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
 import Analyzer from "./analyzer";
+import Searcher from "./searcher";
 
 export class UrlFilter extends Analyzer {
 
-    constructor(type: SearchType) {
-        super(type);
+    constructor(url: SearchUrl, type: SearchType) {
+        super(url, type);
     }
 
-    public async run(paths: TypePath[]): Promise<TypePath[]> {
+    public async run(): Promise<TypePath[]> {
 
+        const url = this.url;
         const type = this.type;
+
+        const matches: TypePath[] = [];
+
         const dictionary = new Dictionary(type);
+        const searcher = new Searcher(url, type, 1);
+
         const extensions = dictionary.extensions;
 
-        return new Promise(resolve => {
+        const paths = await searcher.find();
 
-            const urls: TypePath[] = [];
-
-            for (const path of paths) {
-                for (const extension of extensions) {
-                    if (path.includes(extension)) {
-                        urls.push(path);
-                        break;
-                    }
+        for (const path of paths) {
+            for (const extension of extensions) {
+                if (path.includes(extension)) {
+                    matches.push(path);
+                    break;
                 }
             }
+        }
 
-            resolve(urls);
-        })
+        return matches;
     }
 
 }

@@ -1,4 +1,5 @@
 import SearchType from "../interfaces/search-type";
+import SearchUrl from "../interfaces/search-url";
 import TypePath from "../interfaces/type-path";
 import Regulator from "./regulator";
 import Analyzer from "./analyzer";
@@ -7,31 +8,34 @@ import Ignorer from "./ignorer";
 
 export class UrlMiner extends Analyzer {
 
-    constructor(type: SearchType) {
-        super(type);
+    constructor(url: SearchUrl, type: SearchType) {
+        super(url, type);
     }
 
-    public async run(paths: TypePath[]): Promise<TypePath[]> {
+    public async run(): Promise<TypePath[]> {
 
+        const url = this.url;
         const type = this.type;
 
         const ignorer = new Ignorer(type);
         const regulator = new Regulator(type);
-        const searcher = new Searcher(paths, 5);
+        const searcher = new Searcher(url, type, 5);
 
-        let matches: string[] = [];
-        let searchPaths: string[] = [];
-        let filteredPaths: string[] = [];
+        const matches: string[] = [];
 
-        do {
+        // let matches: string[] = [];
+        // let searchPaths: string[] = [];
+        // let filteredPaths: string[] = [];
 
-            searchPaths = await searcher.next();
+        // do {
 
-            filteredPaths = ignorer.from(searchPaths);
+        // searchPaths = await searcher.next();
 
-            matches = await regulator.apply(filteredPaths);
+        // filteredPaths = ignorer.from(searchPaths);
 
-        } while (searcher.hasNext && matches.length === 0);
+        // matches = await regulator.apply(filteredPaths);
+
+        // } while (searcher.hasNext && matches.length === 0);
 
         return matches;
 

@@ -1,15 +1,19 @@
 import SearchType from "../interfaces/search-type";
+import SearchUrl from "../interfaces/search-url";
 import TypePath from "../interfaces/type-path";
 
 export abstract class Analyzer {
 
-    protected type: SearchType;
+    protected readonly url: SearchUrl;
 
-    constructor(type: SearchType) {
+    protected readonly type: SearchType;
+
+    constructor(url: SearchUrl, type: SearchType) {
+        this.url = url;
         this.type = type;
     }
 
-    public abstract async run(paths: TypePath[]): Promise<TypePath[]>;
+    public abstract async run(): Promise<TypePath[]>;
 
 }
 

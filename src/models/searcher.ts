@@ -1,45 +1,67 @@
 import TypePath from "../interfaces/type-path";
+import SearchType from "../interfaces/search-type";
 
 export class Searcher {
 
-    // readonly level: number;
+    private history: TypePath[];
 
-    // readonly paths: TypePaths;
+    private paths: TypePath[];
 
-    // private source: TypePaths;
+    private level: number;
 
-    // private finished: boolean;
+    private finished: boolean;
 
-    // private history: TypePaths[];
+    private type: SearchType;
 
-    constructor(paths: TypePath[], level: number) {
-        // this.paths = paths;
-        // this.source = paths;
-        // this.level = level;
-        // this.finished = false;
+    constructor(path: TypePath, type: SearchType, level: number) {
+        this.paths = [path];
+        this.history = [path];
+        this.type = type;
+        this.level = level;
+        this.finished = level !== 0;
     }
 
-    // public get hasNext(): boolean {
-    //     return !this.finished;
-    // }
+    public async find(): Promise<TypePath[]> {
 
-    // public async next(): Promise<TypePaths> {
-    //     return await this.search();
-    // }
+        if (!this.finished) {
 
-    // private async search(): Promise<TypePaths> {
+            const type = this.type;
+            const level = this.level;
+            const next = (level - 1);
+            const finished = (next > 0);
 
-    //     // find all path from source
+            this.level = level;
+            this.finished = finished;
 
-    //     // level ++
+            // const historyPaths = this.history;
+            // const sourcePaths = this.paths;
+            // let foundPaths: TypePath[] = [];
+            // let notIgnoredPaths: TypePath[] = [];
+            // let matchesPaths: TypePath[] = [];
 
-    //     // source = urls
+            // for (const path of paths) {
 
-    //     // check done
+            //     const ignorer = new Ignorer(type);
 
-    //     return []
+            //     const scanner = new Scanner(path);
 
-    // }
+            //     const addresses = await scanner.getPaths();
+
+            //     urls.push(addresses);
+
+            // }
+
+
+            // return matches;
+        }
+
+
+        return []
+    }
+
+    public get next(): boolean {
+        return !this.finished;
+    }
 
 }
 
