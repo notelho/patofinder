@@ -1,4 +1,3 @@
 add tests
-update interfaces
-update dictionary
-format dictionary/*
+finish ignorer
+finish miner
