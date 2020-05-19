@@ -12,7 +12,7 @@ export class Searcher {
 
     // private history: TypePaths[];
 
-    constructor(paths: TypePaths, level: number) {
+    constructor(paths: TypePath[], level: number) {
         // this.paths = paths;
         // this.source = paths;
         // this.level = level;

@@ -29,7 +29,7 @@ export class UrlMiner extends Analyzer {
 
             filteredPaths = ignorer.from(searchPaths);
 
-            matches = await regulator.applyRuleFor(filteredPaths);
+            matches = await regulator.apply(filteredPaths);
 
         } while (searcher.hasNext && matches.length === 0);
 

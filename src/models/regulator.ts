@@ -10,7 +10,7 @@ export class Regulator {
         this.type = type;
     }
 
-    public async applyRuleFor(paths: TypePath[]): Promise<TypePath[]> {
+    public async apply(paths: TypePath[]): Promise<TypePath[]> {
 
         const matches: TypePath[] = [];
 

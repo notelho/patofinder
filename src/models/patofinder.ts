@@ -5,6 +5,7 @@ import Dictionary from "./dictionary";
 import UrlFilter from "./url-filter";
 import UrlMiner from "./url-miner";
 import Scanner from "./scanner";
+import Searcher from "./searcher";
 
 export class Patofinder {
 
@@ -25,14 +26,15 @@ export class Patofinder {
             const url = this.url;
 
             const dictionary = new Dictionary(type);
+            const searcher = new Searcher([url], 5);
             const scanner = new Scanner(url);
 
-            const tester = (dictionary.analyzer === 'filter') ?
+            const analyzer = (dictionary.analyzer === 'filter') ?
                 new UrlFilter(type) :
                 new UrlMiner(type);
 
             const paths = await scanner.getPaths();
-            const matches = await tester.run(paths);
+            const matches = await analyzer.run(paths);
 
             return matches;
 

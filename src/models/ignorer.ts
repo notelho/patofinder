@@ -9,10 +9,10 @@ export class Ignorer {
         this.type = type;
     }
 
-    from(paths: TypePath[]) {
+    from(paths: TypePath[]): TypePath[] {
 
 
-        return this;
+        return [];
     }
 
 }
