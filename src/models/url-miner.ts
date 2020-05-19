@@ -17,9 +17,10 @@ export class UrlMiner extends Analyzer {
         const url = this.url;
         const type = this.type;
 
+        const breakpoint = 5;
         const ignorer = new Ignorer(type);
         const regulator = new Regulator(type);
-        const searcher = new Searcher(url, type, 5);
+        const searcher = new Searcher(url, breakpoint, ignorer);
 
         const matches: string[] = [];
 
@@ -35,7 +36,7 @@ export class UrlMiner extends Analyzer {
 
         // matches = await regulator.apply(filteredPaths);
 
-        // } while (searcher.hasNext && matches.length === 0);
+        // } while (!searcher.finished && matches.length === 0);
 
         return matches;
 
