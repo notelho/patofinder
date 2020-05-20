@@ -5,6 +5,8 @@ import find from './public/find';
 
 async function test() {
 
+    // console.log('begin\n');
+
     // const matches = await find('http://radiosaovivo.net/embed/guaruja-florianopolis/', 'stream');
     // const matches = await find('https://massafm.com.br/home/', 'stream');
     // const matches = await find('http://www.radios.com.br/play/14', 'url');
@@ -19,20 +21,30 @@ async function test() {
     // const matches2 = await find(url2, 'stream');
     // console.log(matches2);
 
+
+    // console.log('===================================================\n');
+
     // const url3 = 'https://massafm.com.br/home/';
-    // console.log(url3);
+    // console.log(url3 + '\n');
     // const matches3 = await find(url3, 'stream');
-    // console.log(matches3);
+    // console.log(matches3 + '\n');
 
-    // const url4 = 'http://aovivo.radiomixfm.com.br/'; x
-    // console.log(url4);
+    // console.log('===================================================\n');
+
+    // const url4 = 'http://aovivo.radiomixfm.com.br/';
+    // console.log(url4 + '\n');
     // const matches4 = await find(url4, 'stream');
-    // console.log(matches4);
+    // console.log(matches4 + '\n');
 
-    // const url5 = 'http://www.radios.com.br/play/14'; x
-    // console.log(url5);
+    // console.log('===================================================\n');
+
+    // const url5 = 'http://www.radios.com.br/play/14';
+    // console.log(url5 + '\n');
     // const matches5 = await find(url5, 'stream');
-    // console.log(matches5);
+    // console.log(matches5 + '\n');
+
+    // console.log('===================================================\n');
+
 
     // const url6 = 'http://192.99.44.104:8010/stream';
     // console.log(url6);
@@ -51,6 +63,8 @@ async function test() {
     // for (const match of matches) {
     //     console.log(match);
     // }
+
+    // console.log('end\n');
 
 }
 

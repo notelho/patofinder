@@ -19,6 +19,8 @@ export class Scanner {
 
     public async getPaths(): Promise<TypePath[]> {
 
+        // console.log('scanning: ' + this.url + '\n');
+
         try {
 
             const data = await this.getData();

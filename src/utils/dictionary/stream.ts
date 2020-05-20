@@ -15,15 +15,17 @@ export const stream: EnvironmentMiner = {
 
         ignoringExtensions: [".min.js", ".min", ".json", ".xml"],
 
-        ignoringKeys: ["google", "youtube", "store", "apple", "cdnjs", "cloudflare", "jquery", "modernizr", "ajax", "m2d", "creativebizz", "facebook"],
+        ignoringKeys: ["google", "youtube", "store", "apple", "cdnjs", "cloudflare", "jquery", "modernizr", "mrp", "ajax", "m2d", "creativebizz", "facebook"],
 
-        searchFor: ["stream", "player", ";"],
+        searchFor: ["stream", "shout", "play", ";"],
 
     },
 
     filterRule: async (data: any): Promise<boolean> => {
 
         const { extensions, path } = data;
+
+        // console.log('will get deep info for: ' + path + '\n');
 
         const info = await ffprobe(path, { path: ffprobeStatic.path });
 

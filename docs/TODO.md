@@ -1,5 +1,10 @@
 add tests
-add environment model
-finish ignorer
-finish sorter
 
+add environment model
+
+create --level option
+create --verbose option
+
+fix ignorer and sorter
+
+start analytic tests

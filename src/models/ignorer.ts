@@ -1,48 +1,68 @@
-import TypePath from "../interfaces/type-path";
 import SearchType from "../interfaces/search-type";
+import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
 
 export class Ignorer {
 
     private type: SearchType;
 
-    // private history: TypePath[];
+    private history: TypePath[];
 
     constructor(type: SearchType) {
         this.type = type;
-        // this.history = [path];
+        this.history = [];
     }
 
     apply(paths: TypePath[]): TypePath[] {
 
-        // const regexpBar = new RegExp(/\w*\//i);
+        let ignoringWords: TypePath[] = [];
 
         const type = this.type;
+        const history = this.history;
 
         const dictionary = new Dictionary(type);
 
         const preferences = dictionary.preferences;
+        const ignoringTypes = preferences.ignoringTypes;
+
+        for (const ignoringType of ignoringTypes) {
+
+            const excludingDictionary = new Dictionary(ignoringType);
+            const excludingExtensions = excludingDictionary.extensions;
+
+            ignoringWords = ignoringWords.concat(excludingExtensions);
+
+        }
 
         const ignoringExtensions = preferences.ignoringExtensions;
-        // pra cada extensão criar um dicionario e fazer um for pra ignorar todas as intenções dauqele dicionario
-
         const ignoringKeys = preferences.ignoringKeys;
-        // pra cada item remover a chaved de includes
 
-        const ignoringTypes = preferences.ignoringTypes;
-        // pra cada item remover a chaved de includes
+        ignoringWords = ignoringWords.concat(ignoringExtensions);
+        ignoringWords = ignoringWords.concat(ignoringKeys);
+        ignoringWords = ignoringWords.concat(history);
 
-        // pra cada item no historico verifica se for igual, se for, retira
+        const matches: TypePath[] = [];
 
-        // matches concat history
+        for (const path of paths) {
 
-        // console.log('=======');
+            let matchAnyWord: boolean = false;
 
-        // console.log(paths);
+            for (const ignoringWord of ignoringWords) {
+                if (path.includes(ignoringWord)) {
+                    matchAnyWord = true;
+                    break;
+                }
+            }
 
-        // ignore paths
+            if (!matchAnyWord) {
+                matches.push(path);
+            }
 
-        return paths;
+        }
+
+        this.history = history.concat(matches);
+
+        return matches;
     }
 
 }
