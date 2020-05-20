@@ -18,13 +18,27 @@ export class Scanner {
     }
 
     public async getPaths(): Promise<TypePath[]> {
-        const data = await this.getData();
-        const singleQuotesPaths = data.split('\'').filter(row => row.trim().match(regexpUrl));
-        const doubleQuotesPaths = data.split('\"').filter(row => row.trim().match(regexpUrl));
-        const concatedPaths = ([] as string[]).concat(singleQuotesPaths, doubleQuotesPaths);
-        const concatedSet = new Set(concatedPaths);
-        const uniquePaths = Array.from(concatedSet);
-        return uniquePaths;
+
+        try {
+
+            const data = await this.getData();
+
+            const singleQuotesPaths = data.split('\'').filter(row => row.trim().match(regexpUrl));
+            const doubleQuotesPaths = data.split('\"').filter(row => row.trim().match(regexpUrl));
+
+            const concatedPaths = ([] as string[]).concat(singleQuotesPaths, doubleQuotesPaths);
+
+            const concatedSet = new Set(concatedPaths);
+            const uniquePaths = Array.from(concatedSet);
+
+            return uniquePaths;
+
+        } catch (error) {
+
+            return [];
+
+        }
+
     }
 
 }
