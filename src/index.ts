@@ -24,14 +24,14 @@ async function test() {
     // const matches3 = await find(url3, 'stream');
     // console.log(matches3);
 
-    // const url4 = 'http://aovivo.radiomixfm.com.br/';
+    // const url4 = 'http://aovivo.radiomixfm.com.br/'; x
     // console.log(url4);
     // const matches4 = await find(url4, 'stream');
     // console.log(matches4);
 
-    const url5 = 'http://www.radios.com.br/play/14';
+    // const url5 = 'http://www.radios.com.br/play/14'; x
     // console.log(url5);
-    const matches5 = await find(url5, 'stream');
+    // const matches5 = await find(url5, 'stream');
     // console.log(matches5);
 
     // const url6 = 'http://192.99.44.104:8010/stream';

@@ -13,9 +13,9 @@ export const stream: EnvironmentMiner = {
 
         ignoringTypes: ["img", "css", "php"],
 
-        ignoringExtensions: [".min.js", ".min", ".json"],
+        ignoringExtensions: [".min.js", ".min", ".json", ".xml"],
 
-        ignoringKeys: ["google", "analytics", "store", "apple", "cdnjs", "cloudflare", "jquery", "ajax", "m2d"],
+        ignoringKeys: ["google", "youtube", "store", "apple", "cdnjs", "cloudflare", "jquery", "modernizr", "ajax", "m2d", "creativebizz", "facebook"],
 
         searchFor: ["stream", "player", ";"],
 
