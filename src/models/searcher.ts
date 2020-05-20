@@ -2,67 +2,72 @@ import SearchLevel from "../interfaces/search-level";
 import SearchType from "../interfaces/search-type";
 import TypeLevel from '../interfaces/type-level';
 import TypePath from "../interfaces/type-path";
-import Ignorer from './ignorer';
 import Scanner from './scanner';
+import Ignorer from "./ignorer";
+import Sorter from "./sorter";
 
 export class Searcher {
 
-    // private ignorer: Ignorer;
+    private paths: SearchLevel[];
 
-    private paths: SearchLevel[] = [];
+    private type: SearchType;
 
     public readonly limit: TypeLevel;
 
-    private level: TypeLevel = 0;
+    private level: TypeLevel;
 
-    private index: number = 0;
+    private index: number;
 
-    constructor(path: TypePath, limit: TypeLevel) { // , ignorer?: Ignorer
+    constructor(path: TypePath, type: SearchType, limit: TypeLevel) {
+        this.paths = [{ path, level: 0 }];
+        this.type = type;
         this.limit = limit;
-        // this.ignorer = ignorer;
-        this.push(path, 0);
+        this.level = 0;
+        this.index = 0;
     }
 
-    private async consume(): Promise<TypePath[]> {
+    public async apply(): Promise<TypePath[]> {
 
-        const paths = this.paths;
-        // const ignorer = this.ignorer;
-        const limit = this.limit;
+        let matches: TypePath[] = [];
 
-        const searchIndex = this.index;
-        const searchData = paths[searchIndex];
-        const searchPath = searchData.path;
-        const searchLevel = searchData.level;
+        if (!this.finished) {
 
-        const nextIndex = (searchIndex + 1);
-        const nextLevel = (searchLevel + 1);
+            const paths = this.paths;
+            const type = this.type;
+            const limit = this.limit;
 
-        if (nextLevel < limit) {
+            const searchIndex = this.index;
+            const searchData = paths[searchIndex];
+            const searchPath = searchData.path;
+            const searchLevel = searchData.level;
 
-            const scanner = new Scanner(searchPath);
-            const urls = await scanner.getPaths();
-            // const matches = ignorer.from(urls);
-            const matches = urls;
+            const nextIndex = (searchIndex + 1);
+            const nextLevel = (searchLevel + 1);
 
-            for (const path of matches) {
-                this.push(path, nextLevel);
+            const ignorer = new Ignorer(type);
+            const sorter = new Sorter(type);
+
+            if (nextLevel < limit) {
+
+                const scanner = new Scanner(searchPath);
+
+                const foundPaths = await scanner.getPaths();
+                const filteredPaths = ignorer.apply(foundPaths);
+                const sortedPaths = sorter.apply(filteredPaths);
+
+                for (const path of sortedPaths) {
+                    this.paths.push({ path, level: nextLevel });
+                }
+
+                this.index = nextIndex;
+                this.level = searchLevel;
+
+                matches = sortedPaths;
             }
 
-            this.index = nextIndex;
-            this.level = searchLevel;
-
-            return matches;
         }
 
-        return [];
-    }
-
-    private push(path: TypePath, level: TypeLevel) {
-        this.paths.push({ path, level });
-    }
-
-    public async find(): Promise<TypePath[]> {
-        return (!this.finished) ? await this.consume() : [];
+        return matches;
     }
 
     public get finished(): boolean {

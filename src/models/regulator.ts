@@ -24,7 +24,9 @@ export class Regulator {
 
             try {
 
-                if (await filterRule({ path, extensions })) {
+                const resultMatches = await filterRule({ path, extensions });
+
+                if (resultMatches) {
                     matches.push(path);
                     break;
                 }

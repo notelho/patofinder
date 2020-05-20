@@ -19,12 +19,11 @@ export class UrlFilter extends Analyzer {
         const matches: TypePath[] = [];
 
         const dictionary = new Dictionary(type);
-        // const ignorer = new Ignorer ()
-        const searcher = new Searcher(url, 1);
+        const searcher = new Searcher(url, type, 1);
 
         const extensions = dictionary.extensions;
 
-        const paths = await searcher.find();
+        const paths = await searcher.apply();
 
         for (const path of paths) {
             for (const extension of extensions) {

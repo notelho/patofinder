@@ -1,3 +1,5 @@
 add tests
+add environment model
 finish ignorer
-finish miner
+finish sorter
+

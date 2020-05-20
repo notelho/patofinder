@@ -5,6 +5,7 @@ import Regulator from "./regulator";
 import Analyzer from "./analyzer";
 import Searcher from "./searcher";
 import Ignorer from "./ignorer";
+import Sorter from "./sorter";
 
 export class UrlMiner extends Analyzer {
 
@@ -18,27 +19,18 @@ export class UrlMiner extends Analyzer {
         const type = this.type;
 
         const breakpoint = 5;
-        const ignorer = new Ignorer(type);
+
         const regulator = new Regulator(type);
-        // , ignorer
-        const searcher = new Searcher(url, breakpoint);
+        const searcher = new Searcher(url, type, breakpoint);
 
-        // const matches: string[] = [];
-
+        let paths: string[] = [];
         let matches: string[] = [];
-        let searchPaths: string[] = [];
-        // let filteredPaths: string[] = [];
 
         do {
 
-            searchPaths = await searcher.find();
+            paths = await searcher.apply();
 
-            // filteredPaths = ignorer.from(searchPaths);
-            // matches = await regulator.apply(filteredPaths);
-
-            matches = await regulator.apply(searchPaths);
-
-            // matches = searchPaths;
+            matches = await regulator.apply(paths);
 
         } while (!searcher.finished && matches.length === 0);
 
