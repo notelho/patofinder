@@ -4,8 +4,6 @@ import TypePath from "../interfaces/type-path";
 import Regulator from "./regulator";
 import Analyzer from "./analyzer";
 import Searcher from "./searcher";
-import Ignorer from "./ignorer";
-import Sorter from "./sorter";
 
 export class UrlMiner extends Analyzer {
 
@@ -17,7 +15,6 @@ export class UrlMiner extends Analyzer {
 
         const url = this.url;
         const type = this.type;
-
         const breakpoint = 5;
 
         const regulator = new Regulator(type);
@@ -35,7 +32,6 @@ export class UrlMiner extends Analyzer {
         } while (!searcher.finished && matches.length === 0);
 
         return matches;
-
     }
 
 }

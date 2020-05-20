@@ -6,7 +6,7 @@ import FilterPreferences from "./filter-preferences";
 export interface EnvironmentMiner extends EnvironmentDefault {
     analyzer: 'miner';
     extensions: TypeExtension[];
-    preferences?: FilterPreferences;
+    preferences: FilterPreferences;
     filterRule: FilterRule;
 }
 
