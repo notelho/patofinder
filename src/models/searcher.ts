@@ -7,7 +7,7 @@ import Scanner from './scanner';
 
 export class Searcher {
 
-    private ignorer: Ignorer;
+    // private ignorer: Ignorer;
 
     private paths: SearchLevel[] = [];
 
@@ -17,51 +17,56 @@ export class Searcher {
 
     private index: number = 0;
 
-    constructor(path: TypePath, limit: TypeLevel, ignorer?: Ignorer) {
+    constructor(path: TypePath, limit: TypeLevel) { // , ignorer?: Ignorer
         this.limit = limit;
-        this.ignorer = ignorer;
+        // this.ignorer = ignorer;
         this.push(path, 0);
-    }
-
-    public async find(): Promise<TypePath[]> {
-
-        return (!this.finished) ? await this.consume() : null;
-
     }
 
     private async consume(): Promise<TypePath[]> {
 
         const paths = this.paths;
-        const ignorer = this.ignorer;
+        // const ignorer = this.ignorer;
+        const limit = this.limit;
 
         const searchIndex = this.index;
         const searchData = paths[searchIndex];
         const searchPath = searchData.path;
-        const searchLevel = searchData.level
+        const searchLevel = searchData.level;
 
-        const nextIndex = searchIndex + 1;
+        const nextIndex = (searchIndex + 1);
+        const nextLevel = (searchLevel + 1);
 
-        const scanner = new Scanner(searchPath);
-        const newPaths = await scanner.getPaths();
-        const matches = ignorer.from(newPaths);
+        if (nextLevel < limit) {
 
-        for (const path of matches) {
-            this.push(path, (searchLevel + 1));
+            const scanner = new Scanner(searchPath);
+            const urls = await scanner.getPaths();
+            // const matches = ignorer.from(urls);
+            const matches = urls;
+
+            for (const path of matches) {
+                this.push(path, nextLevel);
+            }
+
+            this.index = nextIndex;
+            this.level = searchLevel;
+
+            return matches;
         }
 
-        this.index = nextIndex;
-        this.level = searchLevel;
-
-        return matches;
-
+        return [];
     }
 
-    private push(path: TypePath, level: TypeLevel, check: boolean = false) {
-        this.paths.push({ path, level, check })
+    private push(path: TypePath, level: TypeLevel) {
+        this.paths.push({ path, level });
+    }
+
+    public async find(): Promise<TypePath[]> {
+        return (!this.finished) ? await this.consume() : [];
     }
 
     public get finished(): boolean {
-        return (this.level < this.limit);
+        return (this.level >= this.limit);
     }
 
 }

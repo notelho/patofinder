@@ -20,23 +20,27 @@ export class UrlMiner extends Analyzer {
         const breakpoint = 5;
         const ignorer = new Ignorer(type);
         const regulator = new Regulator(type);
-        const searcher = new Searcher(url, breakpoint, ignorer);
+        // , ignorer
+        const searcher = new Searcher(url, breakpoint);
 
-        const matches: string[] = [];
+        // const matches: string[] = [];
 
-        // let matches: string[] = [];
-        // let searchPaths: string[] = [];
+        let matches: string[] = [];
+        let searchPaths: string[] = [];
         // let filteredPaths: string[] = [];
 
-        // do {
+        do {
 
-        // searchPaths = await searcher.next();
+            searchPaths = await searcher.find();
 
-        // filteredPaths = ignorer.from(searchPaths);
+            // filteredPaths = ignorer.from(searchPaths);
+            // matches = await regulator.apply(filteredPaths);
 
-        // matches = await regulator.apply(filteredPaths);
+            matches = await regulator.apply(searchPaths);
 
-        // } while (!searcher.finished && matches.length === 0);
+            // matches = searchPaths;
+
+        } while (!searcher.finished && matches.length === 0);
 
         return matches;
 

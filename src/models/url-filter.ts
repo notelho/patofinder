@@ -19,7 +19,8 @@ export class UrlFilter extends Analyzer {
         const matches: TypePath[] = [];
 
         const dictionary = new Dictionary(type);
-        const searcher = new Searcher(url, type, 1);
+        // const ignorer = new Ignorer ()
+        const searcher = new Searcher(url, 1);
 
         const extensions = dictionary.extensions;
 

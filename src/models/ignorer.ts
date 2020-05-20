@@ -5,11 +5,11 @@ export class Ignorer {
 
     private type: SearchType;
 
-    private history: TypePath[];
+    // private history: TypePath[];
 
     constructor(type: SearchType) {
         this.type = type;
-        this.history = [path];
+        // this.history = [path];
     }
 
     from(paths: TypePath[]): TypePath[] {
@@ -17,7 +17,7 @@ export class Ignorer {
 
         // ignore paths
 
-        return [];
+        return paths;
     }
 
     orderBy(paths: TypePath[]): TypePath[] {
