@@ -15,17 +15,15 @@ export const stream: EnvironmentMiner = {
 
         ignoringExtensions: [".min.js", ".min", ".json", ".xml", ".swf"],
 
-        ignoringKeys: ["google", "youtube", "macromedia", "onelink", "flashplayer", "store", "apple", "cdnjs", "cloudflare", "jquery", "modernizr", "swfobject", "mrp", "ajax", "m2d", "creativebizz", "facebook", "shadowbox.js",],
+        ignoringKeys: ["google", "youtube", "macromedia", "onelink", "flashplayer", "store", "apple", "cdnjs", "cloudflare", "jquery", "modernizr", "swfobject", "mrp", "purl.org", "w3.org", "Atom", "rss", "ajax", "m2d", "creativebizz", "facebook", "shadowbox.js",],
 
-        searchFor: ["stream", "shout", "virtualcast", "cast", "live", "play", ";"],
+        searchFor: ["stream", "shout", "virtualcast", "icecast", "cast", "live", "play", ";"],
 
     },
 
     filterRule: async (data: any): Promise<boolean> => {
 
         const { extensions, path } = data;
-
-        // console.log('will get deep info for: ' + path + '\n');
 
         const info = await ffprobe(path, { path: ffprobeStatic.path });
 

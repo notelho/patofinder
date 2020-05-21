@@ -24,6 +24,8 @@ export class Regulator {
 
             try {
 
+                // console.log('will get deep info for: ' + path + '\n');
+
                 const resultMatches = await filterRule({ path, extensions });
 
                 if (resultMatches) {

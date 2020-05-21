@@ -12,10 +12,13 @@ export class Searcher {
 
     private type: SearchType;
 
+    private ignorer: Ignorer;
+
     public readonly limit: TypeLevel;
 
     constructor(path: TypePath, type: SearchType, limit: TypeLevel) {
         this.paths = [{ path, level: 0 }];
+        this.ignorer = new Ignorer(type);
         this.type = type;
         this.limit = limit;
     }
@@ -29,6 +32,7 @@ export class Searcher {
 
             const type = this.type;
             const limit = this.limit;
+            const ignorer = this.ignorer;
 
             const selected = paths[0].path;
             const level = paths[0].level;
@@ -39,7 +43,6 @@ export class Searcher {
             if (next < limit) {
 
                 const scanner = new Scanner(selected);
-                const ignorer = new Ignorer(type);
                 const sorter = new Sorter(type);
 
                 const scannedPaths = await scanner.getPaths();
@@ -64,7 +67,7 @@ export class Searcher {
     }
 
     public get finished(): boolean {
-        return (this.paths.length > 0);
+        return (this.paths.length <= 0);
     }
 
 }

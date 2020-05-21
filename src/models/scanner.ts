@@ -25,6 +25,9 @@ export class Scanner {
 
             const data = await this.getData();
 
+            // console.log('found by scanner: ================================== \n\n');
+            // console.log(data);
+
             const singleQuotesPaths = data.split('\'').filter(row => row.trim().match(regexpUrl));
             const doubleQuotesPaths = data.split('\"').filter(row => row.trim().match(regexpUrl));
 
@@ -32,6 +35,9 @@ export class Scanner {
 
             const concatedSet = new Set(concatedPaths);
             const uniquePaths = Array.from(concatedSet);
+
+            // console.log('found by scanner: ================================== \n\n');
+            // console.log(uniquePaths);
 
             return uniquePaths;
 

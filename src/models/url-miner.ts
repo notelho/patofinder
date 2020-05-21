@@ -15,10 +15,10 @@ export class UrlMiner extends Analyzer {
 
         const url = this.url;
         const type = this.type;
-        const breakpoint = 5;
+        const limit = 5;
 
         const regulator = new Regulator(type);
-        const searcher = new Searcher(url, type, breakpoint);
+        const searcher = new Searcher(url, type, limit);
 
         let paths: string[] = [];
         let matches: string[] = [];
