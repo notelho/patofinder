@@ -1,8 +1,9 @@
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import Dictionary from './dictionary';
+import SearchLevel from "../interfaces/search-level";
 
-export class Sorter {
+export class Separator {
 
     private type: SearchType;
 
@@ -10,7 +11,7 @@ export class Sorter {
         this.type = type;
     }
 
-    apply(paths: TypePath[]): TypePath[] {
+    apply(levels: SearchLevel[]): SearchLevel[] {
 
         const type = this.type;
 
@@ -18,26 +19,22 @@ export class Sorter {
         const preferences = dictionary.preferences;
         const sortRules = preferences.searchFor;
 
-        const matchedPaths: TypePath[] = paths.filter(path => {
+        const includes = (path: TypePath): boolean => {
+
             for (const rule of sortRules) {
                 if (path.includes(rule)) {
                     return true;
                 }
             }
+
             return false;
-        })
+        };
 
-        const notMatchedPaths: TypePath[] = paths.filter(path => {
-            for (const rule of sortRules) {
-                if (path.includes(rule)) {
-                    return false;
-                }
-            }
-            return true;
-        })
+        const matches = levels.filter(level => includes(level.path));
+        const fails = levels.filter(level => !includes(level.path));
 
-        return matchedPaths.concat(notMatchedPaths);
+        return matches.concat(fails);
     }
 }
 
-export default Sorter;
+export default Separator;
