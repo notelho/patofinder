@@ -13,11 +13,11 @@ export const stream: EnvironmentMiner = {
 
         ignoringTypes: ["img", "css", "php"],
 
-        ignoringExtensions: [".min.js", ".min", ".json", ".xml"],
+        ignoringExtensions: [".min.js", ".min", ".json", ".xml", ".swf"],
 
-        ignoringKeys: ["google", "youtube", "store", "apple", "cdnjs", "cloudflare", "jquery", "modernizr", "mrp", "ajax", "m2d", "creativebizz", "facebook"],
+        ignoringKeys: ["google", "youtube", "macromedia", "onelink", "flashplayer", "store", "apple", "cdnjs", "cloudflare", "jquery", "modernizr", "swfobject", "mrp", "ajax", "m2d", "creativebizz", "facebook", "shadowbox.js",],
 
-        searchFor: ["stream", "shout", "play", ";"],
+        searchFor: ["stream", "shout", "virtualcast", "cast", "live", "play", ";"],
 
     },
 

@@ -5,8 +5,6 @@ import find from './public/find';
 
 async function test() {
 
-    // console.log('begin\n');
-
     // const matches = await find('http://radiosaovivo.net/embed/guaruja-florianopolis/', 'stream');
     // const matches = await find('https://massafm.com.br/home/', 'stream');
     // const matches = await find('http://www.radios.com.br/play/14', 'url');
@@ -22,6 +20,8 @@ async function test() {
     // console.log(matches2);
 
 
+
+
     // console.log('===================================================\n');
 
     // const url3 = 'https://massafm.com.br/home/';
@@ -30,6 +30,9 @@ async function test() {
     // console.log(matches3 + '\n');
 
     // console.log('===================================================\n');
+
+
+
 
     // const url4 = 'http://aovivo.radiomixfm.com.br/';
     // console.log(url4 + '\n');
@@ -59,12 +62,6 @@ async function test() {
 
     // const path = 'http://192.99.44.104:8010/stream';
     // https://player.painelvox.com/player-ssl/8306/;
-
-    // for (const match of matches) {
-    //     console.log(match);
-    // }
-
-    // console.log('end\n');
 
 }
 
