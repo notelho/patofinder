@@ -1,10 +1,13 @@
 import EnvironmentFilter from '../../interfaces/environment-filter';
+import emptyPreferences from '../preferences/empty-preferences';
 
 export const css: EnvironmentFilter = {
 
     analyzer: "filter",
 
-    extensions: [".css"]
+    extensions: [".css"],
+
+    preferences: emptyPreferences
 
 };
 

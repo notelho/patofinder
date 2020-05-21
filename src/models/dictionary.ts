@@ -50,7 +50,7 @@ export class Dictionary {
     }
 
     public get filterRule(): FilterRule {
-        return (this.environment as EnvironmentMiner).filterRule;
+        return (this.environment as EnvironmentMiner).rule;
     }
 
 }

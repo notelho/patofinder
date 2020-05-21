@@ -27,7 +27,19 @@ async function test() {
     // // https://stm01.virtualcast.com.br:8136/live
     // // const url3 = 'https://massafm.com.br/home/';
     // console.log(url3 + '\n');
-    // const matches3 = await find(url3, 'stream');
+    // const matches3 = await find(url3, 'img');
+    // console.log(matches3 + '\n');
+    // console.log('===================================================\n');
+
+
+
+
+    // console.log('===================================================\n');
+    // const url3 = 'https://massafm.com.br/home/';
+    // // https://stm01.virtualcast.com.br:8136/live
+    // // const url3 = 'https://massafm.com.br/home/';
+    // console.log(url3 + '\n');
+    // const matches3 = await find(url3, 'img');
     // console.log(matches3 + '\n');
     // console.log('===================================================\n');
 
