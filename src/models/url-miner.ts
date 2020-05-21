@@ -15,7 +15,7 @@ export class UrlMiner extends Analyzer {
 
         const url = this.url;
         const type = this.type;
-        const limit = 5;
+        const limit = 3;
 
         const regulator = new Regulator(type);
         const searcher = new Searcher(url, type, limit);

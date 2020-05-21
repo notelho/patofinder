@@ -40,7 +40,7 @@ export class Searcher {
 
             paths.shift();
 
-            if (next < limit) {
+            if (next <= limit) {
 
                 const scanner = new Scanner(selected);
                 const sorter = new Sorter(type);

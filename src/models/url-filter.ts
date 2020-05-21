@@ -15,11 +15,12 @@ export class UrlFilter extends Analyzer {
 
         const url = this.url;
         const type = this.type;
+        const limit = 1;
 
         const matches: TypePath[] = [];
 
         const dictionary = new Dictionary(type);
-        const searcher = new Searcher(url, type, 1);
+        const searcher = new Searcher(url, type, limit);
 
         const extensions = dictionary.extensions;
 
