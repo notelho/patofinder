@@ -15,7 +15,7 @@ export class Ignorer {
 
     apply(paths: TypePath[]): TypePath[] {
 
-        let ignoringWords: TypePath[] = [];
+        let ignoringRules: TypePath[] = [];
 
         const type = this.type;
         const history = this.history;
@@ -30,16 +30,16 @@ export class Ignorer {
             const excludingDictionary = new Dictionary(ignoringType);
             const excludingExtensions = excludingDictionary.extensions;
 
-            ignoringWords = ignoringWords.concat(excludingExtensions);
+            ignoringRules = ignoringRules.concat(excludingExtensions);
 
         }
 
         const ignoringExtensions = preferences.ignoringExtensions;
         const ignoringKeys = preferences.ignoringKeys;
 
-        ignoringWords = ignoringWords.concat(ignoringExtensions);
-        ignoringWords = ignoringWords.concat(ignoringKeys);
-        ignoringWords = ignoringWords.concat(history);
+        ignoringRules = ignoringRules.concat(ignoringExtensions);
+        ignoringRules = ignoringRules.concat(ignoringKeys);
+        ignoringRules = ignoringRules.concat(history);
 
         const matches: TypePath[] = [];
 
@@ -47,8 +47,12 @@ export class Ignorer {
 
             let matchAnyWord: boolean = false;
 
-            for (const ignoringWord of ignoringWords) {
-                if (path.includes(ignoringWord)) {
+            for (const rule of ignoringRules) {
+
+                const pathHasRule = path.includes(rule);
+                const pathIsRule = path === rule;
+
+                if (pathHasRule || pathIsRule) {
                     matchAnyWord = true;
                     break;
                 }
