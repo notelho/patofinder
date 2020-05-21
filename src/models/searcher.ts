@@ -14,64 +14,57 @@ export class Searcher {
 
     public readonly limit: TypeLevel;
 
-    private level: TypeLevel;
-
-    private index: number;
-
     constructor(path: TypePath, type: SearchType, limit: TypeLevel) {
         this.paths = [{ path, level: 0 }];
         this.type = type;
         this.limit = limit;
-        this.level = 0;
-        this.index = 0;
     }
 
     public async apply(): Promise<TypePath[]> {
 
-        let matches: TypePath[] = [];
+        let matches: TypePath[] = []
+        let paths = this.paths;
 
         if (!this.finished) {
 
-            const paths = this.paths;
             const type = this.type;
             const limit = this.limit;
 
-            const searchIndex = this.index;
-            const searchData = paths[searchIndex];
-            const searchPath = searchData.path;
-            const searchLevel = searchData.level;
+            const selected = paths[0].path;
+            const level = paths[0].level;
+            const next = (level + 1);
 
-            const nextIndex = (searchIndex + 1);
-            const nextLevel = (searchLevel + 1);
+            paths.shift();
 
-            const ignorer = new Ignorer(type);
-            const sorter = new Sorter(type);
+            if (next < limit) {
 
-            if (nextLevel < limit) {
+                const scanner = new Scanner(selected);
+                const ignorer = new Ignorer(type);
+                const sorter = new Sorter(type);
 
-                const scanner = new Scanner(searchPath);
+                const scannedPaths = await scanner.getPaths();
+                const filteredPaths = ignorer.apply(scannedPaths);
+                const foundPaths = filteredPaths.map(path => ({
+                    path, level: next
+                }) as SearchLevel);
 
-                const foundPaths = await scanner.getPaths();
-                const filteredPaths = ignorer.apply(foundPaths);
-                const sortedPaths = sorter.apply(filteredPaths);
+                const allPaths = paths.concat(foundPaths);
+                const sortedFound = sorter.apply(foundPaths);
+                const sortedAll = sorter.apply(allPaths);
+                const matchedFoundUrls = sortedFound.map(sorted => sorted.path);
 
-                for (const path of sortedPaths) {
-                    this.paths.push({ path, level: nextLevel });
-                }
-
-                this.index = nextIndex;
-                this.level = searchLevel;
-
-                matches = sortedPaths;
+                paths = sortedAll;
+                matches = matchedFoundUrls;
             }
 
+            this.paths = paths;
         }
 
         return matches;
     }
 
     public get finished(): boolean {
-        return (this.level >= this.limit);
+        return (this.paths.length > 0);
     }
 
 }
