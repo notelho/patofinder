@@ -9,6 +9,7 @@ import javascript from '../utils/dictionary/javascript';
 import stream from '../utils/dictionary/stream';
 import video from '../utils/dictionary/video';
 import audio from '../utils/dictionary/audio';
+import font from '../utils/dictionary/font';
 import url from '../utils/dictionary/url';
 import img from '../utils/dictionary/img';
 import css from '../utils/dictionary/css';
@@ -20,6 +21,7 @@ export class Dictionary {
 
     readonly availableTypes = {
         'url': url,
+        'font': font,
         'img': img,
         'audio': audio,
         'video': video,
