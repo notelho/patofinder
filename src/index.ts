@@ -23,11 +23,9 @@ async function test() {
 
 
     // console.log('===================================================\n');
-    // const url3 = 'http://massafm.com.br/play/?cidade=assis';
-    // // https://stm01.virtualcast.com.br:8136/live
-    // // const url3 = 'https://massafm.com.br/home/';
+    // const url3 = 'https://massafm.com.br/home/';
     // console.log(url3 + '\n');
-    // const matches3 = await find(url3, 'img');
+    // const matches3 = await find(url3, 'stream');
     // console.log(matches3 + '\n');
     // console.log('===================================================\n');
 

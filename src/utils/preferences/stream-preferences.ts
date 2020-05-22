@@ -1,4 +1,10 @@
 import FilterPreferences from "../../interfaces/filter-preferences";
+import streamingKeywords from '../fragments/streaming-keywords';
+import commonDomains from "../fragments/common-domains";
+import commonSocial from "../fragments/common-social";
+import commonBlogs from "../fragments/common-blogs";
+import commonCodes from "../fragments/common-codes";
+import commonWords from "../fragments/common-words";
 
 export const streamPreferences: FilterPreferences = {
 
@@ -6,9 +12,25 @@ export const streamPreferences: FilterPreferences = {
 
     ignoringExtensions: [".min.js", ".min", ".json", ".xml", ".swf"],
 
-    ignoringKeys: ["google", "youtube", "macromedia", "onelink", "flashplayer", "store", "apple", "cdnjs", "cloudflare", "jquery", "modernizr", "swfobject", "mrp", "purl.org", "w3.org", "Atom", "rss", "ajax", "m2d", "creativebizz", "facebook", "shadowbox.js",],
+    ignoringKeys: [
 
-    searchFor: ["stream", "shout", "virtualcast", "icecast", "cast", "live", "play", ";"]
+        ...commonDomains,
+
+        ...commonSocial,
+
+        ...commonBlogs,
+
+        ...commonCodes,
+
+        ...commonWords,
+
+    ],
+
+    searchFor: [
+
+        ...streamingKeywords,
+
+    ]
 
 };
 
