@@ -23,7 +23,12 @@ export const commonDomains: TypeFragment[] = [
     "amazon.com",
     "mailchimp.com",
     "adobe.com",
-]
+    "gs1.org",
+    "github.com",
+    "wikipedia.org",
+    "schema.org",
+    "ebay.com",
+];
 
 export default commonDomains;
 

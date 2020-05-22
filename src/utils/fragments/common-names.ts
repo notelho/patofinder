@@ -6,6 +6,6 @@ export const commonNames: TypeFragment[] = [
     "cristiano",
     "angelina",
     "angelica",
-]
+];
 
 export default commonNames;

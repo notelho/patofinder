@@ -20,6 +20,8 @@ export const commonCodes: TypeFragment[] = [
     "vlc",
     "cdnjs",
     "m2d",
-]
+    "trackjs",
+    "polyfill",
+];
 
 export default commonCodes;

@@ -13,6 +13,6 @@ export const commonWords: TypeFragment[] = [
     // "sitenovo",
     "promocao",
     "promo",
-]
+];
 
 export default commonWords;

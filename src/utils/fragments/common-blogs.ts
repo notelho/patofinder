@@ -12,6 +12,6 @@ export const commonBlogs: TypeFragment[] = [
     "tecnoblog.net",
     "reddit.com",
     "yahoo.com",
-]
+];
 
 export default commonBlogs;
