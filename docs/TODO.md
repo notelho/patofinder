@@ -13,3 +13,6 @@ review in logs
 
 change path-scanner
 add path-resolver
+
+https://stackoverflow.com/questions/34691809/regex-match-folder-and-all-subfolders
+folder regexp
