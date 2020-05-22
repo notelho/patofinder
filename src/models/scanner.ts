@@ -12,14 +12,20 @@ export class Scanner {
     }
 
     public async getData(): Promise<string> {
+
         const request = await axios.get(this.url);
         const data = request.data;
+
+        if (typeof data !== "string") {
+            return JSON.stringify(data);
+        }
+
         return data;
     }
 
     public async getPaths(): Promise<TypePath[]> {
 
-        // console.log('scanning: ' + this.url + '\n');
+        // console.log('will scan now: ' + this.url + '\n');
 
         try {
 
