@@ -9,9 +9,9 @@ async function test() {
     // const matches = await find('https://massafm.com.br/home/', 'stream');
     // const matches = await find('http://www.radios.com.br/play/14', 'url');
 
-    // const url1 = 'http://radiosaovivo.net/embed/metropolitana-online/';
+    const url1 = 'http://radiosaovivo.net/embed/metropolitana-online/';
     // console.log(url1);
-    // const matches1 = await find(url1, 'stream');
+    const matches1 = await find(url1, 'stream');
     // console.log(matches1);
 
     // const url2 = 'https://radiosaovivo.net/#89-a-rock';

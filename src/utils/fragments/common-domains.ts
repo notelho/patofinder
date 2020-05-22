@@ -4,6 +4,7 @@ export const commonDomains: TypeFragment[] = [
     "google",
     "youtube",
     "macromedia",
+    "facebook",
     "onelink",
     "store",
     "apple",

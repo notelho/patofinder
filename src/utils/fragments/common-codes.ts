@@ -4,6 +4,7 @@ export const commonCodes: TypeFragment[] = [
     "amazonaws",
     "m2d",
     "atom",
+    "sdk",
     "rss",
     "rss",
     "ajax",
