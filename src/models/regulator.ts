@@ -34,7 +34,9 @@ export class Regulator {
                 }
 
             } catch (error) {
+
                 continue;
+
             }
 
         }

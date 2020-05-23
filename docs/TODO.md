@@ -11,4 +11,5 @@ start analytic tests
 
 review in logs
 
-remove last / of same paths
+reorder search for streaming
+put first url in ignorer
