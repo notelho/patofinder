@@ -10,5 +10,3 @@ create --verbose option
 start analytic tests
 
 review in logs
-
-add folder regexp rule

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import SearchUrl from "../interfaces/search-url"
 import TypePath from '../interfaces/type-path';
-import regexpUrl from '../utils/regexp/url';
+import absolutePathRegexp from '../utils/regexp/absolute-path';
+import relativePathRegexp from '../utils/regexp/relative-path';
 
 export class Scanner {
 
@@ -31,13 +32,17 @@ export class Scanner {
 
             const data = await this.getData();
 
-            const singleQuotesPaths = data.split('\'').filter(row => row.trim().match(regexpUrl));
-            const doubleQuotesPaths = data.split('\"').filter(row => row.trim().match(regexpUrl));
+            const singleQuotesAbsolutePaths = data.split('\'').filter(row => row.trim().match(absolutePathRegexp));
+            const doubleQuotesAbsolutePaths = data.split('\"').filter(row => row.trim().match(absolutePathRegexp));
 
-            const concatedPaths = ([] as string[]).concat(singleQuotesPaths, doubleQuotesPaths);
+            // const singleQuotesRelativePaths = data.split('\'').filter(row => row.trim().match(relativePathRegexp));
+            // const doubleQuotesRelativePaths = data.split('\"').filter(row => row.trim().match(relativePathRegexp));
 
-            const concatedSet = new Set(concatedPaths);
-            const uniquePaths = Array.from(concatedSet);
+            const concatedAbsolutePaths = ([] as string[]).concat(singleQuotesAbsolutePaths, doubleQuotesAbsolutePaths);
+            // const concatedRelativePaths = ([] as string[]).concat(singleQuotesRelativePaths, doubleQuotesRelativePaths);
+
+            const concatedAbsoluteSet = new Set(concatedAbsolutePaths);
+            const uniquePaths = Array.from(concatedAbsoluteSet);
 
             return uniquePaths;
 

@@ -40,8 +40,6 @@ async function test() {
     // 'https://freesound.org/data/previews/518/518425_11289675-lq.mp3',
     // 'http://8903.brasilstream.com.br:8903/stream?1589752897235',
 
-    // console.log('================================================');
-    // console.log('begin');
 
 }
 
