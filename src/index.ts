@@ -4,16 +4,12 @@ import find from './public/find';
 
 async function test() {
 
-    // https://stackoverflow.com/questions/14780350/convert-relative-path-to-absolute-using-javascript
-    // "http://ice.fabricahost.com.br/89aradiorocksp?compat=1"
-    // "http://cdn.live.nextdial.com.br/listen/alphafmsp"
-    // "https://slave.shoutcast.com/AlphaFM101-7"
+    // examples
+    // 'https://freesound.org/data/previews/518/518425_11289675-lq.mp3',
+    // 'http://8903.brasilstream.com.br:8903/stream?1589752897235',
 
-    // https://www.radiorock.com.br/player/assets/player/js/start.js?t=65
 
-    // <script type="text/javascript" src="/assets/player/js/start.js?t=65"></script>
 
-    // https://f11.fabricahost.com.br/89aradiorocksp?f=1
 
     // console.log('===================================================\n');
     // const url2 = 'http://www.radiorock.com.br/player';
@@ -21,6 +17,10 @@ async function test() {
     // const matches2 = await find(url2, 'stream');
     // console.log(matches2);
     // console.log('===================================================\n');
+
+
+
+
 
     // console.log('===================================================\n');
     // const url3 = 'https://massafm.com.br/home/';
@@ -36,9 +36,7 @@ async function test() {
 
     // console.log('===================================================\n');
 
-    // examples
-    // 'https://freesound.org/data/previews/518/518425_11289675-lq.mp3',
-    // 'http://8903.brasilstream.com.br:8903/stream?1589752897235',
+
 
 }
 

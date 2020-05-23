@@ -1,5 +1,7 @@
 import FilterPreferences from '../../interfaces/filter-preferences';
 import streamingKeywords from '../fragments/streaming-keywords';
+import streamingPlayers from '../fragments/streaming-players';
+import streamingSearch from '../fragments/streaming-search';
 import commonDomains from '../fragments/common-domains';
 import commonSocial from '../fragments/common-social';
 import commonBlogs from '../fragments/common-blogs';
@@ -33,6 +35,9 @@ export const streamPreferences: FilterPreferences = {
 
         ...streamingKeywords,
 
+        ...streamingPlayers,
+
+        ...streamingSearch,
     ]
 
 };

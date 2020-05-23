@@ -7,9 +7,8 @@ add environment model
 create --level option
 create --verbose option
 
-start analytic tests
+change url prioritization
 
-review in logs
-
-reorder search for streaming
 put first url in ignorer
+
+start analytic tests in logs

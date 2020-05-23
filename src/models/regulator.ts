@@ -35,6 +35,8 @@ export class Regulator {
 
             } catch (error) {
 
+                // console.log('got a error in deep info');
+
                 continue;
 
             }

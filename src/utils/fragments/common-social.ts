@@ -13,16 +13,6 @@ export const commonSocial: TypeFragment[] = [
     "linkedin",
     "telegram",
     "wechat",
-    // "twitter.com",
-    // "facebook.com",
-    // "instagram.com",
-    // "tiktok.com",
-    // "snapchat.com",
-    // "whatsapp.com",
-    // "skype.com",
-    // "tumblr.com",
-    // "linkedin.com",
-    // "wechat.com",
 ];
 
 export default commonSocial;

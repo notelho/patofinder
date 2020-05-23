@@ -55,6 +55,8 @@ export class Scanner {
 
         } catch (error) {
 
+            // console.log('got a error scanning \n');
+
             return [];
 
         }
