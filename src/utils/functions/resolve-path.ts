@@ -1,10 +1,10 @@
 import TypePath from "../../interfaces/type-path";
 
-export function resolvePath(absolutePath: string, relativePath: string): TypePath | null {
+export function resolvePath(basePath: string, relativePath: string): TypePath | null {
 
     try {
 
-        const url = new URL(relativePath, absolutePath);
+        const url = new URL(relativePath, basePath);
 
         const path = url.href;
 
