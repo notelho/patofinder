@@ -38,8 +38,6 @@ export class Searcher {
             const level = paths[0].level;
             const next = (level + 1);
 
-            // console.log(level);
-
             paths.shift();
 
             if (next <= limit) {

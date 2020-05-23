@@ -23,6 +23,7 @@ export const commonCodes: TypeFragment[] = [
     "trackjs",
     "polyfill",
     "manifest",
+    "gstatic",
 ];
 
 export default commonCodes;
