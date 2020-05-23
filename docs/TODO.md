@@ -10,3 +10,5 @@ create --verbose option
 start analytic tests
 
 review in logs
+
+remove last / of same paths

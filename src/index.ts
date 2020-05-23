@@ -16,7 +16,7 @@ async function test() {
     // https://f11.fabricahost.com.br/89aradiorocksp?f=1
 
     // console.log('===================================================\n');
-    // const url2 = 'https://www.radiorock.com.br/';
+    // const url2 = 'http://www.radiorock.com.br/player';
     // console.log(url2);
     // const matches2 = await find(url2, 'stream');
     // console.log(matches2);
@@ -39,7 +39,6 @@ async function test() {
     // examples
     // 'https://freesound.org/data/previews/518/518425_11289675-lq.mp3',
     // 'http://8903.brasilstream.com.br:8903/stream?1589752897235',
-
 
 }
 

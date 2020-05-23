@@ -1,8 +1,9 @@
-import axios from 'axios';
-import SearchUrl from "../interfaces/search-url"
-import TypePath from '../interfaces/type-path';
 import absolutePathRegexp from '../utils/regexp/absolute-path';
 import relativePathRegexp from '../utils/regexp/relative-path';
+import resolvePath from '../utils/functions/resolve-path';
+import SearchUrl from "../interfaces/search-url"
+import TypePath from '../interfaces/type-path';
+import axios from 'axios';
 
 export class Scanner {
 
@@ -14,14 +15,15 @@ export class Scanner {
 
     public async getData(): Promise<string> {
 
-        const request = await axios.get(this.url);
-        const data = request.data;
+        const absolutePath = this.url;
+        const requestResponse = await axios.get(absolutePath);
+        const requestData = requestResponse.data;
 
-        if (typeof data !== "string") {
-            return JSON.stringify(data);
+        if (typeof requestData !== "string") {
+            return JSON.stringify(requestData);
         }
 
-        return data;
+        return requestData;
     }
 
     public async getPaths(): Promise<TypePath[]> {
@@ -31,18 +33,37 @@ export class Scanner {
         try {
 
             const data = await this.getData();
+            const absolutePath = this.url;
 
             const singleQuotesAbsolutePaths = data.split('\'').filter(row => row.trim().match(absolutePathRegexp));
+            const singleQuotesRelativePaths = data.split('\'').filter(row => row.trim().match(relativePathRegexp));
+
             const doubleQuotesAbsolutePaths = data.split('\"').filter(row => row.trim().match(absolutePathRegexp));
+            const doubleQuotesRelativePaths = data.split('\"').filter(row => row.trim().match(relativePathRegexp));
 
-            // const singleQuotesRelativePaths = data.split('\'').filter(row => row.trim().match(relativePathRegexp));
-            // const doubleQuotesRelativePaths = data.split('\"').filter(row => row.trim().match(relativePathRegexp));
-
-            const concatedAbsolutePaths = ([] as string[]).concat(singleQuotesAbsolutePaths, doubleQuotesAbsolutePaths);
-            // const concatedRelativePaths = ([] as string[]).concat(singleQuotesRelativePaths, doubleQuotesRelativePaths);
+            const concatedAbsolutePaths = ([] as TypePath[]).concat(singleQuotesAbsolutePaths, doubleQuotesAbsolutePaths);
+            const concatedRelativePaths = ([] as TypePath[]).concat(singleQuotesRelativePaths, doubleQuotesRelativePaths);
 
             const concatedAbsoluteSet = new Set(concatedAbsolutePaths);
-            const uniquePaths = Array.from(concatedAbsoluteSet);
+            const concatedRelativeSet = new Set(concatedRelativePaths);
+
+            const uniqueAbsolutePaths = Array.from(concatedAbsoluteSet);
+            const uniqueRelativePaths = Array.from(concatedRelativeSet);
+
+            const newUniqueAbsolutePaths: TypePath[] = [];
+
+            for (const relativePath of uniqueRelativePaths) {
+                const resolvedPath = resolvePath(absolutePath, relativePath);
+                if (resolvedPath) {
+                    newUniqueAbsolutePaths.push(resolvedPath);
+                }
+            }
+
+            const concatedPaths = uniqueAbsolutePaths.concat(newUniqueAbsolutePaths);
+            const concatedSet = new Set(concatedPaths);
+            const uniquePaths = Array.from(concatedSet);
+
+            // console.log(uniquePaths);
 
             return uniquePaths;
 

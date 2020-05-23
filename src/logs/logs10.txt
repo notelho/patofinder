@@ -227,3 +227,29 @@ will get deep info for: https://developer.wordpress.org/rest-api/using-the-rest-
 will get deep info for: https://developer.wordpress.org/?p=22832
 
 will get deep info for: //wordpress.org/showcase/
+
+
+r/?s={search_term}
+
+or: http://www.radiorock.com.br/assets/player/js/start.js?t=60
+
+will get deep info for: http://www.radiorock.com.br/assets/player/js/player.js?v=1533
+
+will get deep info for: http://www.radiorock.com.br/cadastro?ref=http://www.radiorock.com.br/player/
+will get deep info for: http://www.radiorock.com.br/logar?ref=http://www.radiorock.com.br/player/
+will get deep info for: http://www.radiorock.com.br/login?ref=http://www.radiorock.com.br/player/
+
+will get deep info for: https://tag.navdmp.com/tm
+
+ https://rec.smartlook.com/recorder.js
+
+will get deep info for: http://www.radiorock.com.br/assets/player/js/start.js?t=60
+will get deep info for: http://www.radiorock.com.br/assets/player/js/player.js?v=1533
+will get deep info for: http://www.radiorock.com.br/cadastro?ref=http://www.radiorock.com.br/player/
+will get deep info for: https://tag.navdmp.com/tm
+will get deep info for: https://rec.smartlook.com/recorder.js
+will get deep info for: http://www.radiorock.com.br/1086868/2018_home_728x90
+will get deep info for: http://www.radiorock.com.br/1086868/2018_MOBILE_HOME_336X280_1
+will get deep info for: http://www.radiorock.com.br/1086868/2018_home_970x90
+will get deep info for: http://www.radiorock.com.br/cadastro/login
+will get deep info for: http://www.radiorock.com.br/cadastro/instrucaosenha
