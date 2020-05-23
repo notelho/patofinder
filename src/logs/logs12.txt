@@ -1,0 +1,72 @@
+> patofinder@0.1.0 build:cjs C:\Users\Nathan\www\patofinder
+> tsc -p tsconfig.cjs.json
+
+===================================================
+
+http://www.radiorock.com.br/player
+will scan now: http://www.radiorock.com.br/player
+
+will get deep info for: https://www.radiorock.com.br/player
+
+will get deep info for: http://www.radiorock.com.br/assets/player/js/start.js?t=88
+
+will get deep info for: http://www.radiorock.com.br/assets/player/js/player.js?v=1320
+
+will get deep info for: http://www.radiorock.com.br/cadastro?ref=http://www.radiorock.com.br/player
+
+will get deep info for: https://tag.navdmp.com/tm
+
+will get deep info for: https://rec.smartlook.com/recorder.js
+
+will get deep info for: http://www.radiorock.com.br/1086868/2018_home_728x90
+
+will get deep info for: http://www.radiorock.com.br/1086868/2018_MOBILE_HOME_336X280_1
+
+will get deep info for: http://www.radiorock.com.br/1086868/2018_home_970x90
+
+will get deep info for: http://www.radiorock.com.br/cadastro/login
+
+will get deep info for: http://www.radiorock.com.br/cadastro/instrucaosenha
+
+will get deep info for: http://www.radiorock.com.br/cadastro/index
+
+will get deep info for: http://www.radiorock.com.br/contato
+
+will get deep info for: http://www.radiorock.com.br/concursos
+
+will scan now: https://www.radiorock.com.br/player
+
+will get deep info for: https://www.radiorock.com.br/assets/player/js/start.js?t=84
+
+will get deep info for: https://www.radiorock.com.br/assets/player/js/player.js?v=1378
+
+will get deep info for: https://www.radiorock.com.br/cadastro?ref=http://www.radiorock.com.br/player
+
+will get deep info for: https://www.radiorock.com.br/1086868/2018_home_728x90
+
+will get deep info for: https://www.radiorock.com.br/1086868/2018_MOBILE_HOME_336X280_1
+
+will get deep info for: https://www.radiorock.com.br/1086868/2018_home_970x90
+
+will get deep info for: https://www.radiorock.com.br/cadastro/login
+
+will get deep info for: https://www.radiorock.com.br/cadastro/instrucaosenha
+
+will get deep info for: https://www.radiorock.com.br/cadastro/index
+
+will get deep info for: https://www.radiorock.com.br/contato
+
+will get deep info for: https://www.radiorock.com.br/concursos
+
+will scan now: http://www.radiorock.com.br/assets/player/js/start.js?t=88
+
+will get deep info for: //players.gc2.com.br/cron/89fm/results.json?_=
+
+will get deep info for: http://players.gc2.com.br/cron/89fm/results.json?_=
+
+will scan now: http://www.radiorock.com.br/assets/player/js/player.js?v=1320
+
+will get deep info for: http://ice.fabricahost.com.br/89aradiorocksp?compat=1
+
+[ 'http://ice.fabricahost.com.br/89aradiorocksp?compat=1' ]
+===================================================
