@@ -1,13 +1,16 @@
-import EnvironmentFilter from '../../interfaces/environment-filter';
+import SearchData from '../../interfaces/search-data';
 import emptyPreferences from '../preferences/empty-preferences';
+import includesRule from '../rules/includes-rule';
 
-export const javascript: EnvironmentFilter = {
+export const javascript: SearchData = {
 
-    analyzer: "filter",
+    type: 'javascript',
 
     extensions: [".js"],
 
-    preferences: emptyPreferences
+    preferences: emptyPreferences,
+
+    rule: includesRule
 
 };
 

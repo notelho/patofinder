@@ -1,13 +1,16 @@
-import EnvironmentFilter from '../../interfaces/environment-filter';
+import SearchData from '../../interfaces/search-data';
 import emptyPreferences from '../preferences/empty-preferences';
+import includesRule from '../rules/includes-rule';
 
-export const php: EnvironmentFilter = {
+export const php: SearchData = {
 
-    analyzer: "filter",
+    type: "php",
 
     extensions: [".php"],
 
-    preferences: emptyPreferences
+    preferences: emptyPreferences,
+
+    rule: includesRule
 
 };
 

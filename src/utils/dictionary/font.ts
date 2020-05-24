@@ -1,13 +1,16 @@
-import EnvironmentFilter from '../../interfaces/environment-filter';
+import SearchData from '../../interfaces/search-data';
 import emptyPreferences from '../preferences/empty-preferences';
+import includesRule from '../rules/includes-rule';
 
-export const font: EnvironmentFilter = {
+export const font: SearchData = {
 
-    analyzer: "filter",
+    type: 'font',
 
     extensions: [".ttf", ".otf", ".woff", ".eot", ".svg"],
 
-    preferences: emptyPreferences
+    preferences: emptyPreferences,
+
+    rule: includesRule
 
 };
 

@@ -1,13 +1,16 @@
-import EnvironmentFilter from '../../interfaces/environment-filter';
+import SearchData from '../../interfaces/search-data';
 import emptyPreferences from '../preferences/empty-preferences';
+import includesRule from '../rules/includes-rule';
 
-export const img: EnvironmentFilter = {
+export const img: SearchData = {
 
-    analyzer: "filter",
+    type: 'img',
 
     extensions: [".jpg", ".jpeg", ".svg", ".png", ".gif", ".gifv", ".tiff", ".psd", ".pdf", ".eps", ".ai", ".indd", ".raw", ".ico"],
 
-    preferences: emptyPreferences
+    preferences: emptyPreferences,
+
+    rule: includesRule
 
 };
 
