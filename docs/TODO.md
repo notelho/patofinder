@@ -1,12 +1,20 @@
-add tests
+# tests
 
-add bin run
+    - add unit tests
+    - add integration tests
 
-add environment model
+# bin run
 
-create --level option
-create --verbose option
+    - add binary file
+    - add environment model
+    - create --level option
+    - create --verbose option
 
-put first url in ignorer
+# rules
 
-change url prioritization
+    - put first url in ignorer
+    - change url prioritization
+
+# logger
+
+    - create global logger
