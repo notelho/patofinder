@@ -2,8 +2,9 @@ import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import Dictionary from './dictionary';
 import SearchLevel from "../interfaces/search-level";
+import TypeFragment from "../interfaces/type-fragment";
 
-export class Separator {
+export class Sorter {
 
     private type: SearchType;
 
@@ -11,30 +12,36 @@ export class Separator {
         this.type = type;
     }
 
-    apply(levels: SearchLevel[]): SearchLevel[] {
+    public apply(searches: SearchLevel[]): SearchLevel[] {
 
         const type = this.type;
 
         const dictionary = new Dictionary(type);
         const preferences = dictionary.preferences;
-        const sortRules = preferences.searchFor;
+        const rules = preferences.searchFor;
 
-        const includes = (path: TypePath): boolean => {
-
-            for (const rule of sortRules) {
-                if (path.includes(rule)) {
-                    return true;
-                }
-            }
-
-            return false;
-        };
-
-        const matches = levels.filter(level => includes(level.path));
-        const fails = levels.filter(level => !includes(level.path));
+        const matches = searches.filter(level => this.includes(level.path, rules));
+        const fails = searches.filter(level => !this.includes(level.path, rules));
 
         return matches.concat(fails);
     }
+
+    private includes(path: TypePath, rules: TypeFragment[]): boolean {
+
+        for (const rule of rules) {
+
+            const includeRule = path.includes(rule);
+            const equalsRule = path === rule;
+
+            if (includeRule || equalsRule) {
+                return true;
+            }
+
+        }
+
+        return false;
+    }
+
 }
 
-export default Separator;
+export default Sorter;

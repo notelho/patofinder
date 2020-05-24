@@ -1,6 +1,7 @@
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
+import SearchLevel from "../interfaces/search-level";
 
 export class Regulator {
 
@@ -10,40 +11,39 @@ export class Regulator {
         this.type = type;
     }
 
-    public async apply(paths: TypePath[]): Promise<TypePath[]> {
-
-        const matches: TypePath[] = [];
+    public async apply(search: SearchLevel): Promise<TypePath | undefined> {
 
         const type = this.type;
+        const path = search.path;
 
         const dictionary = new Dictionary(type);
         const extensions = dictionary.extensions;
         const filterRule = dictionary.filterRule;
 
-        for (const path of paths) {
+        try {
 
-            try {
+            // console.log('will get deep info for: ' + path + '\n');
 
-                // console.log('will get deep info for: ' + path + '\n');
+            const isMatch = await filterRule({ path, extensions });
 
-                const resultMatches = await filterRule({ path, extensions });
+            if (isMatch) {
 
-                if (resultMatches) {
-                    matches.push(path);
-                    break;
-                }
+                // console.log('is match + \n');
 
-            } catch (error) {
-
-                // console.log('got a error in deep info');
-
-                continue;
+                return path;
 
             }
 
+        } catch (error) {
+
+            // console.log('got a error in deep info + \n');
+
+            return undefined;
+
         }
 
-        return matches;
+        return undefined;
+
     }
 
 }

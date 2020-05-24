@@ -1,9 +1,11 @@
+import SearchLevel from "../interfaces/search-level";
 import SearchType from "../interfaces/search-type";
 import SearchUrl from "../interfaces/search-url";
 import TypePath from "../interfaces/type-path";
 import Regulator from "./regulator";
 import Analyzer from "./analyzer";
 import Searcher from "./searcher";
+import PathStorage from "./path-storage";
 
 export class UrlMiner extends Analyzer {
 
@@ -17,23 +19,40 @@ export class UrlMiner extends Analyzer {
         const type = this.type;
         const limit = 3;
 
+        const storage = new PathStorage(url, type);
         const regulator = new Regulator(type);
-        const searcher = new Searcher(url, type, limit);
+        const searcher = new Searcher(limit);
 
-        let paths: string[] = [];
-        let matches: string[] = [];
+        let match: TypePath | undefined;
+        let search: SearchLevel | undefined;
+
+        let paths: SearchLevel[];
 
         do {
 
-            paths = await searcher.apply();
+            search = storage.get();
 
-            // console.log(paths);
+            if (search) {
 
-            matches = await regulator.apply(paths);
+                match = await regulator.apply(search);
 
-        } while (!searcher.finished && matches.length === 0);
+                if (!match) {
 
-        return matches;
+                    paths = await searcher.apply(search);
+
+                    storage.put(paths);
+
+                }
+
+            }
+
+        } while (!storage.empty && !match);
+
+        if (match) {
+            return [match]
+        }
+
+        return [];
     }
 
 }

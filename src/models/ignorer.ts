@@ -1,3 +1,4 @@
+import SearchLevel from "../interfaces/search-level";
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
@@ -6,24 +7,21 @@ export class Ignorer {
 
     private type: SearchType;
 
-    private history: TypePath[];
-
     constructor(type: SearchType) {
         this.type = type;
-        this.history = [];
     }
 
-    apply(paths: TypePath[]): TypePath[] {
+    apply(levelList: SearchLevel[], ignoreList: SearchLevel[]): SearchLevel[] {
 
         let ignoringRules: TypePath[] = [];
 
-        const type = this.type;
-        const history = this.history;
-
-        const dictionary = new Dictionary(type);
+        const dictionary = new Dictionary(this.type);
 
         const preferences = dictionary.preferences;
         const ignoringTypes = preferences.ignoringTypes;
+        const ignoringExtensions = preferences.ignoringExtensions;
+        const ignoringKeys = preferences.ignoringKeys;
+        const ignoringPaths = ignoreList.map(level => level.path);
 
         for (const ignoringType of ignoringTypes) {
 
@@ -34,37 +32,34 @@ export class Ignorer {
 
         }
 
-        const ignoringExtensions = preferences.ignoringExtensions;
-        const ignoringKeys = preferences.ignoringKeys;
-
         ignoringRules = ignoringRules.concat(ignoringExtensions);
+        ignoringRules = ignoringRules.concat(ignoringPaths);
         ignoringRules = ignoringRules.concat(ignoringKeys);
-        ignoringRules = ignoringRules.concat(history);
 
-        const matches: TypePath[] = [];
+        const matches: SearchLevel[] = [];
 
-        for (const path of paths) {
+        for (const level of levelList) {
 
-            let matchAnyWord: boolean = false;
+            let matchAnyRule: boolean = false;
 
             for (const rule of ignoringRules) {
 
-                const pathHasRule = path.includes(rule);
-                const pathIsRule = path === rule;
+                const includeRule = level.path.includes(rule);
+                const equalsRule = level.path === rule;
 
-                if (pathHasRule || pathIsRule) {
-                    matchAnyWord = true;
+                matchAnyRule = includeRule || equalsRule;
+
+                if (matchAnyRule) {
                     break;
                 }
+
             }
 
-            if (!matchAnyWord) {
-                matches.push(path);
+            if (!matchAnyRule) {
+                matches.push(level);
             }
 
         }
-
-        this.history = history.concat(matches);
 
         return matches;
     }
