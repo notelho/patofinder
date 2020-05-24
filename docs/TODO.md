@@ -16,6 +16,9 @@
     - change ignore rule to a for instead indexof
     - recheck in history rule at src/models/path-storage.ts
     - create? priority by level in preferences.searchFor
+    - transform dictionarys into models (after environment creation)
+    - transform analyzer instance into object conditional
+    - transform analyzer into a single instance
 
 # logger
 
