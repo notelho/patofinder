@@ -10,10 +10,12 @@
     - create --level option
     - create --verbose option
 
-# rules
+# general
 
-    - put first url in ignorer
     - change url prioritization
+    - change ignore rule to a for instead indexof
+    - recheck in history rule at src/models/path-storage.ts
+    - create? priority by level in preferences.searchFor
 
 # logger
 
