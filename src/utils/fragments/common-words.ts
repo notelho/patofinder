@@ -1,18 +1,28 @@
 import TypeFragment from "../../interfaces/type-fragment";
 
 export const commonWords: TypeFragment[] = [
-    // "themes",
-    // "wp-content",
-    // "plugins",
-    // "includes",
     "signup",
     "signin",
-    // "session",
-    // "wordpress",
-    // "connect",
-    // "sitenovo",
+    "session",
     "promocao",
     "promo",
+    // "search_term",
+    // "dmca",
+    // "login",
+    // "cadastro",
+    // "contato",
+    // "anuncie",
+    // "galeria",
+
+    // "ouvinte",
+    // "instrucaosenha",
+    // "locutores",
+    // "promocoes",
+    // "promocao",
+    // "noticias",
+    // "entrevistas",
+    // "lancamentos",
+
 ];
 
 export default commonWords;
