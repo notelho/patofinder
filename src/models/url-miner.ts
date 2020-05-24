@@ -2,12 +2,12 @@ import SearchLevel from "../interfaces/search-level";
 import SearchType from "../interfaces/search-type";
 import SearchUrl from "../interfaces/search-url";
 import TypePath from "../interfaces/type-path";
-import Regulator from "./regulator";
-import Analyzer from "./analyzer";
-import Searcher from "./searcher";
 import PathStorage from "./path-storage";
+import UrlAnalyzer from "./url-analyzer";
+import Regulator from "./regulator";
+import Searcher from "./searcher";
 
-export class UrlMiner extends Analyzer {
+export class UrlMiner extends UrlAnalyzer {
 
     constructor(url: SearchUrl, type: SearchType) {
         super(url, type);

@@ -1,11 +1,11 @@
 import SearchType from "../interfaces/search-type";
 import SearchUrl from "../interfaces/search-url";
 import TypePath from "../interfaces/type-path";
+import UrlAnalyzer from "./url-analyzer";
 import Dictionary from "./dictionary";
-import Analyzer from "./analyzer";
 import Searcher from "./searcher";
 
-export class UrlFilter extends Analyzer {
+export class UrlFilter extends UrlAnalyzer {
 
     constructor(url: SearchUrl, type: SearchType) {
         super(url, type);
