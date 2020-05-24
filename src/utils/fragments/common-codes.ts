@@ -40,6 +40,7 @@ export const commonCodes: TypeFragment[] = [
     // "onelink",
     "slitslider",
     // "addthis",
+    "itunes",
 ];
 
 export default commonCodes;

@@ -13,7 +13,7 @@ export const commonSocial: TypeFragment[] = [
     "linkedin",
     "telegram",
     "wechat",
-    // "imgur",
+    "imgur",
 ];
 
 export default commonSocial;

@@ -36,11 +36,11 @@ export const commonDomains: TypeFragment[] = [
     // "gstatic.com",
     "twitch.tv",
     // "bbc.co",
-    "t.co",
     // "nugs.tv",
     // "vvhp.net",
     // "gc2labs.com.br",
     // "hackrads.com.br",
+    "gc2.com.br",
 ];
 
 export default commonDomains;

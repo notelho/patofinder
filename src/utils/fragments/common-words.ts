@@ -8,8 +8,8 @@ export const commonWords: TypeFragment[] = [
     "promo",
     "search_term",
 
-    "dmca",
-    "login",
+    // "dmca",
+    // "login",
 
     // "cadastro",
     // "contato",
