@@ -14,26 +14,13 @@ export class Scanner {
         this.url = url;
     }
 
-    public async getData(): Promise<string> {
-
-        const basePath = this.url;
-        const requestResponse = await axios.get(basePath);
-        const requestData = requestResponse.data;
-
-        if (typeof requestData !== "string") {
-            return JSON.stringify(requestData);
-        }
-
-        return requestData;
-    }
-
-    public async getPaths(): Promise<TypePath[]> {
+    public async apply(): Promise<TypePath[]> {
 
         // console.log('will scan now: ' + this.url + '\n');
 
         try {
 
-            const data = await this.getData();
+            const data = await this.get();
             const basePath = this.url;
 
             const singleQuotesAbsolutePaths = data.split('\'').filter(row => row.trim().match(absolutePathRegexp));
@@ -55,12 +42,25 @@ export class Scanner {
 
         } catch (error) {
 
-            // console.log('got a error scanning \n');
+            // console.log('got a error while scanning \n');
 
             return [];
 
         }
 
+    }
+
+    private async get(): Promise<string> {
+
+        const basePath = this.url;
+        const requestResponse = await axios.get(basePath);
+        const requestData = requestResponse.data;
+
+        if (typeof requestData !== "string") {
+            return JSON.stringify(requestData);
+        }
+
+        return requestData;
     }
 
 }

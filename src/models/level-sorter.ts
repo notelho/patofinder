@@ -4,7 +4,7 @@ import Dictionary from './dictionary';
 import SearchLevel from "../interfaces/search-level";
 import TypeFragment from "../interfaces/type-fragment";
 
-export class Sorter {
+export class LevelSorter {
 
     private type: SearchType;
 
@@ -44,4 +44,4 @@ export class Sorter {
 
 }
 
-export default Sorter;
+export default LevelSorter;

@@ -2,10 +2,10 @@ import SearchLevel from "../interfaces/search-level";
 import SearchType from "../interfaces/search-type";
 import SearchUrl from "../interfaces/search-url";
 import TypePath from "../interfaces/type-path";
+import LevelSearcher from "./level-searcher";
+import LevelFilter from "./level-filter";
 import PathStorage from "./path-storage";
 import UrlAnalyzer from "./url-analyzer";
-import Regulator from "./regulator";
-import Searcher from "./searcher";
 
 export class UrlMiner extends UrlAnalyzer {
 
@@ -20,39 +20,26 @@ export class UrlMiner extends UrlAnalyzer {
         const limit = 3;
 
         const storage = new PathStorage(url, type);
-        const regulator = new Regulator(type);
-        const searcher = new Searcher(limit);
-
-        let match: TypePath | undefined;
-        let search: SearchLevel | undefined;
+        const searcher = new LevelSearcher(limit);
+        const filter = new LevelFilter(type);
 
         let paths: SearchLevel[];
+        let match: TypePath | undefined;
+        let search: SearchLevel | undefined;
 
         do {
 
             search = storage.get();
 
             if (search) {
-
-                match = await regulator.apply(search);
-
-                if (!match) {
-
-                    paths = await searcher.apply(search);
-
-                    storage.put(paths);
-
-                }
-
+                paths = await searcher.apply(search);
+                match = await filter.apply(search);
+                storage.put(paths);
             }
 
         } while (!storage.empty && !match);
 
-        if (match) {
-            return [match]
-        }
-
-        return [];
+        return match ? [match] : [];
     }
 
 }

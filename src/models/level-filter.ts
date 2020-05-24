@@ -3,7 +3,7 @@ import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
 import SearchLevel from "../interfaces/search-level";
 
-export class Regulator {
+export class LevelFilter {
 
     private type: SearchType;
 
@@ -27,25 +27,16 @@ export class Regulator {
             const isMatch = await filterRule({ path, extensions });
 
             if (isMatch) {
-
-                // console.log('is match + \n');
-
                 return path;
-
             }
 
         } catch (error) {
-
-            // console.log('got a error in deep info + \n');
-
             return undefined;
-
         }
 
         return undefined;
-
     }
 
 }
 
-export default Regulator;
+export default LevelFilter;

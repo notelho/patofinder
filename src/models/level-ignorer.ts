@@ -3,7 +3,7 @@ import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
 
-export class Ignorer {
+export class LevelIgnorer {
 
     private type: SearchType;
 
@@ -66,4 +66,4 @@ export class Ignorer {
 
 }
 
-export default Ignorer;
+export default LevelIgnorer;

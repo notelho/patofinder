@@ -1,8 +1,8 @@
 import SearchLevel from "../interfaces/search-level";
 import TypeLevel from '../interfaces/type-level';
-import Scanner from './scanner';
+import PathScanner from './path-scanner';
 
-export class Searcher {
+export class LevelSearcher {
 
     public readonly limit: TypeLevel;
 
@@ -19,13 +19,10 @@ export class Searcher {
         const next = (level + 1);
 
         if (next <= limit) {
-
-            const scanner = new Scanner(url);
-            const paths = await scanner.getPaths();
+            const scanner = new PathScanner(url);
+            const paths = await scanner.apply();
             const searches = paths.map(path => ({ path, level: next }));
-
             return searches;
-
         }
 
         return [];
@@ -33,4 +30,4 @@ export class Searcher {
 
 }
 
-export default Searcher;
+export default LevelSearcher;
