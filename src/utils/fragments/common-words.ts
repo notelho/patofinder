@@ -6,9 +6,11 @@ export const commonWords: TypeFragment[] = [
     "session",
     "promocao",
     "promo",
-    // "search_term",
-    // "dmca",
-    // "login",
+    "search_term",
+
+    "dmca",
+    "login",
+
     // "cadastro",
     // "contato",
     // "anuncie",

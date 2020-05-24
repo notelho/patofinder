@@ -28,14 +28,15 @@ export const commonDomains: TypeFragment[] = [
     "wikipedia.org",
     "schema.org",
     "ebay.com",
+    "tag.navdmp.com",
     // "cdn.webrad.io",
     // "gs1.org",
-    // "w.org",
+    "w.org",
     // "viralcure.org",
     // "gstatic.com",
-    // "twitch.tv",
+    "twitch.tv",
     // "bbc.co",
-    // "t.co",
+    "t.co",
     // "nugs.tv",
     // "vvhp.net",
     // "gc2labs.com.br",
@@ -43,5 +44,3 @@ export const commonDomains: TypeFragment[] = [
 ];
 
 export default commonDomains;
-
-

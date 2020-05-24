@@ -17,7 +17,9 @@ export const commonCodes: TypeFragment[] = [
     "chrome",
     "flashplayer",
     "videolan",
-    // "trackjs",
+
+    // ################## tests #################
+    "trackjs",
     "vlc",
     "cdnjs",
     "m2d",
@@ -27,16 +29,16 @@ export const commonCodes: TypeFragment[] = [
     "manifest",
     "gstatic",
     // "developer",
-    // "wordpress",
+    "wordpress",
     // "gmpg",
-    // "navdmp",
+    "navdmp",
     // "spreaker",
     // "googleapis",
-    // "html5shim",
-    // "googlecode",
-    // "smartlook",
+    "html5shim",
+    "googlecode",
+    "smartlook",
     // "onelink",
-    // "slitslider",
+    "slitslider",
     // "addthis",
 ];
 

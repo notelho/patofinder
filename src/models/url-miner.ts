@@ -27,6 +27,8 @@ export class UrlMiner extends Analyzer {
 
             paths = await searcher.apply();
 
+            // console.log(paths);
+
             matches = await regulator.apply(paths);
 
         } while (!searcher.finished && matches.length === 0);
