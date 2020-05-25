@@ -12,6 +12,7 @@ import url from '../utils/dictionary/url';
 import img from '../utils/dictionary/img';
 import css from '../utils/dictionary/css';
 import php from '../utils/dictionary/php';
+import SearchDepth from '../interfaces/search-depth';
 
 export class Dictionary {
 
@@ -34,7 +35,11 @@ export class Dictionary {
     }
 
     public get environment(): SearchData {
-        return this.availableTypes[this.selectedType] as SearchData;
+        return this.availableTypes[this.selectedType];
+    }
+
+    public get depth(): SearchDepth {
+        return this.environment.depth;
     }
 
     public get extensions(): TypeExtension[] {
@@ -42,11 +47,11 @@ export class Dictionary {
     }
 
     public get preferences(): FilterPreferences {
-        return (this.environment as SearchData).preferences;
+        return this.environment.preferences;
     }
 
     public get rule(): FilterRule {
-        return (this.environment as SearchData).rule;
+        return this.environment.rule;
     }
 
 }

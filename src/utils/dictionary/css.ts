@@ -6,6 +6,8 @@ export const css: SearchData = {
 
     type: 'css',
 
+    depth: 'all',
+
     extensions: [".css"],
 
     preferences: emptyPreferences,

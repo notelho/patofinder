@@ -5,6 +5,7 @@ import TypePath from "../interfaces/type-path";
 import LevelSearcher from "./level-searcher";
 import LevelFilter from "./level-filter";
 import PathStorage from "./path-storage";
+import Dictionary from "./dictionary";
 
 export class PathAnalyzer {
 
@@ -34,6 +35,9 @@ export class PathAnalyzer {
         let match: TypePath | undefined;
         let search: SearchLevel | undefined;
 
+        const dictionary = new Dictionary(type);
+        const depth = dictionary.depth;
+
         do {
 
             search = storage.get();
@@ -44,7 +48,7 @@ export class PathAnalyzer {
                 storage.put(paths);
             }
 
-        } while (!storage.empty && !match);
+        } while ((!storage.empty && !match)); //  && depth === 'all'
 
         return match ? [match] : [];
     }

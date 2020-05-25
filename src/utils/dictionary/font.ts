@@ -6,6 +6,8 @@ export const font: SearchData = {
 
     type: 'font',
 
+    depth: 'all',
+
     extensions: [".ttf", ".otf", ".woff", ".eot", ".svg"],
 
     preferences: emptyPreferences,

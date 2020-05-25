@@ -6,6 +6,8 @@ export const php: SearchData = {
 
     type: "php",
 
+    depth: 'all',
+
     extensions: [".php"],
 
     preferences: emptyPreferences,

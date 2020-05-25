@@ -6,6 +6,8 @@ export const javascript: SearchData = {
 
     type: 'javascript',
 
+    depth: 'all',
+
     extensions: [".js"],
 
     preferences: emptyPreferences,
