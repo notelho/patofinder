@@ -10,9 +10,9 @@
 
 # general
     - change ignore rule to a for instead indexof
-    - recheck in history rule at src/models/path-storage.ts
     - create? priority by level in preferences.searchFor
     - transform dictionarys into models (after environment creation)
+    - transform limit to a search property
 
 # logger
-    - create global logger
+    - create global logger (after environment creation)

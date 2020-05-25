@@ -4,27 +4,15 @@ export const commonWords: TypeFragment[] = [
     "signup",
     "signin",
     "session",
+    "promocoes",
     "promocao",
     "promo",
     "search_term",
-
-    // "dmca",
-    // "login",
-
-    // "cadastro",
-    // "contato",
-    // "anuncie",
-    // "galeria",
-
-    // "ouvinte",
-    // "instrucaosenha",
-    // "locutores",
-    // "promocoes",
-    // "promocao",
-    // "noticias",
-    // "entrevistas",
-    // "lancamentos",
-
+    "gallery",
+    "galeria",
+    "dmca",
+    "login",
+    "cadastro",
 ];
 
 export default commonWords;

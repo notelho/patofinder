@@ -51,15 +51,18 @@ export class PathAnalyzer {
 
                 const path = search.path;
 
-                paths = await searcher.apply(search);
                 match = await filter.apply(path);
 
-                if (paths) {
-                    storage.put(paths);
-                }
-
                 if (match) {
+
                     matches.push(path);
+
+                } else {
+
+                    paths = await searcher.apply(search);
+
+                    storage.put(paths);
+
                 }
 
             }

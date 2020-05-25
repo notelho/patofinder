@@ -7,7 +7,6 @@ import commonSocial from '../fragments/common-social';
 import commonBlogs from '../fragments/common-blogs';
 import commonCodes from '../fragments/common-codes';
 import commonWords from '../fragments/common-words';
-import commonNames from '../fragments/common-names';
 
 export const streamPreferences: FilterPreferences = {
 
@@ -26,8 +25,6 @@ export const streamPreferences: FilterPreferences = {
         ...commonCodes,
 
         ...commonWords,
-
-        ...commonNames,
 
     ],
 
