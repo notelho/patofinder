@@ -18,29 +18,39 @@ export class LevelSorter {
 
         const dictionary = new Dictionary(type);
         const preferences = dictionary.preferences;
-        const rules = preferences.searchFor;
 
-        const matches = searches.filter(level => this.includes(level.path, rules));
-        const fails = searches.filter(level => !this.includes(level.path, rules));
+        const rules = preferences.searchInSequence;
 
-        return matches.concat(fails);
+        // const matches = searches.filter(level => this.includes(level.path, rules));
+
+        // const fails = searches.filter(level => !this.includes(level.path, rules));
+
+        // return matches.concat(fails);
+
+        return [];
     }
 
-    private includes(path: TypePath, rules: TypeFragment[]): boolean {
+    private includes(path: TypePath[], rules: TypeFragment[]): boolean {
 
-        for (const rule of rules) {
+        // for (const rule of rules) {
 
-            const includeRule = path.includes(rule);
-            const equalsRule = path === rule;
+        //     const includeRule = path.includes(rule);
+        //     const equalsRule = path === rule;
 
-            if (includeRule || equalsRule) {
-                return true;
-            }
+        //     if (includeRule || equalsRule) {
+        //         return true;
+        //     }
 
-        }
+        // }
 
         return false;
     }
+
+    // private ignores ( path : TypePath[ ], rules: TypeFragment [ ] [ ] ) : boolean {
+
+    //     searchInSequence
+
+    // }
 
 }
 

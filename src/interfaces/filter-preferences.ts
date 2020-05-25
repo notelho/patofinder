@@ -10,7 +10,7 @@ export interface FilterPreferences {
 
     ignoringKeys: TypeFragment[];
 
-    searchFor: TypeFragment[];
+    searchInSequence: TypeFragment[][];
 
 }
 
