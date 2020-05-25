@@ -1,10 +1,14 @@
+import SearchType from "../../interfaces/search-type";
+import TypePath from "../../interfaces/type-path";
+import Dictionary from "../../models/dictionary";
+
 const ffprobe = require("ffprobe");
 const ffprobeStatic = require("ffprobe-static");
 
-export async function streamRule(data: any): Promise<boolean> {
+export async function streamRule(path: TypePath, type: SearchType): Promise<boolean> {
 
-    const extensions: string[] = data.extensions;
-    const path: string = data.path;
+    const dictionary = new Dictionary(type);
+    const extensions = dictionary.extensions;
 
     const info = await ffprobe(path, { path: ffprobeStatic.path });
 
