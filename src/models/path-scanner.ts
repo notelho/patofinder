@@ -2,15 +2,14 @@ import resolveAllEndBars from '../utils/functions/resolve-all-end-bars';
 import resolveAllPaths from '../utils/functions/resolve-all-paths';
 import absolutePathRegexp from '../utils/regexp/absolute-path';
 import relativePathRegexp from '../utils/regexp/relative-path';
-import SearchUrl from "../interfaces/search-url"
 import TypePath from '../interfaces/type-path';
 import axios from 'axios';
 
 export class Scanner {
 
-    private url: SearchUrl;
+    private url: TypePath;
 
-    constructor(url: SearchUrl) {
+    constructor(url: TypePath) {
         this.url = url;
     }
 

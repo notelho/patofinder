@@ -16,6 +16,16 @@ async function test() {
 
 
 
+    // console.log('===================================================\n');
+    // const url2 = 'http://www.radiorock.com.br/player';
+    // console.log(url2);
+    // const matches2 = await find(url2, 'img');
+    // console.log(matches2);
+    // console.log('===================================================\n');
+
+
+
+
 
 
     // console.log('===================================================\n');

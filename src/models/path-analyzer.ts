@@ -1,23 +1,30 @@
 import SearchLevel from "../interfaces/search-level";
 import SearchType from "../interfaces/search-type";
-import SearchUrl from "../interfaces/search-url";
+import TypeLevel from "../interfaces/type-level";
 import TypePath from "../interfaces/type-path";
 import LevelSearcher from "./level-searcher";
 import LevelFilter from "./level-filter";
 import PathStorage from "./path-storage";
-import UrlAnalyzer from "./url-analyzer";
 
-export class UrlMiner extends UrlAnalyzer {
+export class PathAnalyzer {
 
-    constructor(url: SearchUrl, type: SearchType) {
-        super(url, type);
+    private readonly url: TypePath;
+
+    private readonly limit: TypeLevel;
+
+    private readonly type: SearchType;
+
+    constructor(url: TypePath, limit: TypeLevel, type: SearchType) {
+        this.url = url;
+        this.limit = limit;
+        this.type = type;
     }
 
     public async run(): Promise<TypePath[]> {
 
         const url = this.url;
+        const limit = this.limit;
         const type = this.type;
-        const limit = 3;
 
         const storage = new PathStorage(url, type);
         const searcher = new LevelSearcher(limit);
@@ -44,4 +51,4 @@ export class UrlMiner extends UrlAnalyzer {
 
 }
 
-export default UrlMiner;
+export default PathAnalyzer;

@@ -1,7 +1,7 @@
+import SearchLevel from "../interfaces/search-level";
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
-import SearchLevel from "../interfaces/search-level";
 
 export class LevelFilter {
 
@@ -17,14 +17,13 @@ export class LevelFilter {
         const path = search.path;
 
         const dictionary = new Dictionary(type);
-        const extensions = dictionary.extensions;
-        const filterRule = dictionary.filterRule;
+        const rule = dictionary.rule;
 
         try {
 
             // console.log('will get deep info for: ' + path + '\n');
 
-            const isMatch = await filterRule({ path, extensions });
+            const isMatch = await rule(path, type);
 
             if (isMatch) {
                 return path;

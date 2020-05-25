@@ -1,8 +1,6 @@
 import FilterPreferences from '../interfaces/filter-preferences';
-import EnvironmentFilter from '../interfaces/environment-filter';
-import EnvironmentMiner from '../interfaces/environment-miner';
 import TypeExtension from '../interfaces/type-extension';
-import TypeAnalyzer from '../interfaces/type-analyzer';
+import SearchData from '../interfaces/search-data';
 import FilterRule from '../interfaces/filter-rule';
 import SearchType from '../interfaces/search-type';
 import javascript from '../utils/dictionary/javascript';
@@ -35,12 +33,8 @@ export class Dictionary {
         this.selectedType = type;
     }
 
-    public get environment(): EnvironmentFilter | EnvironmentMiner {
-        return this.availableTypes[this.selectedType] as EnvironmentFilter | EnvironmentMiner;
-    }
-
-    public get analyzer(): TypeAnalyzer {
-        return this.environment.analyzer;
+    public get environment(): SearchData {
+        return this.availableTypes[this.selectedType] as SearchData;
     }
 
     public get extensions(): TypeExtension[] {
@@ -48,11 +42,11 @@ export class Dictionary {
     }
 
     public get preferences(): FilterPreferences {
-        return (this.environment as EnvironmentMiner).preferences;
+        return (this.environment as SearchData).preferences;
     }
 
-    public get filterRule(): FilterRule {
-        return (this.environment as EnvironmentMiner).rule;
+    public get rule(): FilterRule {
+        return (this.environment as SearchData).rule;
     }
 
 }
