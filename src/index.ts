@@ -8,10 +8,20 @@ async function test() {
     // console.log('===================================================\n');
     // const url2 = 'http://www.radiorock.com.br/player';
     // console.log(url2);
-    // const matches2 = await find(url2, 'img');
+    // const matches2 = await find(url2, 'javascript');
     // console.log(matches2);
     // console.log('===================================================\n');
 
+
+    // const url = 'www.google.com/test.png';
+    // const stringg = '(jpeg|jpg|gif|png)'
+    // const regexp = '\.' + stringg + '$';
+    // const instance = new RegExp(regexp);
+    // const test = url.match(regexp) != null;
+
+    // console.log(instance);
+    // console.log(url);
+    // console.log(test);
 
 
 

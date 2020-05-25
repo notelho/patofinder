@@ -1,6 +1,6 @@
 import SearchData from '../../interfaces/search-data';
 import emptyPreferences from '../preferences/empty-preferences';
-import includesRule from '../rules/includes-rule';
+import regexpRule from '../rules/regexp-rule';
 
 export const css: SearchData = {
 
@@ -12,7 +12,7 @@ export const css: SearchData = {
 
     preferences: emptyPreferences,
 
-    rule: includesRule
+    rule: regexpRule
 
 };
 
