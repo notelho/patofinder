@@ -11,29 +11,25 @@ export class LevelFilter {
         this.type = type;
     }
 
-    public async apply(search: SearchLevel): Promise<TypePath | undefined> {
+    public async apply(path: TypePath): Promise<boolean> {
+
+        // console.log('will get deep info for: ' + path + '\n');
 
         const type = this.type;
-        const path = search.path;
 
         const dictionary = new Dictionary(type);
         const rule = dictionary.rule;
 
         try {
 
-            // console.log('will get deep info for: ' + path + '\n');
-
-            const isMatch = await rule(path, type);
-
-            if (isMatch) {
-                return path;
-            }
+            return await rule(path, type);
 
         } catch (error) {
-            return undefined;
+
+            return false;
+
         }
 
-        return undefined;
     }
 
 }

@@ -13,7 +13,6 @@
     - recheck in history rule at src/models/path-storage.ts
     - create? priority by level in preferences.searchFor
     - transform dictionarys into models (after environment creation)
-    - fix single url do while
 
 # logger
     - create global logger

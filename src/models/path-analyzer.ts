@@ -31,26 +31,42 @@ export class PathAnalyzer {
         const searcher = new LevelSearcher(limit);
         const filter = new LevelFilter(type);
 
-        let paths: SearchLevel[];
-        let match: TypePath | undefined;
-        let search: SearchLevel | undefined;
-
         const dictionary = new Dictionary(type);
         const depth = dictionary.depth;
 
-        do {
+        const matches: TypePath[] = [];
+
+        let search: SearchLevel | undefined;
+        let paths: SearchLevel[];
+        let match: boolean;
+
+        while (
+            (!storage.empty && depth === 'first' && matches.length === 0) ||
+            (!storage.empty && depth === 'all')
+        ) {
 
             search = storage.get();
 
             if (search) {
+
+                const path = search.path;
+
                 paths = await searcher.apply(search);
-                match = await filter.apply(search);
-                storage.put(paths);
+                match = await filter.apply(path);
+
+                if (paths) {
+                    storage.put(paths);
+                }
+
+                if (match) {
+                    matches.push(path);
+                }
+
             }
 
-        } while ((!storage.empty && !match)); //  && depth === 'all'
+        };
 
-        return match ? [match] : [];
+        return matches;
     }
 
 }
