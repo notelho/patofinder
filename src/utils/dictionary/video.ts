@@ -1,6 +1,6 @@
 import SearchData from '../../interfaces/search-data';
 import emptyPreferences from '../preferences/empty-preferences';
-import regexpRule from '../rules/regexp-rule';
+import endingRule from '../rules/ending-rule';
 
 export const video: SearchData = {
 
@@ -12,7 +12,7 @@ export const video: SearchData = {
 
     preferences: emptyPreferences,
 
-    rule: regexpRule
+    rule: endingRule
 
 };
 
