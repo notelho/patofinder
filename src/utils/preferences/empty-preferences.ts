@@ -8,7 +8,7 @@ export const emptyPreferences: FilterPreferences = {
 
     ignoringKeys: [],
 
-    searchInSequence: []
+    searchBy: []
 
 };
 

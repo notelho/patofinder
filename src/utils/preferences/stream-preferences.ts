@@ -28,13 +28,13 @@ export const streamPreferences: FilterPreferences = {
 
     ],
 
-    searchInSequence: [
+    searchBy: [
 
-        streamingKeywords,
+        ...streamingKeywords,
 
-        streamingPlayers,
+        ...streamingPlayers,
 
-        streamingSearch,
+        ...streamingSearch,
 
     ]
 

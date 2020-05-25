@@ -5,7 +5,6 @@ export const streamingKeywords: TypeFragment[] = [
     "ice",
     "cast",
     "shout",
-    "host",
 ];
 
 export default streamingKeywords;

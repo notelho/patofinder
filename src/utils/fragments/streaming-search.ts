@@ -1,9 +1,10 @@
 import TypeFragment from "../../interfaces/type-fragment";
 
 export const streamingSearch: TypeFragment[] = [
-    "live",
     "play",
     "player",
+    "host",
+    "live",
     "stream",
     "listen",
     "aovivo",
