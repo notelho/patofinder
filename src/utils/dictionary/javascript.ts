@@ -8,6 +8,8 @@ export const javascript: SearchData = {
 
     depth: 'all',
 
+    level: 1,
+
     extensions: [".js"],
 
     preferences: emptyPreferences,

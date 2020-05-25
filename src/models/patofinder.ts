@@ -19,9 +19,8 @@ export class Patofinder {
 
             const type = this.type;
             const url = this.url;
-            const limit = 3;
 
-            const analyzer = new PathAnalyzer(url, limit, type);
+            const analyzer = new PathAnalyzer(url, type);
 
             const matches = await analyzer.run();
 

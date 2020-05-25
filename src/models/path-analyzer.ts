@@ -11,24 +11,21 @@ export class PathAnalyzer {
 
     private readonly url: TypePath;
 
-    private readonly limit: TypeLevel;
-
     private readonly type: SearchType;
 
-    constructor(url: TypePath, limit: TypeLevel, type: SearchType) {
+    constructor(url: TypePath, type: SearchType) {
         this.url = url;
-        this.limit = limit;
         this.type = type;
     }
 
     public async run(): Promise<TypePath[]> {
 
         const url = this.url;
-        const limit = this.limit;
+
         const type = this.type;
 
         const storage = new PathStorage(url, type);
-        const searcher = new LevelSearcher(limit);
+        const searcher = new LevelSearcher(type);
         const filter = new LevelFilter(type);
 
         const dictionary = new Dictionary(type);

@@ -12,7 +12,6 @@
     - change ignore rule to a for instead indexof
     - create? priority by level in preferences.searchFor
     - transform dictionarys into models (after environment creation)
-    - transform limit to a search property
 
 # logger
     - create global logger (after environment creation)

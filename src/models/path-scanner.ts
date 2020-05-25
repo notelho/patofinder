@@ -41,8 +41,6 @@ export class Scanner {
 
         } catch (error) {
 
-            // console.log('got a error while scanning \n');
-
             return [];
 
         }

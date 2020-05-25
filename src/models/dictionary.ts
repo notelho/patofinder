@@ -13,6 +13,7 @@ import img from '../utils/dictionary/img';
 import css from '../utils/dictionary/css';
 import php from '../utils/dictionary/php';
 import SearchDepth from '../interfaces/search-depth';
+import TypeLevel from '../interfaces/type-level';
 
 export class Dictionary {
 
@@ -40,6 +41,10 @@ export class Dictionary {
 
     public get depth(): SearchDepth {
         return this.environment.depth;
+    }
+
+    public get level(): TypeLevel {
+        return this.environment.level;
     }
 
     public get extensions(): TypeExtension[] {

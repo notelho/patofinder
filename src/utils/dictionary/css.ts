@@ -8,6 +8,8 @@ export const css: SearchData = {
 
     depth: 'all',
 
+    level: 1,
+
     extensions: [".css"],
 
     preferences: emptyPreferences,

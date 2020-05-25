@@ -8,6 +8,8 @@ export const img: SearchData = {
 
     depth: 'all',
 
+    level: 1,
+
     extensions: [".jpg", ".jpeg", ".svg", ".png", ".gif", ".gifv", ".tiff", ".psd", ".pdf", ".eps", ".ai", ".indd", ".raw", ".ico"],
 
     preferences: emptyPreferences,

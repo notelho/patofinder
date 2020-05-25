@@ -8,6 +8,8 @@ export const php: SearchData = {
 
     depth: 'all',
 
+    level: 1,
+
     extensions: [".php"],
 
     preferences: emptyPreferences,

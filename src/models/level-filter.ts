@@ -1,4 +1,3 @@
-import SearchLevel from "../interfaces/search-level";
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";

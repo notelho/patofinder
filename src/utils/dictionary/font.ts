@@ -8,6 +8,8 @@ export const font: SearchData = {
 
     depth: 'all',
 
+    level: 1,
+
     extensions: [".ttf", ".otf", ".woff", ".eot", ".svg"],
 
     preferences: emptyPreferences,

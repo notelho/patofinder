@@ -1,13 +1,17 @@
 import SearchLevel from "../interfaces/search-level";
 import TypeLevel from '../interfaces/type-level';
 import PathScanner from './path-scanner';
+import SearchType from "../interfaces/search-type";
+import Dictionary from "./dictionary";
 
 export class LevelSearcher {
 
     public readonly limit: TypeLevel;
 
-    constructor(limit: TypeLevel) {
-        this.limit = limit;
+    constructor(type: SearchType) {
+
+        this.limit = new Dictionary(type).level;
+
     }
 
     public async apply(search: SearchLevel): Promise<SearchLevel[]> {
