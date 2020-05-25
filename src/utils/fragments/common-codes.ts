@@ -41,6 +41,7 @@ export const commonCodes: TypeFragment[] = [
     "slitslider",
     // "addthis",
     "itunes",
+    // "fontawesome",
 ];
 
 export default commonCodes;
