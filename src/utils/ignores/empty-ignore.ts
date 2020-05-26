@@ -6,8 +6,6 @@ export const emptyIgnore: ConfigIgnore = {
 
     keys: [],
 
-    types: [],
-
 };
 
 export default emptyIgnore;

@@ -1,14 +1,11 @@
-import TypeExtension from "./type-extension";
-import TypeFragment from "./type-fragment";
-import SearchType from "./search-type";
+import ConfigExtensions from "./config-extensions";
+import ConfigKeys from "./config-keys";
 
 export interface ConfigIgnore {
 
-    extensions: TypeExtension[];
+    extensions: ConfigExtensions;
 
-    keys: TypeFragment[];
-
-    types: SearchType[];
+    keys: ConfigKeys;
 
 }
 
