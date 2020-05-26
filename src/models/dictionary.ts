@@ -17,9 +17,9 @@ import TypeLevel from '../interfaces/type-level';
 
 export class Dictionary {
 
-    readonly selectedType: SearchType;
+    public readonly selected: SearchType;
 
-    readonly availableTypes = {
+    public readonly types = {
         'url': url,
         'font': font,
         'img': img,
@@ -32,31 +32,31 @@ export class Dictionary {
     };
 
     constructor(type: SearchType) {
-        this.selectedType = type;
+        this.selected = type;
     }
 
-    public get environment(): SearchData {
-        return this.availableTypes[this.selectedType];
+    public get data(): SearchData {
+        return this.types[this.selected];
     }
 
     public get depth(): SearchDepth {
-        return this.environment.depth;
+        return this.data.depth;
     }
 
     public get level(): TypeLevel {
-        return this.environment.level;
+        return this.data.level;
     }
 
     public get extensions(): TypeExtension[] {
-        return this.environment.extensions;
+        return this.data.extensions;
     }
 
     public get preferences(): FilterPreferences {
-        return this.environment.preferences;
+        return this.data.preferences;
     }
 
     public get rule(): FilterRule {
-        return this.environment.rule;
+        return this.data.rule;
     }
 
 }

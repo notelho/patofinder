@@ -3,6 +3,7 @@ import SearchLevel from "../interfaces/search-level";
 import TypePath from "../interfaces/type-path";
 import LevelIgnorer from "./level-ignorer";
 import LevelSorter from "./level-sorter";
+import FilterPreferences from "../interfaces/filter-preferences";
 
 export class PathStorage {
 
@@ -14,19 +15,11 @@ export class PathStorage {
 
     private sorter: LevelSorter;
 
-    constructor(path: TypePath, type: SearchType) {
-        this.sorter = new LevelSorter(type);
-        this.ignorer = new LevelIgnorer(type);
+    constructor(path: TypePath, preferences: FilterPreferences) {
+        this.sorter = new LevelSorter(preferences);
+        this.ignorer = new LevelIgnorer(preferences);
         this.storage = [{ path, level: 0 }];
         this.history = [{ path, level: 0 }];
-    }
-
-    public get empty(): boolean {
-        return (this.storage.length === 0);
-    }
-
-    public get(): SearchLevel | undefined {
-        return this.storage.shift();
     }
 
     public put(searches: SearchLevel[]): void {
@@ -41,11 +34,17 @@ export class PathStorage {
         const newStorage = sorter.apply(concatedPaths);
         const newHistory = history.concat(filteredPaths);
 
-        // console.log(filteredPaths);
-
         this.storage = newStorage;
         this.history = newHistory;
 
+    }
+
+    public get(): SearchLevel | undefined {
+        return this.storage.shift();
+    }
+
+    public get empty(): boolean {
+        return (this.storage.length === 0);
     }
 
 }

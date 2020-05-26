@@ -2,22 +2,21 @@ import SearchLevel from "../interfaces/search-level";
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
+import FilterPreferences from "../interfaces/filter-preferences";
 
 export class LevelIgnorer {
 
-    private type: SearchType;
+    private preferences: FilterPreferences;
 
-    constructor(type: SearchType) {
-        this.type = type;
+    constructor(preferences: FilterPreferences) {
+        this.preferences = preferences;
     }
 
     apply(levelList: SearchLevel[], ignoreList: SearchLevel[]): SearchLevel[] {
 
         let ignoringRules: TypePath[] = [];
 
-        const dictionary = new Dictionary(this.type);
-
-        const preferences = dictionary.preferences;
+        const preferences = this.preferences;
         const ignoringTypes = preferences.ignoringTypes;
         const ignoringExtensions = preferences.ignoringExtensions;
         const ignoringKeys = preferences.ignoringKeys;

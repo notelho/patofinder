@@ -7,20 +7,20 @@ import axios from 'axios';
 
 export class Scanner {
 
-    private url: TypePath;
+    private path: TypePath;
 
-    constructor(url: TypePath) {
-        this.url = url;
+    constructor(path: TypePath) {
+        this.path = path;
     }
 
     public async apply(): Promise<TypePath[]> {
 
-        // console.log('will scan now: ' + this.url + '\n');
-
         try {
 
+            // console.log('will scan now: ' + this.url + '\n');
+
             const data = await this.get();
-            const basePath = this.url;
+            const basePath = this.path;
 
             const singleQuotesAbsolutePaths = data.split('\'').filter(row => row.trim().match(absolutePathRegexp));
             const singleQuotesRelativePaths = data.split('\'').filter(row => row.trim().match(relativePathRegexp));
@@ -49,7 +49,7 @@ export class Scanner {
 
     private async get(): Promise<string> {
 
-        const basePath = this.url;
+        const basePath = this.path;
         const requestResponse = await axios.get(basePath);
         const requestData = requestResponse.data;
 

@@ -1,28 +1,27 @@
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import PathAnalyzer from "./path-analyzer";
+import Dictionary from "./dictionary";
 
 export class Patofinder {
 
-    public readonly url: TypePath;
-
     public readonly type: SearchType;
 
-    constructor(url: TypePath, type: SearchType) {
-        this.url = url;
+    constructor(type: SearchType) {
         this.type = type;
     }
 
-    public async find(): Promise<TypePath[]> {
+    public async find(path: TypePath): Promise<TypePath[]> {
 
         try {
 
             const type = this.type;
-            const url = this.url;
 
-            const analyzer = new PathAnalyzer(url, type);
+            const dictionary = new Dictionary(type);
 
-            const matches = await analyzer.run();
+            const analyzer = new PathAnalyzer(dictionary);
+
+            const matches = await analyzer.apply(path);
 
             return matches;
 

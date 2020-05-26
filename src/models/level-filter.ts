@@ -1,25 +1,27 @@
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
+import FilterRule from "../interfaces/filter-rule";
 
 export class LevelFilter {
 
-    private type: SearchType;
+    private readonly type: SearchType;
 
-    constructor(type: SearchType) {
+    private readonly rule: FilterRule;
+
+    constructor(type: SearchType, rule: FilterRule) {
         this.type = type;
+        this.rule = rule;
     }
 
     public async apply(path: TypePath): Promise<boolean> {
 
-        // console.log('will get deep info for: ' + path + '\n');
-
-        const type = this.type;
-
-        const dictionary = new Dictionary(type);
-        const rule = dictionary.rule;
-
         try {
+
+            // console.log('will get deep info for: ' + path + '\n');
+
+            const type = this.type;
+            const rule = this.rule;
 
             return await rule(path, type);
 

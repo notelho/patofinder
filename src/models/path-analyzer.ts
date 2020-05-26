@@ -9,27 +9,25 @@ import Dictionary from "./dictionary";
 
 export class PathAnalyzer {
 
-    private readonly url: TypePath;
+    private readonly dictionary: Dictionary;
 
-    private readonly type: SearchType;
-
-    constructor(url: TypePath, type: SearchType) {
-        this.url = url;
-        this.type = type;
+    constructor(dictionary: Dictionary) {
+        this.dictionary = dictionary;
     }
 
-    public async run(): Promise<TypePath[]> {
+    public async apply(path: TypePath): Promise<TypePath[]> {
 
-        const url = this.url;
+        const dictionary = this.dictionary;
 
-        const type = this.type;
-
-        const storage = new PathStorage(url, type);
-        const searcher = new LevelSearcher(type);
-        const filter = new LevelFilter(type);
-
-        const dictionary = new Dictionary(type);
+        const preferences = dictionary.preferences;
+        const type = dictionary.selected;
         const depth = dictionary.depth;
+        const limit = dictionary.level;
+        const rule = dictionary.rule;
+
+        const storage = new PathStorage(path, preferences);
+        const filter = new LevelFilter(type, rule);
+        const searcher = new LevelSearcher(limit);
 
         const matches: TypePath[] = [];
 
@@ -46,13 +44,11 @@ export class PathAnalyzer {
 
             if (search) {
 
-                const path = search.path;
-
-                match = await filter.apply(path);
+                match = await filter.apply(search.path);
 
                 if (match) {
 
-                    matches.push(path);
+                    matches.push(search.path);
 
                 } else {
 

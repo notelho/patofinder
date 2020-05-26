@@ -3,23 +3,22 @@ import SearchLevel from "../interfaces/search-level";
 import SearchType from "../interfaces/search-type";
 import LevelIgnorer from "./level-ignorer";
 import Dictionary from './dictionary';
+import FilterPreferences from "../interfaces/filter-preferences";
 
 export class LevelSorter {
 
-    private type: SearchType;
+    private preferences: FilterPreferences;
 
-    constructor(type: SearchType) {
-        this.type = type;
+    constructor(preferences: FilterPreferences) {
+        this.preferences = preferences;
     }
 
     public apply(levels: SearchLevel[]): SearchLevel[] {
 
-        const type = this.type;
-
-        const dictionary = new Dictionary(type);
-        const ignorer = new LevelIgnorer(type);
-        const preferences = dictionary.preferences;
+        const preferences = this.preferences;
         const rules = preferences.searchBy;
+
+        const ignorer = new LevelIgnorer(preferences);
 
         const matches = this.getMatches(levels, rules);
         const fails = ignorer.apply(levels, matches);

@@ -8,10 +8,8 @@ export class LevelSearcher {
 
     public readonly limit: TypeLevel;
 
-    constructor(type: SearchType) {
-
-        this.limit = new Dictionary(type).level;
-
+    constructor(limit: TypeLevel) {
+        this.limit = limit;
     }
 
     public async apply(search: SearchLevel): Promise<SearchLevel[]> {
