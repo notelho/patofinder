@@ -17,8 +17,6 @@ export class Scanner {
 
         try {
 
-            // console.log('will scan now: ' + this.url + '\n');
-
             const data = await this.get();
             const basePath = this.path;
 

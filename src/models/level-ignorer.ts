@@ -1,8 +1,5 @@
-import SearchLevel from "../interfaces/search-level";
-import SearchType from "../interfaces/search-type";
-import TypePath from "../interfaces/type-path";
-import Dictionary from "./dictionary";
 import ConfigIgnore from "../interfaces/config-ignore";
+import SearchLevel from "../interfaces/search-level";
 
 export class LevelIgnorer {
 
@@ -14,52 +11,27 @@ export class LevelIgnorer {
 
     apply(levelList: SearchLevel[], ignoreList: SearchLevel[]): SearchLevel[] {
 
-        const ignoringPaths = ignoreList.map(level => level.path);
+        let matches: SearchLevel[] = [];
+        let rules: string[] = [];
 
-        let ignoringRules: TypePath[] = [];
+        rules = rules.concat(ignoreList.map(level => level.path));
+        rules = rules.concat(this.ignore.extensions);
+        rules = rules.concat(this.ignore.keys);
 
-        const ignore = this.ignore;
-        const ignoringTypes = ignore.types;
-        const ignoringExtensions = ignore.extensions;
-        const ignoringKeys = ignore.keys;
+        matches = levelList;
 
-        for (const ignoringType of ignoringTypes) { // temp
+        rules.map(rule => {
 
-            const excludingDictionary = new Dictionary(ignoringType);
-            const excludingExtensions = excludingDictionary.extensions;
+            matches = matches.filter(match => {
 
-            ignoringRules = ignoringRules.concat(excludingExtensions);
+                const includeRule = match.path.includes(rule);
+                const equalsRule = match.path === rule;
 
-        }
+                return !(includeRule || equalsRule);
 
-        ignoringRules = ignoringRules.concat(ignoringExtensions);
-        ignoringRules = ignoringRules.concat(ignoringPaths);
-        ignoringRules = ignoringRules.concat(ignoringKeys);
+            });
 
-        const matches: SearchLevel[] = [];
-
-        for (const level of levelList) {
-
-            let matchAnyRule: boolean = false;
-
-            for (const rule of ignoringRules) {
-
-                const includeRule = level.path.includes(rule);
-                const equalsRule = level.path === rule;
-
-                matchAnyRule = includeRule || equalsRule;
-
-                if (matchAnyRule) {
-                    break;
-                }
-
-            }
-
-            if (!matchAnyRule) {
-                matches.push(level);
-            }
-
-        }
+        });
 
         return matches;
     }

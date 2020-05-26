@@ -7,10 +7,4 @@
     - create --verbose option
 
 # logger
-    - create global logger (after environment creation)
-
-# refactor
-    - criar config extensions com pasta separada e só dar um concat ...[]
-    - terminar a xml e flash
-    - terminar de colocar tudo na search
-    - refatorar ignorer
+    - create winston global logger
