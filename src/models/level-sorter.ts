@@ -19,7 +19,7 @@ export class LevelSorter {
         const dictionary = new Dictionary(type);
         const ignorer = new LevelIgnorer(type);
         const preferences = dictionary.preferences;
-        const rules = preferences.searchInSequence;
+        const rules = preferences.searchBy;
 
         const matches = this.getMatches(levels, rules);
         const fails = ignorer.apply(levels, matches);
