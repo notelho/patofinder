@@ -1,6 +1,6 @@
+import ConfigExtensions from "./config-extensions";
 import TypePath from "./type-path";
-import SearchType from "./search-type";
 
-export type ConfigFilter = (path: TypePath, type: SearchType) => Promise<boolean>;
+export type ConfigFilter = (path: TypePath, extensions: ConfigExtensions) => Promise<boolean>;
 
 export default ConfigFilter;

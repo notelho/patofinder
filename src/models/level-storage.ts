@@ -3,7 +3,9 @@ import SearchLevel from "../interfaces/search-level";
 import TypePath from "../interfaces/type-path";
 import LevelIgnorer from "./level-ignorer";
 import LevelSorter from "./level-sorter";
-import FilterPreferences from "../interfaces/filter-preferences";
+import SearchConfig from "../interfaces/search-config";
+import ConfigSort from "../interfaces/config-sort";
+import ConfigIgnore from "../interfaces/config-ignore";
 
 export class LevelStorage {
 
@@ -15,9 +17,9 @@ export class LevelStorage {
 
     private sorter: LevelSorter;
 
-    constructor(path: TypePath, preferences: FilterPreferences) {
-        this.sorter = new LevelSorter(preferences);
-        this.ignorer = new LevelIgnorer(preferences);
+    constructor(path: TypePath, sort: ConfigSort, ignore: ConfigIgnore) {
+        this.sorter = new LevelSorter(sort, ignore);
+        this.ignorer = new LevelIgnorer(ignore);
         this.storage = [{ path, level: 0 }];
         this.history = [{ path, level: 0 }];
     }

@@ -1,5 +1,5 @@
-import endingFilter from '../filters/ending-filter';
 import SearchConfig from '../../interfaces/search-config';
+import endingFilter from '../filters/ending-filter';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
 

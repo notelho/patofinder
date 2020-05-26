@@ -8,6 +8,7 @@ import TypeLevel from "./type-level";
 import ConfigSort from './config-sort'
 import ConfigIgnore from './config-ignore'
 import ConfigFilter from './config-filter'
+import ConfigExtensions from "./config-extensions";
 
 export interface SearchConfig {
 
@@ -17,7 +18,7 @@ export interface SearchConfig {
 
     limit: TypeLevel;
 
-    extensions: TypeExtension[];
+    extensions: ConfigExtensions;
 
     sort: ConfigSort;
 

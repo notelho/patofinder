@@ -1,16 +1,17 @@
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
 import Dictionary from "./dictionary";
-import FilterRule from "../interfaces/filter-rule";
+import ConfigFilter from "../interfaces/config-filter";
+import ConfigExtensions from "../interfaces/config-extensions";
 
 export class LevelFilter {
 
-    private readonly type: SearchType;
+    private readonly extensions: ConfigExtensions;
 
-    private readonly rule: FilterRule;
+    private readonly rule: ConfigFilter;
 
-    constructor(type: SearchType, rule: FilterRule) {
-        this.type = type;
+    constructor(extensions: ConfigExtensions, rule: ConfigFilter) {
+        this.extensions = extensions;
         this.rule = rule;
     }
 
@@ -20,10 +21,10 @@ export class LevelFilter {
 
             // console.log('will get deep info for: ' + path + '\n');
 
-            const type = this.type;
+            const extensions = this.extensions;
             const rule = this.rule;
 
-            return await rule(path, type);
+            return await rule(path, extensions);
 
         } catch (error) {
 

@@ -1,7 +1,7 @@
 import SearchConfig from '../../interfaces/search-config';
-import emptySort from '../sorts/empty-sort';
 import emptyIgnore from '../ignores/empty-ignore';
 import anyFilter from '../filters/any-filter';
+import emptySort from '../sorts/empty-sort';
 
 export const url: SearchConfig = {
 

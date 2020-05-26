@@ -1,62 +1,67 @@
-import FilterPreferences from '../interfaces/filter-preferences';
-import TypeExtension from '../interfaces/type-extension';
-import SearchData from '../interfaces/search-data';
-import FilterRule from '../interfaces/filter-rule';
-import SearchType from '../interfaces/search-type';
-import javascript from '../utils/searches/javascript-search';
-import stream from '../utils/searches/stream-search';
-import video from '../utils/searches/video-search';
-import audio from '../utils/searches/audio-search';
-import font from '../utils/searches/font-search';
-import url from '../utils/searches/url-search';
-import img from '../utils/searches/img-search';
-import css from '../utils/searches/css-search';
-import php from '../utils/searches/php-search';
+import ConfigExtensions from '../interfaces/config-extensions';
+import ConfigIgnore from '../interfaces/config-ignore';
+import ConfigFilter from '../interfaces/config-filter';
+import SearchConfig from '../interfaces/search-config';
 import SearchDepth from '../interfaces/search-depth';
+import SearchType from '../interfaces/search-type';
+import ConfigSort from '../interfaces/config-sort';
 import TypeLevel from '../interfaces/type-level';
+import javascriptSearch from '../utils/searches/javascript-search';
+import streamSearch from '../utils/searches/stream-search';
+import videoSearch from '../utils/searches/video-search';
+import audioSearch from '../utils/searches/audio-search';
+import fontSearch from '../utils/searches/font-search';
+import urlSearch from '../utils/searches/url-search';
+import imgSearch from '../utils/searches/img-search';
+import cssSearch from '../utils/searches/css-search';
+import phpSearch from '../utils/searches/php-search';
 
 export class Dictionary {
 
     public readonly type: SearchType;
 
     public readonly searches = {
-        'url': url,
-        'font': font,
-        'img': img,
-        'audio': audio,
-        'video': video,
-        'stream': stream,
-        'javascript': javascript,
-        'css': css,
-        'php': php,
+        'url': urlSearch,
+        'font': fontSearch,
+        'img': imgSearch,
+        'audio': audioSearch,
+        'video': videoSearch,
+        'stream': streamSearch,
+        'javascript': javascriptSearch,
+        'css': cssSearch,
+        'php': phpSearch,
     };
 
     constructor(type: SearchType) {
-        this.selected = type;
+        this.type = type;
     }
 
-    public get data(): SearchData {
-        return this.types[this.selected];
+    public get config(): SearchConfig {
+        return this.searches[this.type];
     }
 
     public get depth(): SearchDepth {
-        return this.data.depth;
+        return this.config.depth;
     }
 
-    public get level(): TypeLevel {
-        return this.data.level;
+    public get limit(): TypeLevel {
+        return this.config.limit;
     }
 
-    public get extensions(): TypeExtension[] {
-        return this.data.extensions;
+    public get extensions(): ConfigExtensions {
+        return this.config.extensions;
     }
 
-    public get preferences(): FilterPreferences {
-        return this.data.preferences;
+    public get sort(): ConfigSort {
+        return this.config.sort;
     }
 
-    public get rule(): FilterRule {
-        return this.data.rule;
+    public get ignore(): ConfigIgnore {
+        return this.config.ignore;
+    }
+
+    public get filter(): ConfigFilter {
+        return this.config.filter;
     }
 
 }

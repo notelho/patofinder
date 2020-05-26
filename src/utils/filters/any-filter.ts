@@ -1,10 +1,11 @@
-import SearchType from "../../interfaces/search-type";
+import ConfigExtensions from "../../interfaces/config-extensions";
+import ConfigFilter from "../../interfaces/config-filter";
 import TypePath from "../../interfaces/type-path";
 
-export function anyFilter(path: TypePath, type: SearchType): Promise<boolean> {
+export function anyFilter(path: TypePath, extensions: ConfigExtensions): Promise<boolean> {
 
     return new Promise(resolve => resolve(true));
 
 }
 
-export default anyFilter;
+export default anyFilter as ConfigFilter;

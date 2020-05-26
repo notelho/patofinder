@@ -1,11 +1,8 @@
-import SearchType from "../../interfaces/search-type";
+import ConfigExtensions from "../../interfaces/config-extensions";
+import ConfigFilter from "../../interfaces/config-filter";
 import TypePath from "../../interfaces/type-path";
-import Dictionary from "../../models/dictionary";
 
-export function includesFilter(path: TypePath, type: SearchType): Promise<boolean> {
-
-    const dictionary = new Dictionary(type);
-    const extensions = dictionary.extensions;
+export function includesFilter(path: TypePath, extensions: ConfigExtensions): Promise<boolean> {
 
     return new Promise(resolve => {
 
@@ -21,4 +18,4 @@ export function includesFilter(path: TypePath, type: SearchType): Promise<boolea
 
 }
 
-export default includesFilter;
+export default includesFilter as ConfigFilter;

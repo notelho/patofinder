@@ -1,14 +1,11 @@
-import SearchType from "../../interfaces/search-type";
+import ConfigExtensions from "../../interfaces/config-extensions";
 import TypePath from "../../interfaces/type-path";
-import Dictionary from "../../models/dictionary";
+import ConfigFilter from "../../interfaces/config-filter";
 
 const ffprobe = require("ffprobe");
 const ffprobeStatic = require("ffprobe-static");
 
-export async function streamFilter(path: TypePath, type: SearchType): Promise<boolean> {
-
-    const dictionary = new Dictionary(type);
-    const extensions = dictionary.extensions;
+export async function streamFilter(path: TypePath, extensions: ConfigExtensions): Promise<boolean> {
 
     const info = await ffprobe(path, { path: ffprobeStatic.path });
 
@@ -43,4 +40,4 @@ export async function streamFilter(path: TypePath, type: SearchType): Promise<bo
     return false;
 }
 
-export default streamFilter;
+export default streamFilter as ConfigFilter;

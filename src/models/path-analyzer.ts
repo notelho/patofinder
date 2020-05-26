@@ -1,14 +1,9 @@
 import SearchLevel from "../interfaces/search-level";
-import SearchType from "../interfaces/search-type";
-import TypeLevel from "../interfaces/type-level";
 import TypePath from "../interfaces/type-path";
 import LevelSearcher from "./level-searcher";
 import LevelFilter from "./level-filter";
 import LevelStorage from "./level-storage";
 import Dictionary from "./dictionary";
-
-import SearchDepth from "../interfaces/search-depth";
-
 
 export class PathAnalyzer {
 
@@ -20,14 +15,15 @@ export class PathAnalyzer {
 
     public async apply(path: TypePath): Promise<TypePath[]> {
 
-        const type = this.dictionary.selected;
         const depth = this.dictionary.depth;
-        const limit = this.dictionary.level;
-        const preferences = this.dictionary.preferences;
-        const rule = this.dictionary.rule;
+        const limit = this.dictionary.limit;
+        const sort = this.dictionary.sort;
+        const ignore = this.dictionary.ignore;
+        const extensions = this.dictionary.extensions;
+        const rule = this.dictionary.filter;
 
-        const storage = new LevelStorage(path, preferences);
-        const filter = new LevelFilter(type, rule);
+        const storage = new LevelStorage(path, sort, ignore);
+        const filter = new LevelFilter(extensions, rule);
         const searcher = new LevelSearcher(limit);
 
         const matches: TypePath[] = [];
