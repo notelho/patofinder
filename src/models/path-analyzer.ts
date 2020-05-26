@@ -4,7 +4,7 @@ import TypeLevel from "../interfaces/type-level";
 import TypePath from "../interfaces/type-path";
 import LevelSearcher from "./level-searcher";
 import LevelFilter from "./level-filter";
-import PathStorage from "./path-storage";
+import LevelStorage from "./level-storage";
 import Dictionary from "./dictionary";
 
 export class PathAnalyzer {
@@ -25,7 +25,7 @@ export class PathAnalyzer {
         const limit = dictionary.level;
         const rule = dictionary.rule;
 
-        const storage = new PathStorage(path, preferences);
+        const storage = new LevelStorage(path, preferences);
         const filter = new LevelFilter(type, rule);
         const searcher = new LevelSearcher(limit);
 

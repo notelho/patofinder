@@ -5,7 +5,7 @@ import LevelIgnorer from "./level-ignorer";
 import LevelSorter from "./level-sorter";
 import FilterPreferences from "../interfaces/filter-preferences";
 
-export class PathStorage {
+export class LevelStorage {
 
     private storage: SearchLevel[];
 
@@ -49,4 +49,4 @@ export class PathStorage {
 
 }
 
-export default PathStorage;
+export default LevelStorage;
