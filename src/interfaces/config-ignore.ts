@@ -4,11 +4,11 @@ import SearchType from "./search-type";
 
 export interface ConfigIgnore {
 
-    types: SearchType[];
-
     extensions: TypeExtension[];
 
     keys: TypeFragment[];
+
+    types: SearchType[];
 
 }
 

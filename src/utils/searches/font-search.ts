@@ -3,7 +3,7 @@ import includesFilter from '../filters/includes-filter';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
 
-export const font: SearchConfig = {
+export const fontSearch: SearchConfig = {
 
     type: 'font',
 
@@ -21,4 +21,4 @@ export const font: SearchConfig = {
 
 };
 
-export default font;
+export default fontSearch;

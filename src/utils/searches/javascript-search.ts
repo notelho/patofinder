@@ -3,7 +3,7 @@ import includesFilter from '../filters/includes-filter';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
 
-export const javascript: SearchConfig = {
+export const javascriptSearch: SearchConfig = {
 
     type: 'javascript',
 
@@ -21,4 +21,4 @@ export const javascript: SearchConfig = {
 
 };
 
-export default javascript;
+export default javascriptSearch;

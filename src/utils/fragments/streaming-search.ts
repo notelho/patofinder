@@ -11,7 +11,7 @@ export const streamingSearch: TypeFragment[] = [
     "webrad",
     "slave",
     "assista",
-    "watch"
+    "watch",
 ];
 
 export default streamingSearch;

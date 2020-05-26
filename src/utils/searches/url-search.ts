@@ -3,7 +3,7 @@ import emptyIgnore from '../ignores/empty-ignore';
 import anyFilter from '../filters/any-filter';
 import emptySort from '../sorts/empty-sort';
 
-export const url: SearchConfig = {
+export const urlSearch: SearchConfig = {
 
     type: 'url',
 
@@ -21,4 +21,4 @@ export const url: SearchConfig = {
 
 };
 
-export default url;
+export default urlSearch;

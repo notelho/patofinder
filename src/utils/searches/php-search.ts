@@ -3,7 +3,7 @@ import includesFilter from '../filters/includes-filter';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
 
-export const php: SearchConfig = {
+export const phpSearch: SearchConfig = {
 
     type: "php",
 
@@ -21,4 +21,4 @@ export const php: SearchConfig = {
 
 };
 
-export default php;
+export default phpSearch;

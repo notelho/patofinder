@@ -7,9 +7,7 @@ import commonWords from '../fragments/common-words';
 
 export const streamIgnore: ConfigIgnore = {
 
-    types: ['img', 'css', 'php', 'font'],
-
-    extensions: ['.min.js', '.min', '.xml', '.swf'],
+    extensions: ['.min.js', '.min.css', '.min', '.xml', '.swf'],
 
     keys: [
 
@@ -24,6 +22,8 @@ export const streamIgnore: ConfigIgnore = {
         ...commonWords,
 
     ],
+
+    types: ['img', 'css', 'php', 'font'],
 
 };
 

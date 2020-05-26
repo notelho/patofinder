@@ -1,10 +1,8 @@
 # tests
-    - add unit tests
-    - add integration tests
+    - add unit tests for each type (coverage)
 
 # bin run
     - add binary file
-    - add environment model
     - create --level option
     - create --verbose option
 
@@ -12,4 +10,7 @@
     - create global logger (after environment creation)
 
 # refactor
-    - criar config extensiond com pasta separada
+    - criar config extensions com pasta separada e só dar um concat ...[]
+    - terminar a xml e flash
+    - terminar de colocar tudo na search
+    - refatorar ignorer

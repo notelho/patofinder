@@ -3,7 +3,7 @@ import endingFilter from '../filters/ending-filter';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
 
-export const video: SearchConfig = {
+export const videoSearch: SearchConfig = {
 
     type: "video",
 
@@ -21,4 +21,4 @@ export const video: SearchConfig = {
 
 };
 
-export default video;
+export default videoSearch;

@@ -3,7 +3,7 @@ import endingFilter from '../filters/ending-filter';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
 
-export const css: SearchConfig = {
+export const cssSearch: SearchConfig = {
 
     type: 'css',
 
@@ -21,4 +21,4 @@ export const css: SearchConfig = {
 
 };
 
-export default css;
+export default cssSearch;

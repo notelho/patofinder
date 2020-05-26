@@ -3,7 +3,7 @@ import streamIgnore from '../ignores/stream-ignore';
 import streamFilter from '../filters/stream-filter';
 import streamSort from '../sorts/stream-sort';
 
-export const stream: SearchConfig = {
+export const streamSearch: SearchConfig = {
 
     type: "stream",
 
@@ -21,4 +21,4 @@ export const stream: SearchConfig = {
 
 };
 
-export default stream;
+export default streamSearch;
