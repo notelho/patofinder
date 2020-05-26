@@ -12,31 +12,19 @@ import FilterPreferences from "../interfaces/filter-preferences";
 
 export class PathAnalyzer {
 
-    public readonly type: SearchType;
-
-    public readonly depth: SearchDepth;
-
-    public readonly limit: TypeLevel;
-
-    public readonly preferences: FilterPreferences;
-
-    public readonly rule: FilterRule;
+    public readonly dictionary: Dictionary
 
     constructor(dictionary: Dictionary) {
-        this.preferences = dictionary.preferences;
-        this.type = dictionary.selected;
-        this.depth = dictionary.depth;
-        this.limit = dictionary.level;
-        this.rule = dictionary.rule;
+        this.dictionary = dictionary;
     }
 
     public async apply(path: TypePath): Promise<TypePath[]> {
 
-        const type = this.type;
-        const depth = this.depth;
-        const limit = this.limit;
-        const preferences = this.preferences;
-        const rule = this.rule;
+        const type = this.dictionary.selected;
+        const depth = this.dictionary.depth;
+        const limit = this.dictionary.level;
+        const preferences = this.dictionary.preferences;
+        const rule = this.dictionary.rule;
 
         const storage = new LevelStorage(path, preferences);
         const filter = new LevelFilter(type, rule);

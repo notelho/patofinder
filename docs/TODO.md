@@ -14,3 +14,8 @@
 
 # logger
     - create global logger (after environment creation)
+
+# refactor
+    - dictionary.prefereces -> dictionary.config
+    - path-storage -> level-storage
+    - FilterPreferences -> filter config? { ignorer config, sorter config ? }
