@@ -39,8 +39,8 @@ export class LevelStorage {
 
     }
 
-    public get(): SearchLevel | undefined {
-        return this.storage.shift();
+    public get(): SearchLevel {
+        return this.storage.shift() as SearchLevel;
     }
 
     public get empty(): boolean {

@@ -13,23 +13,12 @@ export class Patofinder {
 
     public async find(path: TypePath): Promise<TypePath[]> {
 
-        try {
+        const type = this.type;
+        const dictionary = new Dictionary(type);
+        const analyzer = new PathAnalyzer(dictionary);
+        const matches = await analyzer.apply(path);
 
-            const type = this.type;
-
-            const dictionary = new Dictionary(type);
-
-            const analyzer = new PathAnalyzer(dictionary);
-
-            const matches = await analyzer.apply(path);
-
-            return matches;
-
-        } catch (error) {
-
-            throw error;
-
-        }
+        return matches;
 
     }
 
