@@ -2,7 +2,7 @@ import SearchType from "../../interfaces/search-type";
 import TypePath from "../../interfaces/type-path";
 import Dictionary from "../../models/dictionary";
 
-export function endingRule(path: TypePath, type: SearchType): Promise<boolean> {
+export function endingFilter(path: TypePath, type: SearchType): Promise<boolean> {
 
     const dictionary = new Dictionary(type);
     const extensions = dictionary.extensions;
@@ -19,4 +19,4 @@ export function endingRule(path: TypePath, type: SearchType): Promise<boolean> {
 
 }
 
-export default endingRule;
+export default endingFilter;

@@ -5,7 +5,7 @@ import Dictionary from "../../models/dictionary";
 const ffprobe = require("ffprobe");
 const ffprobeStatic = require("ffprobe-static");
 
-export async function streamRule(path: TypePath, type: SearchType): Promise<boolean> {
+export async function streamFilter(path: TypePath, type: SearchType): Promise<boolean> {
 
     const dictionary = new Dictionary(type);
     const extensions = dictionary.extensions;
@@ -43,4 +43,4 @@ export async function streamRule(path: TypePath, type: SearchType): Promise<bool
     return false;
 }
 
-export default streamRule;
+export default streamFilter;

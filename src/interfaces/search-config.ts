@@ -23,7 +23,7 @@ export interface SearchConfig {
 
     ignore: ConfigIgnore;
 
-    rule: ConfigFilter;
+    filter: ConfigFilter;
 
 }
 

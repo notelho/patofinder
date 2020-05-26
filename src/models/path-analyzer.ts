@@ -6,9 +6,9 @@ import LevelSearcher from "./level-searcher";
 import LevelFilter from "./level-filter";
 import LevelStorage from "./level-storage";
 import Dictionary from "./dictionary";
-import FilterRule from "../interfaces/filter-rule";
+
 import SearchDepth from "../interfaces/search-depth";
-import FilterPreferences from "../interfaces/filter-preferences";
+
 
 export class PathAnalyzer {
 

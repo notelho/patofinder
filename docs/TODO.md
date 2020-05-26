@@ -16,6 +16,9 @@
     - create global logger (after environment creation)
 
 # refactor
-    - dictionary.prefereces -> dictionary.config
-    - path-storage -> level-storage
+    - implement new config models
+    - change filter params (path, extensions)
     - FilterPreferences -> filter config? { ignorer config, sorter config ? }
+    - change rules -> filter names, and also export as filter
+    - change ratify rule
+    - criar config extensiond com pasta separada

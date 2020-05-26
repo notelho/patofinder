@@ -1,6 +1,6 @@
 import TypePath from "../../interfaces/type-path";
 
-export function resolvePath(basePath: string, relativePath: string): TypePath | null {
+export function resolvePath(basePath: string, relativePath: string): TypePath | undefined {
 
     try {
 
@@ -12,7 +12,7 @@ export function resolvePath(basePath: string, relativePath: string): TypePath | 
 
     } catch (error) {
 
-        return null;
+        return undefined;
 
     }
 

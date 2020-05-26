@@ -1,5 +1,9 @@
 import TypeExtension from "./type-extension";
 
-export type ConfigSort = TypeExtension[];
+export interface ConfigSort {
+
+    keys: TypeExtension[];
+
+}
 
 export default ConfigSort;

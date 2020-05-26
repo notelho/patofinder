@@ -2,7 +2,7 @@ import SearchType from "../../interfaces/search-type";
 import TypePath from "../../interfaces/type-path";
 import Dictionary from "../../models/dictionary";
 
-export function includesRule(path: TypePath, type: SearchType): Promise<boolean> {
+export function includesFilter(path: TypePath, type: SearchType): Promise<boolean> {
 
     const dictionary = new Dictionary(type);
     const extensions = dictionary.extensions;
@@ -21,4 +21,4 @@ export function includesRule(path: TypePath, type: SearchType): Promise<boolean>
 
 }
 
-export default includesRule;
+export default includesFilter;
