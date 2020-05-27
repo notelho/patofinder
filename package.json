@@ -1,7 +1,7 @@
 {
   "name": "patofinder",
   "version": "1.0.0-rc.1",
-  "description": "An elegant way to search for url types on different html pages",
+  "description": "An elegant way to search for urls with web scraping",
   "author": "Nathan Botelho <nimbotelho@gmail.com> (https://github.com/notelho)",
   "license": "MIT",
   "scripts": {
@@ -19,7 +19,7 @@
   "bin": {
     "patofinder": "lib/bin/patofinder.js"
   },
-  "homepage": "https://github.com/notelho/patofinder#readme",
+  "homepage": "https://www.npmjs.com/package/patofinder",
   "bugs": {
     "url": "https://github.com/notelho/patofinder/issues"
   },
@@ -33,11 +33,14 @@
     "umd"
   ],
   "keywords": [
-    "patofinder",
-    "pathfinder",
-    "pathresolver",
+    "path searcher",
+    "path finder",
+    "url searcher",
+    "url finder",
+    "web scraping",
+    "data mining",
     "path",
-    "finder"
+    "url"
   ],
   "dependencies": {
     "axios": "^0.19.2",
