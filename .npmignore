@@ -2,6 +2,10 @@
 ./esm
 ./dist
 ./umd
+./src
 
 .editorconfig
 .gitignore
+.huskyrc.json
+.liststagedrc.json
+commitlint.config.js
