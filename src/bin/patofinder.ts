@@ -2,26 +2,29 @@
 
 import Arguments from "../models/arguments";
 
-const args = new Arguments();
+async function main() {
 
+    const args = new Arguments();
 
-args.create();
+    args.create();
+    args.check();
 
-args.check();
+    if (args.hasErrors()) {
 
-if (args.hasErrors()) {
+        args.showErrors();
 
-    console.log(args.getErrors());
+    } else {
 
-} else {
+        args.showLogo();
 
+        args.showInfo();
 
+        await args.app();
 
-    // args.clear();
+        args.showResult();
 
-    // await args.app() etc etc
-
-    // commander.outputHelp(); // args . show help?
-
+    }
 
 }
+
+main();
