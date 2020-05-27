@@ -46,7 +46,6 @@
     "commander": "^5.1.0",
     "ffprobe": "^1.1.0",
     "ffprobe-static": "^3.0.0",
-    "figlet": "^1.4.0",
     "typescript": "^3.9.2"
   },
   "devDependencies": {
