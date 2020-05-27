@@ -1,21 +1,27 @@
 {
   "name": "patofinder",
-  "version": "0.2.0",
+  "version": "0.9.0",
   "description": "An elegant way to search for url types on different html pages",
   "author": "Nathan Botelho <nimbotelho@gmail.com> (https://github.com/notelho)",
   "license": "MIT",
-  "main": "lib/index.js",
-  "module": "esm/index.js",
-  "types": "lib/index.d.js",
   "scripts": {
     "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:umd": "webpack",
-    "test": "npm run build:cjs && node ./lib/index.js"
+    "test": "npm run test:build && npm run test:cli",
+    "test:cli": "npm i -g && patofinder",
+    "test:build": "npm run build:cjs && node ./lib/index.js"
   },
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.js",
   "bin": {
-    "patofinder": "./bin/bin.js"
+    "patofinder": "lib/bin.js"
+  },
+  "homepage": "https://github.com/notelho/patofinder#readme",
+  "bugs": {
+    "url": "https://github.com/notelho/patofinder/issues"
   },
   "repository": {
     "type": "git",
@@ -33,11 +39,12 @@
     "path",
     "finder"
   ],
-  "bugs": {
-    "url": "https://github.com/notelho/patofinder/issues"
+  "dependencies": {
+    "axios": "^0.19.2",
+    "ffprobe": "^1.1.0",
+    "ffprobe-static": "^3.0.0",
+    "typescript": "^3.9.2"
   },
-  "homepage": "https://github.com/notelho/patofinder#readme",
-  "peerDependencies": {},
   "devDependencies": {
     "@babel/parser": "^7.9.6",
     "@babel/types": "^7.9.6",
@@ -61,10 +68,5 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
-  "dependencies": {
-    "axios": "^0.19.2",
-    "ffprobe": "^1.1.0",
-    "ffprobe-static": "^3.0.0",
-    "typescript": "^3.9.2"
-  }
+  "peerDependencies": {}
 }
