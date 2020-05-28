@@ -9,27 +9,23 @@ import find from "../public/find";
 const args = new Arguments();
 
 args.create();
-
 args.check();
+args.output();
 
 async function main(): Promise<void> {
 
-    args.logo();
-
     args.config();
+    args.info();
 
+    const verbose: boolean = args.verbose;
     const type: SearchType = args.type;
-
     const path: TypePath = args.path;
 
-    const logs: TypeLogs = args.type;
-
-    // logger.config(logs);
+    logger.cli(verbose);
 
     const result = await find(path, type);
 
-    // logger.force(result);
-    // logger.log(result);
+    logger.force(result);
 
 }
 
