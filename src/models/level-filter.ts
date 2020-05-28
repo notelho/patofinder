@@ -19,6 +19,8 @@ export class LevelFilter {
 
         try {
 
+            console.log('deep : ' + path);
+
             const extensions = this.extensions;
             const rule = this.rule;
 

@@ -5,6 +5,7 @@ import cliLogo from '../utils/cli/cli-logo';
 import TypePath from '../interfaces/type-path';
 import find from '../public/find';
 import commander from 'commander';
+import chalk from 'chalk';
 
 export class Arguments {
 
@@ -12,14 +13,24 @@ export class Arguments {
 
     private result: TypePath[];
 
+    // const path = commander.path;
+    // const type = commander.type;
+    // const logs = commander.verbose;
+
     private options = [
         { flags: '-P, --path <url>', description: 'specifies the path for scan [required]' },
         { flags: '-T, --type <type>', description: 'specifies the type of search [required]' },
         { flags: '-v, --verbose', description: 'enable application search logs (cli only)' },
-        // -V, --version
         // -e, --examples
+        // -V, --version
         // -H, --help
     ];
+
+    private errors = [
+
+        // { name: 'notfoundpath ', message: 'path not...', checked: true/false }
+
+    ]
 
     constructor() {
         this.error = false;
@@ -28,8 +39,12 @@ export class Arguments {
 
     public create() {
 
-        commander.version(cliPackage.version as string);
-        commander.description(`${cliPackage.description} (${cliPackage.homepage})`);
+        const version = "1.0.0-rc.1";
+        const description = "An elegant way to search for urls with web scraping";
+        const homepage = "https://www.npmjs.com/package/patofinder";
+
+        commander.version(version);
+        commander.description(`${description} (${homepage})`);
 
         for (const option of this.options) {
             commander.option(option.flags, option.description);
@@ -47,40 +62,40 @@ export class Arguments {
         const notFoundType = 'Type not found. Use --type and input a valid type';
         const invalidType = 'Invalid type provided. Use --example for more details';
 
-        const output: string[] = [];
+        const outputs: string[] = [];
 
         if (!path && !type) {
+
+            this.error = true;
 
             commander.outputHelp();
 
         } else {
 
             if (!path) {
-                output.push(notFoundPath);
+                outputs.push(notFoundPath);
             } else if (!path.match(absolutePathRegexp)) {
-                output.push(invalidPath);
+                outputs.push(invalidPath);
             }
 
             if (!type) {
-                output.push(notFoundType);
+                outputs.push(notFoundType);
             } else if (!type.match(searchTypeRegexp)) {
-                output.push(invalidType);
+                outputs.push(invalidType);
+            }
+
+            this.error = (outputs.length !== 0);
+
+            for (const output of outputs) {
+                console.log(chalk.red(output));
             }
 
         }
-
-        this.error = (output.length === 0);
 
     }
 
     public get hasError() {
         return this.error;
-    }
-
-    public showHelp(): void {
-
-        //
-
     }
 
     public showLogo(): void {
@@ -91,13 +106,7 @@ export class Arguments {
 
     public showInfo() {
 
-        //
-
-    }
-
-    public showResult() {
-
-        //
+        console.log('afu afu afu');
 
     }
 
@@ -110,6 +119,9 @@ export class Arguments {
         // logger.logs(logs);
 
         const result = await find(path, type);
+
+        console.log(result);
+
 
         this.result = result;
 

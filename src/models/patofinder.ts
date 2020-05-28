@@ -7,11 +7,8 @@ export class Patofinder {
 
     public readonly type: SearchType;
 
-    // public readonly verbose: boolean;
-
-    constructor(type: SearchType) { // , verbose: boolean
+    constructor(type: SearchType) {
         this.type = type;
-        // this.verbose = verbose;
     }
 
     public async find(path: TypePath): Promise<TypePath[]> {

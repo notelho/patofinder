@@ -20,6 +20,8 @@ export class Scanner {
             const data = await this.get();
             const basePath = this.path;
 
+            console.log('scanner : ' + basePath);
+
             const singleQuotesAbsolutePaths = data.split('\'').filter(row => row.trim().match(absolutePathRegexp));
             const singleQuotesRelativePaths = data.split('\'').filter(row => row.trim().match(relativePathRegexp));
 
