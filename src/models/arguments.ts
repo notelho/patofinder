@@ -13,6 +13,11 @@ export class Arguments {
 
     private result: TypePath[];
 
+    type: SearchType
+
+    path: TypePath
+
+
     // const path = commander.path;
     // const type = commander.type;
     // const logs = commander.verbose;
@@ -21,9 +26,7 @@ export class Arguments {
         { flags: '-P, --path <url>', description: 'specifies the path for scan [required]' },
         { flags: '-T, --type <type>', description: 'specifies the type of search [required]' },
         { flags: '-v, --verbose', description: 'enable application search logs (cli only)' },
-        // -e, --examples
-        // -V, --version
-        // -H, --help
+        { flags: '-e, --example', description: 'show command line examples (cli only)' },
     ];
 
     private errors = [
@@ -98,35 +101,17 @@ export class Arguments {
         return this.error;
     }
 
-    public showLogo(): void {
+    public logo(): void {
 
         cliLogo();
 
     }
 
-    public showInfo() {
+    public info() {
 
         console.log('afu afu afu');
 
     }
-
-    public async app() {
-
-        const path = commander.path;
-        const type = commander.type;
-        const logs = commander.verbose;
-
-        // logger.logs(logs);
-
-        const result = await find(path, type);
-
-        console.log(result);
-
-
-        this.result = result;
-
-    }
-
 
 }
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import SearchType from "../interfaces/search-type";
+import TypeLogs from "../interfaces/type-logs";
 import TypePath from "../interfaces/type-path";
 import Arguments from "../models/arguments";
-import Patofinder from "../models/patofinder";
 import find from "../public/find";
 
 const args = new Arguments();
@@ -18,9 +18,13 @@ async function main(): Promise<void> {
 
     args.config();
 
-    const type = args.type;
+    const type: SearchType = args.type;
 
-    const path = args.path;
+    const path: TypePath = args.path;
+
+    const logs: TypeLogs = args.type;
+
+    // logger.config(logs);
 
     const result = await find(path, type);
 
