@@ -1,87 +1,103 @@
+import absolutePathRegexp from '../utils/regexp/absolute-path';
+import searchTypeRegexp from '../utils/regexp/search-type';
+import cliPackage from '../utils/cli/cli-package';
+import cliLogo from '../utils/cli/cli-logo';
 import TypePath from '../interfaces/type-path';
-import pkg from '../../package.json';
 import find from '../public/find';
 import commander from 'commander';
 
 export class Arguments {
 
-    private description: string;
-
-    private link: string;
-
-    private version: string;
+    private error: boolean;
 
     private result: TypePath[];
 
-    private errors: string[];
-
     private options = [
-        { flags: '-P, --path <url>', description: 'Specifies the path for scan [required]' },
-        { flags: '-T, --type <type>', description: 'Specifies the type of search [required]' },
-        { flags: '-v, --verbose', description: 'Enable application search logs (cli only)' },
+        { flags: '-P, --path <url>', description: 'specifies the path for scan [required]' },
+        { flags: '-T, --type <type>', description: 'specifies the type of search [required]' },
+        { flags: '-v, --verbose', description: 'enable application search logs (cli only)' },
+        // -V, --version
+        // -e, --examples
+        // -H, --help
     ];
 
     constructor() {
-        this.description = pkg.description;
-        this.version = pkg.version;
-        this.link = pkg.homepage;
+        this.error = false;
         this.result = [];
-        this.errors = [];
     }
 
     public create() {
-        commander.version(this.version);
-        commander.description(`${this.description} (${this.link})`);
+
+        commander.version(cliPackage.version as string);
+        commander.description(`${cliPackage.description} (${cliPackage.homepage})`);
 
         for (const option of this.options) {
             commander.option(option.flags, option.description);
         }
 
         commander.parse(process.argv);
+
+        const path: string = commander.path;
+        const type: string = commander.type;
+        const examples: boolean = commander.examples;
+        const logs: boolean = commander.verbose;
+
+        const notFoundPath = 'Path not found. Use --path and input a valid url';
+        const invalidPath = 'Invalid path provided. Try again with another one';
+        const notFoundType = 'Type not found. Use --type and input a valid type';
+        const invalidType = 'Invalid type provided. Use --example for more details';
+
+        const output: string[] = [];
+
+        if (!path && !type) {
+
+            commander.outputHelp();
+
+        } else {
+
+            if (!path) {
+                output.push(notFoundPath);
+            } else if (!path.match(absolutePathRegexp)) {
+                output.push(invalidPath);
+            }
+
+            if (!type) {
+                output.push(notFoundType);
+            } else if (!type.match(searchTypeRegexp)) {
+                output.push(invalidType);
+            }
+
+        }
+
+        this.error = (output.length === 0);
+
     }
 
-    public check() {
-
-        // if (!commander.path || !commander.type) {
-        //     console.log('  - path');
-        //     console.log(commander.path);
-        // }
-
-        // if (!commander.type) {
-        //     console.log('  - type');
-        //     console.log(commander.type);
-        // }
-
-        // if (commander.verbose) {
-        //     console.log('  - verbose');
-        //     console.log(commander.verbose);
-        // }
-
+    public get hasError() {
+        return this.error;
     }
 
-    public hasErrors() {
-        return (this.errors.length > 0);
+    public showHelp(): void {
+
+        //
+
     }
 
     public showLogo(): void {
 
+        cliLogo();
+
     }
 
-    public showInfo(): void {
+    public showInfo() {
+
+        //
 
     }
 
     public showResult() {
 
-    }
-
-    public showErrors() { // : void
-        return this.errors.map(error => `> ${error}\n`).join('');
-    }
-
-    public showHelp() {
-
-        commander.outputHelp();
+        //
 
     }
 
@@ -89,9 +105,9 @@ export class Arguments {
 
         const path = commander.path;
         const type = commander.type;
-        const verbose = commander.verbose;
+        const logs = commander.verbose;
 
-        // logger.define(verbose);
+        // logger.logs(logs);
 
         const result = await find(path, type);
 
