@@ -1,14 +1,14 @@
 import absolutePathRegexp from '../utils/regexp/absolute-path';
 import searchTypeRegexp from '../utils/regexp/search-type';
 
+import cliExamples from '../utils/cli/cli-examples';
 import cliPackage from '../utils/cli/cli-package';
+import cliHelp from '../utils/cli/cli-help';
 import cliLogo from '../utils/cli/cli-logo';
 
+import SearchType from '../interfaces/search-type';
 import TypePath from '../interfaces/type-path';
 import TypeLogs from '../interfaces/type-logs';
-import SearchType from '../interfaces/search-type';
-
-import find from '../public/find';
 
 import commander from 'commander';
 import chalk from 'chalk';
@@ -17,13 +17,13 @@ export class Arguments {
 
     private result: TypePath[];
 
-    public readonly type: SearchType;
+    private type: SearchType;
 
-    public readonly path: TypePath;
+    private path: TypePath;
 
-    public readonly example: boolean;
+    private example: boolean;
 
-    public readonly verbose: boolean;
+    private verbose: boolean;
 
     private options = [
         { flags: '-P, --path <url>', description: 'specifies the path for scan [required]' },
@@ -37,23 +37,29 @@ export class Arguments {
         { name: 'invalidPath', message: 'Invalid path provided. Try again with another one', checked: false },
         { name: 'notFoundType', message: 'Type not found. Use --type and input a valid type', checked: false },
         { name: 'invalidType', message: 'Invalid type provided. Use --example for more details', checked: false },
-    ]
+    ];
 
     private actions = [
-
-        { name: 'showHelp', action: () =>  }
-
-    ]
+        { name: 'showHelp', action: cliHelp, checked: false },
+        { name: 'showExample', action: cliExamples, checked: false },
+    ];
 
     constructor() {
+        // this.path = '';
+        // this.type = '';
+        this.result = [];
+    }
+
+    public save() {
         this.path = commander.path;
         this.type = commander.type;
         this.example = commander.example;
         this.verbose = commander.verbose;
-        this.result = [];
     }
 
     public create() {
+
+        console.log('create begin');
 
         const version = "1.0.0-rc.1";
         const description = "An elegant way to search for urls with web scraping";
@@ -72,54 +78,67 @@ export class Arguments {
 
     public check(): void {
 
+        console.log('check begin');
+
         const path = this.path;
         const type = this.type;
         const example = this.example;
-        const verbose = this.verbose;
 
-        // take index from errors
-        // map actions?
+        console.log('example');
+        console.log(example);
 
-        const outputs: string[] = [];
+        const notFoundPathIndex = this.errors.map(error => error.name).indexOf('notFoundPath');
+        const invalidPathIndex = this.errors.map(error => error.name).indexOf('invalidPath');
+        const notFoundTypeIndex = this.errors.map(error => error.name).indexOf('notFoundType');
+        const invalidTypeIndex = this.errors.map(error => error.name).indexOf('invalidType');
+
+        const showExampleIndex = this.actions.map(action => action.name).indexOf('showExample');
+        const showHelpIndex = this.actions.map(action => action.name).indexOf('showHelp');
 
         if (!path && !type) {
 
-            this.error = true;
-
-            commander.outputHelp();
+            if (example) {
+                this.actions[showExampleIndex].checked = true;
+            } else {
+                this.actions[showHelpIndex].checked = true;
+            }
 
         } else {
 
             if (!path) {
-                outputs.push(notFoundPath);
+                this.errors[notFoundPathIndex].checked = true;
             } else if (!path.match(absolutePathRegexp)) {
-                outputs.push(invalidPath);
+                this.errors[invalidPathIndex].checked = true;
             }
 
             if (!type) {
-                outputs.push(notFoundType);
+                this.errors[notFoundTypeIndex].checked = true;
             } else if (!type.match(searchTypeRegexp)) {
-                outputs.push(invalidType);
-            }
-
-            for (const output of outputs) {
-                console.log(chalk.red(output));
+                this.errors[invalidTypeIndex].checked = true;
             }
 
         }
     }
 
-    public output() {
+    public output(): void {
 
-        // map errors and log messages or run actions
+        console.log('output begin');
+
+        for (const error of this.errors) {
+            if (error.checked) {
+                console.log(chalk.red(error.message));
+            }
+        }
+
+        for (const action of this.actions) {
+            if (action.checked) {
+                action.action();
+            }
+        }
 
     }
 
-    public config(): void {
-
-    }
-
-    public info() {
+    public info(): void {
 
         cliLogo();
 
@@ -127,16 +146,35 @@ export class Arguments {
         console.log('===================');
         console.log('begin search with url aopkfapekffkeaofk and type qpwfkwofkq');
 
-
-
     }
 
-    private throw(error) {
+    public get canRun(): boolean {
 
+        let hasError = false;
+        let hasAction = false;
+
+        for (const error of this.errors) {
+            if (error.checked) {
+                hasError = true;
+            }
+        }
+
+        for (const action of this.actions) {
+            if (action.checked) {
+                hasAction = true;
+            }
+        }
+
+        return (!hasError && !hasAction);
     }
 
-    public get hasError() {
-        return this.errors.map(error => error.checked).indexOf(true) === -1;
+    public get vars() {
+        return {
+            type: this.type,
+            path: this.path,
+            example: this.example,
+            verbose: this.verbose,
+        }
     }
 
 }
