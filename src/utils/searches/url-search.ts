@@ -1,4 +1,5 @@
 import SearchConfig from '../../interfaces/search-config';
+import anyExtensions from '../extensions/any-extensions';
 import emptyIgnore from '../ignores/empty-ignore';
 import anyFilter from '../filters/any-filter';
 import emptySort from '../sorts/empty-sort';
@@ -11,7 +12,7 @@ export const urlSearch: SearchConfig = {
 
     limit: 1,
 
-    extensions: [],
+    extensions: anyExtensions,
 
     sort: emptySort,
 

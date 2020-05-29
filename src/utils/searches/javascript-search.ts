@@ -1,3 +1,4 @@
+import javascriptExtensions from '../extensions/javascript-extensions';
 import SearchConfig from '../../interfaces/search-config';
 import includesFilter from '../filters/includes-filter';
 import emptyIgnore from '../ignores/empty-ignore';
@@ -11,7 +12,7 @@ export const javascriptSearch: SearchConfig = {
 
     limit: 1,
 
-    extensions: [".js"],
+    extensions: javascriptExtensions,
 
     sort: emptySort,
 

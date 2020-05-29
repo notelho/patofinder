@@ -2,6 +2,7 @@ import SearchConfig from '../../interfaces/search-config';
 import endingFilter from '../filters/ending-filter';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
+import imgExtensions from '../extensions/img-extensions';
 
 export const imgSearch: SearchConfig = {
 
@@ -11,7 +12,7 @@ export const imgSearch: SearchConfig = {
 
     limit: 1,
 
-    extensions: [".jpg", ".jpeg", ".svg", ".png", ".gif", ".gifv", ".tiff", ".psd", ".pdf", ".eps", ".ai", ".indd", ".raw", ".ico"],
+    extensions: imgExtensions,
 
     sort: emptySort,
 

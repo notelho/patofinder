@@ -1,3 +1,4 @@
+import fontExtensions from '../extensions/font-extensions';
 import SearchConfig from '../../interfaces/search-config';
 import includesFilter from '../filters/includes-filter';
 import emptyIgnore from '../ignores/empty-ignore';
@@ -11,7 +12,7 @@ export const fontSearch: SearchConfig = {
 
     limit: 1,
 
-    extensions: [".ttf", ".otf", ".woff", ".eot", ".svg"],
+    extensions: fontExtensions,
 
     sort: emptySort,
 
