@@ -1,7 +1,3 @@
-// logger.config(logs);
-// logger.force(result);
-// logger.log(result);
-
 import TypeLogs from "../interfaces/type-logs";
 
 
@@ -17,6 +13,7 @@ export const logger = new (class Logger {
 
         //
 
+
     }
 
     force(message: string): void {
@@ -28,6 +25,19 @@ export const logger = new (class Logger {
     log(message: string): void {
 
         //
+
+    }
+
+    update(message: string) {
+
+        // logger.config(logs);
+        // logger.force(result);
+        // logger.log(result);
+
+        // process.stdout.write("Hello, World");
+        // process.stdout.clearLine();
+        // process.stdout.cursorTo(0);
+        // process.stdout.write("\n"); // end the line
 
     }
 

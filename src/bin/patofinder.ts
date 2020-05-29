@@ -8,7 +8,6 @@ import find from "../public/find";
 const args = new CliArguments();
 
 args.create();
-args.check();
 args.output();
 
 async function main(): Promise<void> {

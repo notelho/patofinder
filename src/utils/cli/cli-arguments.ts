@@ -1,92 +1,46 @@
-import absolutePathRegexp from '../utils/regexp/absolute-path';
-import searchTypeRegexp from '../utils/regexp/search-type';
 
-import cliExamples from '../utils/cli/cli-examples';
-import cliPackage from '../utils/cli/cli-package';
-import cliHelp from '../utils/cli/cli-help';
-import cliLogo from '../utils/cli/cli-logo';
+import cliExamples from './cli-examples';
+import cliPackage from './cli-package';
+import cliHelp from './cli-help';
+import cliLogo from './cli-logo';
 
-import SearchType from '../interfaces/search-type';
-import TypePath from '../interfaces/type-path';
-import TypeLogs from '../interfaces/type-logs';
+import CliOptions from './cli-options';
+import CliActions from './cli-actions';
+import CliErrors from './cli-errors';
 
 import commander from 'commander';
 import chalk from 'chalk';
-import CliOptions from './cli-options';
-import CliErrors from './cli-errors';
 
 export class CliArguments {
 
-
     private options: CliOptions;
+
+    private actions: CliActions;
 
     private errors: CliErrors;
 
-    private actions = [
-        { name: 'showHelp', action: cliHelp, checked: false },
-        { name: 'showExample', action: cliExamples, checked: false },
-    ];
-
     constructor() {
-        // this.path = '';
-        // this.type = '';
-        this.result = [];
-    }
-
-    public save() {
-        this.path = commander.path;
-        this.type = commander.type;
-        this.example = commander.example;
-        this.verbose = commander.verbose;
+        this.options = new CliOptions();
+        this.actions = new CliActions();
+        this.errors = new CliErrors();
     }
 
     public create() {
-
         this.options.create();
         this.errors.check();
         this.actions.check();
-
-    }
-
-    public check(): void {
-
-        const path = this.path;
-        const type = this.type;
-        const example = this.example;
-
-
-        const showExampleIndex = this.actions.map(action => action.name).indexOf('showExample');
-        const showHelpIndex = this.actions.map(action => action.name).indexOf('showHelp');
-
-        if (!path && !type) {
-
-            if (example) {
-                this.actions[showExampleIndex].checked = true;
-            } else {
-                this.actions[showHelpIndex].checked = true;
-            }
-
-        }
-
     }
 
     public output(): void {
-
-        console.log('output begin');
-
         this.errors.show()
-
-        for (const action of this.actions) {
-            if (action.checked) {
-                action.action();
-            }
-        }
-
+        this.actions.show();
     }
 
     public info(): void {
 
         cliLogo();
+
+        // new search info?
 
         console.log('duck');
         console.log('===================');
