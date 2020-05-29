@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
+import CliArguments from "../utils/cli/cli-arguments";
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
-import Arguments from "../models/arguments";
 import find from "../public/find";
 
-const args = new Arguments();
+const args = new CliArguments();
 
 args.create();
-args.save();
 args.check();
 args.output();
 
