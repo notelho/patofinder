@@ -1,11 +1,9 @@
-import SearchType from "../interfaces/search-type";
+import ConfigIgnore from "../interfaces/config-ignore";
+import ConfigSort from "../interfaces/config-sort";
 import SearchLevel from "../interfaces/search-level";
 import TypePath from "../interfaces/type-path";
 import LevelIgnorer from "./level-ignorer";
 import LevelSorter from "./level-sorter";
-import SearchConfig from "../interfaces/search-config";
-import ConfigSort from "../interfaces/config-sort";
-import ConfigIgnore from "../interfaces/config-ignore";
 
 export class LevelStorage {
 

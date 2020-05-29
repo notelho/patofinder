@@ -1,6 +1,5 @@
 import TypeLogs from "../interfaces/type-logs";
 
-
 export const logger = new (class Logger {
 
     type: TypeLogs

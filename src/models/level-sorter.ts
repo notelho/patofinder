@@ -1,10 +1,8 @@
 import TypeFragment from "../interfaces/type-fragment";
-import SearchLevel from "../interfaces/search-level";
-import SearchType from "../interfaces/search-type";
-import LevelIgnorer from "./level-ignorer";
-import Dictionary from './dictionary';
-import ConfigSort from "../interfaces/config-sort";
 import ConfigIgnore from "../interfaces/config-ignore";
+import SearchLevel from "../interfaces/search-level";
+import ConfigSort from "../interfaces/config-sort";
+import LevelIgnorer from "./level-ignorer";
 
 export class LevelSorter {
 

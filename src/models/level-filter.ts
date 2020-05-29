@@ -1,8 +1,7 @@
-import SearchType from "../interfaces/search-type";
-import TypePath from "../interfaces/type-path";
-import Dictionary from "./dictionary";
-import ConfigFilter from "../interfaces/config-filter";
 import ConfigExtensions from "../interfaces/config-extensions";
+import ConfigFilter from "../interfaces/config-filter";
+import TypePath from "../interfaces/type-path";
+import logger from "./logger";
 
 export class LevelFilter {
 
@@ -19,10 +18,10 @@ export class LevelFilter {
 
         try {
 
-            console.log('deep : ' + path);
-
             const extensions = this.extensions;
             const rule = this.rule;
+
+            logger.log('analyzing: ' + path);
 
             return await rule(path, extensions);
 

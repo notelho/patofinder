@@ -3,6 +3,7 @@
 import CliArguments from "../utils/cli/cli-arguments";
 import SearchType from "../interfaces/search-type";
 import TypePath from "../interfaces/type-path";
+import logger from "../models/logger";
 import find from "../public/find";
 
 const args = new CliArguments();
@@ -18,12 +19,12 @@ async function main(): Promise<void> {
     const type: SearchType = args.vars.type;
     const verbose: boolean = args.vars.verbose;
 
-    // logger.cli(verbose);
+    logger.cli(verbose);
 
     const result = await find(path, type);
+    const paths = result.join('\n');
 
-    // logger.force(result);
-    console.log(result);
+    logger.force(paths);
 
 }
 

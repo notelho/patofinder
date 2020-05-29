@@ -1,8 +1,6 @@
 import SearchLevel from "../interfaces/search-level";
 import TypeLevel from '../interfaces/type-level';
 import PathScanner from './path-scanner';
-import SearchType from "../interfaces/search-type";
-import Dictionary from "./dictionary";
 
 export class LevelSearcher {
 
