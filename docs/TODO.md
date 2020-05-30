@@ -14,3 +14,7 @@
     - remove links
     - export examples to cli
     - export package to cli
+    - move readme
+    - move changelog
+    - create cli-examples/lib-examples
+    - remove todo
