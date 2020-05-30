@@ -1,9 +1,7 @@
 import chalk from 'chalk';
 
 export function cliLogo(): void {
-
     console.log('\n');
-
     console.log(
         chalk.yellow(
             `
@@ -15,9 +13,7 @@ export function cliLogo(): void {
             ╚═╝     ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝`
         )
     );
-
     console.log('\n');
-
 }
 
 export default cliLogo;

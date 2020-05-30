@@ -23,44 +23,37 @@ export class CliErrors {
         const type = commander.type;
 
         if (path || type) {
-
             if (!path) {
                 this.errors[notFoundPathIndex].checked = true;
             } else if (!path.match(absolutePathRegexp)) {
                 this.errors[invalidPathIndex].checked = true;
             }
-
             if (!type) {
                 this.errors[notFoundTypeIndex].checked = true;
             } else if (!type.match(searchTypeRegexp)) {
                 this.errors[invalidTypeIndex].checked = true;
             }
-
         }
 
     }
 
     public show(): void {
-
         for (const error of this.errors) {
             if (error.checked) {
                 logger.error(error.message);
             }
         }
-
     }
 
     public get hasError(): boolean {
-
         for (const error of this.errors) {
             if (error.checked) {
                 return true;
             }
         }
-
         return false;
-
     }
+
 }
 
 export default CliErrors;

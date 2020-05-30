@@ -19,37 +19,30 @@ export class CliActions {
         const showHelpIndex = this.actions.map(action => action.name).indexOf('showHelp');
 
         if (!path && !type) {
-
             if (example) {
                 this.actions[showExampleIndex].checked = true;
             } else {
                 this.actions[showHelpIndex].checked = true;
             }
-
         }
 
     }
 
     public show(): void {
-
         for (const action of this.actions) {
             if (action.checked) {
                 action.run();
             }
         }
-
     }
 
     public get hasAction(): boolean {
-
         for (const action of this.actions) {
             if (action.checked) {
                 return true;
             }
         }
-
         return false;
-
     }
 }
 

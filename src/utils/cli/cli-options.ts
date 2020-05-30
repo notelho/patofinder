@@ -23,16 +23,12 @@ export class CliOptions {
     }
 
     public create(): void {
-
         commander.version(this.version);
         commander.description(`${this.description} (${this.homepage})`);
-
         for (const option of this.options) {
             commander.option(option.flags, option.description);
         }
-
         commander.parse(process.argv);
-
     }
 
 }
