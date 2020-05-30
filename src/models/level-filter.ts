@@ -18,10 +18,10 @@ export class LevelFilter {
 
         try {
 
+            logger.log('analyzing: ' + path);
+
             const extensions = this.extensions;
             const rule = this.rule;
-
-            logger.log('analyzing: ' + path);
 
             return await rule(path, extensions);
 

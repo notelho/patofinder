@@ -10,9 +10,10 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:umd": "webpack",
     "test": "npm run test:build && npm run test:install && npm run test:cli",
+    "test:build": "npm run build:cjs",
+    "test:install": "npm i -g .",
     "test:cli": "patofinder",
-    "test:build": "npm run build:cjs && node ./lib/index.js",
-    "test:install": "npm i -g ."
+    "postinstall": "node ./lib/public/install.js"
   },
   "main": "lib/index.js",
   "module": "esm/index.js",

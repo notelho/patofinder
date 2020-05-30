@@ -1,33 +1,39 @@
 import TypeLogs from "../interfaces/type-logs";
+import chalk from 'chalk';
 
-export const logger = new (class Logger {
+class Logger {
 
-    type: TypeLogs
+    private type: TypeLogs;
 
     constructor() {
         this.type = 'none';
     }
 
-    cli(verbose: boolean): void {
-
-        //
-
-
+    public cli(verbose: boolean): void {
+        this.type = verbose ? 'verbose' : 'cli';
     }
 
-    force(message: string): void {
-
-        //
-
+    public error(message: string): void {
+        console.log(chalk.red(message));
     }
 
-    log(message: string): void {
-
-        //
-
+    public force(message: string): void {
+        console.log(chalk.yellow(message));
     }
 
-    update(message: string) {
+    public log(message: string): void {
+        if (this.type === 'verbose') {
+            this.info(message);
+        } else if (this.type === 'cli') {
+            this.update(message);
+        }
+    }
+
+    private info(message: string) {
+        console.log(chalk.blue(message));
+    }
+
+    private update(message: string) {
 
         // logger.config(logs);
         // logger.force(result);
@@ -40,7 +46,8 @@ export const logger = new (class Logger {
 
     }
 
+}
 
-})();
+export const logger = new Logger();
 
 export default logger;
