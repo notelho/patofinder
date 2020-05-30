@@ -1,10 +1,12 @@
+const pkg = require('../../../package.json');
+
 export const cliPackage = {
 
-    version: "1.0.0-rc.1",
+    version: pkg.version,
 
-    description: "An elegant way to search for urls with web scraping",
+    description: pkg.description,
 
-    homepage: "https://www.npmjs.com/package/patofinder",
+    homepage: pkg.homepage,
 
 }
 

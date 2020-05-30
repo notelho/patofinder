@@ -6,7 +6,6 @@
     - create examples
     - create changelog
     - export examples to cli
-    - export package to cli
     - create cli-examples/lib-examples
     - remove todo
 
