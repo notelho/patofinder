@@ -2,11 +2,15 @@
     - add unit tests for each type (coverage)
 
 # logger
-    - create winston global logger
-
-# refactor
-    - refactor bin stuff
-    - refactor cli folder
+    - create logger update method
 
 # recheck
-    - models imports
+    - url type search
+
+# finish
+    - create readme
+    - create examples
+    - create changelog
+    - remove links
+    - export examples to cli
+    - export package to cli
