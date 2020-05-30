@@ -1,6 +1,6 @@
 import commander from 'commander';
 
-export function cliHelp() {
+export function cliHelp(): void {
 
     commander.outputHelp();
 

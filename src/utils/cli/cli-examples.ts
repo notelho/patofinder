@@ -1,6 +1,6 @@
-export function cliExamples() {
+export function cliExamples(): void {
 
-    console.log('show examples xesque');
+    console.log('show examples');
 
 }
 

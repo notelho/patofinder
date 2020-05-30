@@ -9,7 +9,7 @@ export class CliActions {
         { name: 'showExample', run: cliExamples, checked: false },
     ];
 
-    public check() {
+    public check(): void {
 
         const path = commander.path;
         const type = commander.type;
@@ -30,7 +30,7 @@ export class CliActions {
 
     }
 
-    public show() {
+    public show(): void {
 
         for (const action of this.actions) {
             if (action.checked) {

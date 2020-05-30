@@ -1,15 +1,9 @@
-
-import cliExamples from './cli-examples';
-import cliPackage from './cli-package';
-import cliHelp from './cli-help';
-import cliLogo from './cli-logo';
-
 import CliOptions from './cli-options';
 import CliActions from './cli-actions';
 import CliErrors from './cli-errors';
-
+import cliLogo from './cli-logo';
+import cliInfo from './cli-info';
 import commander from 'commander';
-import chalk from 'chalk';
 
 export class CliArguments {
 
@@ -25,7 +19,7 @@ export class CliArguments {
         this.errors = new CliErrors();
     }
 
-    public create() {
+    public create(): void {
         this.options.create();
         this.errors.check();
         this.actions.check();
@@ -37,15 +31,8 @@ export class CliArguments {
     }
 
     public info(): void {
-
         cliLogo();
-
-        // new search info?
-
-        console.log('duck');
-        console.log('===================');
-        console.log('begin search with url aopkfapekffkeaofk and type qpwfkwofkq');
-
+        cliInfo();
     }
 
     public get canRun(): boolean {

@@ -1,7 +1,7 @@
 import absolutePathRegexp from '../regexp/absolute-path';
 import searchTypeRegexp from '../regexp/search-type';
+import logger from '../../models/logger';
 import commander from 'commander';
-import chalk from 'chalk';
 
 export class CliErrors {
 
@@ -12,7 +12,7 @@ export class CliErrors {
         { name: 'invalidType', message: 'Invalid type provided. Use --example for more details', checked: false },
     ];
 
-    public check() {
+    public check(): void {
 
         const notFoundPathIndex = this.errors.map(error => error.name).indexOf('notFoundPath');
         const invalidPathIndex = this.errors.map(error => error.name).indexOf('invalidPath');
@@ -21,7 +21,6 @@ export class CliErrors {
 
         const path = commander.path;
         const type = commander.type;
-        const example = commander.example;
 
         if (path || type) {
 
@@ -41,11 +40,11 @@ export class CliErrors {
 
     }
 
-    public show() {
+    public show(): void {
 
         for (const error of this.errors) {
             if (error.checked) {
-                console.log(chalk.red(error.message));
+                logger.error(error.message);
             }
         }
 
