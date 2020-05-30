@@ -9,7 +9,7 @@ export class LevelIgnorer {
         this.ignore = ignore;
     }
 
-    apply(levelList: SearchLevel[], ignoreList: SearchLevel[]): SearchLevel[] {
+    public apply(levelList: SearchLevel[], ignoreList: SearchLevel[]): SearchLevel[] {
 
         let matches: SearchLevel[] = [];
         let rules: string[] = [];

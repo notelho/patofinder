@@ -4,6 +4,7 @@ import LevelSearcher from "./level-searcher";
 import LevelFilter from "./level-filter";
 import LevelStorage from "./level-storage";
 import Dictionary from "./dictionary";
+import logger from './logger';
 
 export class PathAnalyzer {
 
@@ -38,12 +39,14 @@ export class PathAnalyzer {
         ) {
 
             search = storage.get();
-
+            logger.log(`analyzing: ${search.path}`);
             match = await filter.apply(search.path);
 
             if (match) {
+                logger.log(`match: ${search.path}`, 'success');
                 matches.push(search.path);
             } else {
+                logger.log(`scanning: ${search.path}`);
                 paths = await searcher.apply(search);
                 storage.put(paths);
             }
