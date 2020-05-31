@@ -1,6 +1,6 @@
 # Patofinder
 
-Patofinder is a open-source library javascript library (with CLI included) that resolve urls of a page from a get request. It doesnt just get all paths, but also filter and look for specific types or extensions.
+Patofinder is a open-source node library (with CLI included) that resolve urls of a page from a get request. It doesnt just get all paths, but also filter and look for specific types or extensions.
 
 ## Installation
 
@@ -8,10 +8,7 @@ Use the node package manager [NPM](https://www.npmjs.com/package/patofinder) to 
 
 ``` bash
 npm i patofinder
-```
-
-``` bash
-npm i -g patofinder
+npm i patofinder -g 
 ```
 
 ## Usage
@@ -101,7 +98,6 @@ The library is currently in todo implementation and will be finished soon. You c
     - install jest and types
     - create all tests
     - take tests do lib examples
-    - take tests to cli examples
     - fix url search
 
 ## License

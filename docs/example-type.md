@@ -1,35 +1,46 @@
-- audio
-> Search in a url for audio types
+### url
+
+> Search for all linked urls
+
+### css
+
+> Search for links that end with .css
+
+### javascript
+
+> Search for links with .js in path
+
+### php
+
+> Search for links with .php in path
+
+### stream
+
+> Search for online streaming
+
+### font
+
+> Search for links with the following extensions:
+> * .ttf
+> * .otf
+> * .woff
+> * .eot
+> * .svg
+
+### img
+
+> Search for images
 
 
-- css
-> Search in a url for links with css
+### Audio
 
+> Search for audio types  
 
-- font
-> Search in a url for linked fonts
+* Extensions:  
+    - awfa
+    - afa
+    - faefa
 
+### video
 
-- img
-> Search in a url for images
-
-
-- javascript
-> Search in a url for javascript files
-
-
-- php
-> Search in a url for php paths
-
-
-- stream
-> Search in a url for online streaming
-
-
-- url
-> Search in a url for all linked urls
-
-
-- video
-> Search in a url for audio video types
-
+> Search for audio video types
