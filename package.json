@@ -45,13 +45,11 @@
     "url"
   ],
   "dependencies": {
-    "@types/clear": "^0.1.0",
     "axios": "^0.19.2",
     "chalk": "^4.0.0",
     "commander": "^5.1.0",
     "ffprobe": "^1.1.0",
-    "ffprobe-static": "^3.0.0",
-    "typescript": "^3.9.2"
+    "ffprobe-static": "^3.0.0"
   },
   "devDependencies": {
     "@babel/parser": "^7.9.6",
@@ -74,7 +72,8 @@
     "ts-loader": "^7.0.4",
     "tslint": "^6.1.2",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "typescript": "^3.9.2"
   },
   "peerDependencies": {}
 }
