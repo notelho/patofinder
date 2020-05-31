@@ -7,7 +7,11 @@ Patofinder is a open-source library javascript library (with CLI included) that 
 Use the node package manager [NPM](https://www.npmjs.com/package/patofinder) to install it. You can install it locally to import the  into your javascript/typescript code or install it globally and use it directly as a command:
 
 ``` bash
-npm i patofinder || npm i -g patofinder
+npm i patofinder
+```
+
+``` bash
+npm i -g patofinder
 ```
 
 ## Usage
@@ -75,17 +79,13 @@ foo();
 
 The library has few functions and commands, but you can see some use cases in the docs folder:
 
-* available command line calls: see [cli examples](https://github.com/notelho/patofinder/blob/master/docs/example-cli.md)
-* available library func calls: see [lib examples](https://github.com/notelho/patofinder/blob/master/docs/example-lib.md)
-* available types and extensions: see [type examples](https://github.com/notelho/patofinder/blob/master/docs/example-search.md)
+* Available command line calls: see [cli examples](https://github.com/notelho/patofinder/blob/master/docs/example-cli.md)
+* Available library func calls: see [lib examples](https://github.com/notelho/patofinder/blob/master/docs/example-lib.md)
+* Available types and extensions: see [type examples](https://github.com/notelho/patofinder/blob/master/docs/example-search.md)
 
 ## Contributing
 
 The library is currently in todo implementation and will be finished soon. You can actually contribute by reporting errors or suggesting new features [here](https://github.com/notelho/patofinder/issues).
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
 
 ## Future Features
 
@@ -103,3 +103,7 @@ The library is currently in todo implementation and will be finished soon. You c
     - take tests do lib examples
     - take tests to cli examples
     - fix url search
+
+## License
+
+[MIT](https://github.com/notelho/patofinder/blob/master/LICENSE)
