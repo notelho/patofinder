@@ -1,36 +1,34 @@
-import cliHelp from './cli-help';
 import chalk from 'chalk';
 
 export function cliExamples(): void {
 
-    'Run patofinder with the --path and --type options to start the application:'
+    console.log('');
 
-    '- path: the path you want to scan'
-    '- type: what do you want to search for'
+    console.log('    Run patofinder with the --path and --type options to start the application:');
+    console.log('    » path: the path you want to scan');
+    console.log('    » type: what do you want to search for');
 
-    'Search for a specific audio in a url:'
+    console.log('');
 
-    'patofinder --path http://foo.bar.com --type audio'
+    console.log('    Search for a specific audio in a url:');
+    console.log('    ' + chalk.bgWhite(chalk.black('patofinder --path http://foo.bar.com --type audio')));
+    console.log('    Search for a specific video and enable logs:');
+    console.log('    ' + chalk.bgWhite(chalk.black('patofinder --path http://foo.bar.com --type video --verbose')));
 
-    'Search for a specific video and enable logs:'
+    console.log('');
 
-    'patofinder --path http://foo.bar.com --type video --verbose'
+    console.log('    Available search types (check github for a more detailed description for each one):');
+    console.log('    » audio                  # Search in a url for audio types');
+    console.log('    » css                    # Search in a url for links with css');
+    console.log('    » font                   # Search in a url for linked fonts');
+    console.log('    » img                    # Search in a url for images');
+    console.log('    » javascript             # Search in a url for javascript files');
+    console.log('    » php                    # Search in a url for php paths');
+    console.log('    » stream                 # Search in a url for online streaming');
+    console.log('    » url                    # Search in a url for all linked urls');
+    console.log('    » video                  # Search in a url for video types');
 
-    'Available search types (see [types](https://github.com/notelho/patofinder/blob/master/docs/example-types.md) for a more detailed description for each one):'
-
-    '- audio                  # Search in a url for audio types'
-    '- css                    # Search in a url for links with css'
-    '- font                   # Search in a url for linked fonts'
-    '- img                    # Search in a url for images'
-    '- javascript             # Search in a url for javascript files'
-    '- php                    # Search in a url for php paths'
-    '- stream                 # Search in a url for online streaming'
-    '- url                    # Search in a url for all linked urls'
-    '- video                  # Search in a url for audio video types'
-
-    'Check CLI help with the --help command:'
-
-    cliHelp()
+    console.log('');
 
 }
 

@@ -28,7 +28,7 @@ Available search types (see [types](https://github.com/notelho/patofinder/blob/m
 - php                    # Search in a url for php paths
 - stream                 # Search in a url for online streaming
 - url                    # Search in a url for all linked urls
-- video                  # Search in a url for audio video types
+- video                  # Search in a url for video types
 ```
 
 ## Help
