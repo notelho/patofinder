@@ -76,30 +76,30 @@ foo();
 
 The library has few functions and commands, but you can see some use cases in the docs folder:
 
-* Available command line calls: see [cli examples](https://github.com/notelho/patofinder/blob/master/docs/example-cli.md)
-* Available library func calls: see [lib examples](https://github.com/notelho/patofinder/blob/master/docs/example-lib.md)
-* Available types and extensions: see [type examples](https://github.com/notelho/patofinder/blob/master/docs/example-search.md)
+* Available command line calls: see [cli examples](./docs/example-cli.md)
+* Available library func calls: see [lib examples](./docs/example-lib.md)
+* Available types and extensions: see [type examples](./docs/example-type.md)
 
 ## Contributing
 
 The library is currently in todo implementation and will be finished soon. You can actually contribute by reporting errors or suggesting new features [here](https://github.com/notelho/patofinder/issues).
 
-## Future Features
+## Todo
 
 * logger
     - create logger update method
 
 * finish
-    - finish examples
-    - create changelog
-    - export examples to cli
-
-* next
-    - install jest and types
     - create all tests
     - take tests do lib examples
+    - finish examples
     - fix url search
+    - update changelog 1.0.0
+
+* todo
+    - add depth option
+    - add limit option
 
 ## License
 
-[MIT](https://github.com/notelho/patofinder/blob/master/LICENSE)
+[MIT](./LICENSE)

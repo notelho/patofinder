@@ -1,6 +1,6 @@
 ### url
 
-> Search for ALL linked urls
+> Search for ALL types of linked urls
 
 ### css
 
@@ -45,7 +45,7 @@
 > * .eot
 > * .svg
 
-### Audio
+### audio
 
 > Search for audios that end with the following extensions:
 > * .aac
