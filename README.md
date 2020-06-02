@@ -62,9 +62,11 @@ import patofinder from 'patofinder';
 async function foo() {
 
     const valid = await patofinder.find('http://www.foobar.com/', 'css');
+
     const invalid = await patofinder.find('http://www.invalidpath.org/', 'php');
 
     console.log(valid); // ['http://www.foobar.com/styles/main.css']
+
     console.log(invalid); // []
 
 }
@@ -85,9 +87,6 @@ The library has few functions and commands, but you can see some use cases in th
 The library is currently in todo implementation and will be finished soon. You can actually contribute by reporting errors or suggesting new features [here](https://github.com/notelho/patofinder/issues).
 
 ## Todo
-
-* logger
-    - create logger update method
 
 * finish
     - create all tests

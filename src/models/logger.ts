@@ -4,35 +4,54 @@ import chalk from 'chalk';
 
 class Logger {
 
-    private type: TypeLogs;
-
     private loader: Loader;
 
+    private type: TypeLogs;
+
+    private fixed: boolean;
+
     constructor() {
+        this.loader = new Loader();
         this.type = 'none';
-        this.loader = new Loader()
+        this.fixed = false;
     }
 
     public cli(verbose: boolean): void {
         this.type = verbose ? 'verbose' : 'cli';
     }
 
-    public error(message: string): void {
-        console.log(chalk.red(message));
+    public success(message: string): void {
+        this.output(chalk.green(message), 'verbose');
     }
 
-    public force(message: string): void {
-        console.log(chalk.yellow(message));
+    public warn(message: string): void {
+        this.output(chalk.yellow(message), 'verbose');
+    }
+
+    public error(message: string): void {
+        this.output(chalk.red(message), 'verbose');
     }
 
     public log(message: string, status?: string): void {
+        this.output(this.format(message, status));
+    }
 
-        const log = this.format(message, status);
+    private output(message: string, force?: TypeLogs): void {
 
-        if (this.type === 'verbose') {
-            this.info(log);
-        } else if (this.type === 'cli') {
-            this.update(log);
+        const type = force ? force : this.type;
+        const fixed = this.fixed;
+
+        if (fixed) {
+            process.stdout.clearLine(0);
+            process.stdout.cursorTo(0);
+        }
+
+        if (type === 'verbose') {
+            this.fixed = false;
+            console.log(message);
+        } else if (type === 'cli') {
+            this.fixed = true;
+            process.stdout.write(message);
         }
 
     }
@@ -52,7 +71,7 @@ class Logger {
         const available = [
             { name: 'success', action: (msg: string) => chalk.green(msg) },
             { name: 'warn', action: (msg: string) => chalk.yellow(msg) },
-            { name: 'danger', action: (msg: string) => chalk.red(msg) },
+            { name: 'error', action: (msg: string) => chalk.red(msg) },
         ];
 
         if (status) {
@@ -64,23 +83,6 @@ class Logger {
         }
 
         return `${loader} | [${hour}] ${payload}`;
-    }
-
-    private info(message: string) {
-        console.log(message);
-    }
-
-    private update(message: string): void {
-
-        // logger.config(logs);
-        // logger.force(result);
-        // logger.log(result);
-
-        // process.stdout.write("Hello, World");
-        // process.stdout.clearLine();
-        // process.stdout.cursorTo(0);
-        // process.stdout.write("\n"); // end the line
-
     }
 
 }

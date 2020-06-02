@@ -24,7 +24,7 @@ async function main(): Promise<void> {
     const result = await find(path, type);
     const paths = result.join('\n');
 
-    logger.force(paths);
+    logger.success(paths);
 
 }
 
