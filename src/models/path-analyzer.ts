@@ -33,13 +33,15 @@ export class PathAnalyzer {
         let paths: SearchLevel[];
         let match: boolean;
 
+        logger.cli(true);
+
         while (
             (!storage.empty && depth === 'first' && matches.length === 0) ||
             (!storage.empty && depth === 'all')
         ) {
 
             search = storage.get();
-            logger.log(`analyzing: ${search.path}`);
+            logger.log(`searching: ${search.path}`);
             match = await filter.apply(search.path);
 
             if (match) {

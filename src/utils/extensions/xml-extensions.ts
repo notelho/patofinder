@@ -11,6 +11,7 @@ export const xmlExtensions: ConfigExtensions = [
     '.xbrl',
     '.xsil',
     '.svg',
+    '.sgml',
 ];
 
 export default xmlExtensions;
