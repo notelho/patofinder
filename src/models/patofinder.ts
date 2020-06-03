@@ -1,13 +1,13 @@
-import SearchType from "../interfaces/search-type";
+import TypeSearch from "../interfaces/type-search";
 import TypePath from "../interfaces/type-path";
 import PathAnalyzer from "./path-analyzer";
 import Dictionary from "./dictionary";
 
 export class Patofinder {
 
-    public readonly type: SearchType;
+    public readonly type: TypeSearch;
 
-    constructor(type: SearchType) {
+    constructor(type: TypeSearch) {
         this.type = type;
     }
 

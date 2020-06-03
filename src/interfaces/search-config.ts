@@ -1,31 +1,19 @@
-
-import TypeExtension from "./type-extension";
+import ConfigExtensions from "./config-extensions";
+import ConfigIgnore from './config-ignore';
+import ConfigFilter from './config-filter';
+import ConfigSort from './config-sort';
 import SearchDepth from './search-depth';
-
-import SearchType from "./search-type";
+import TypeSearch from "./type-search";
 import TypeLevel from "./type-level";
 
-import ConfigSort from './config-sort'
-import ConfigIgnore from './config-ignore'
-import ConfigFilter from './config-filter'
-import ConfigExtensions from "./config-extensions";
-
 export interface SearchConfig {
-
-    type: SearchType;
-
+    type: TypeSearch;
     depth: SearchDepth;
-
     limit: TypeLevel;
-
     extensions: ConfigExtensions;
-
     sort: ConfigSort;
-
     ignore: ConfigIgnore;
-
     filter: ConfigFilter;
-
 }
 
 export default SearchConfig;

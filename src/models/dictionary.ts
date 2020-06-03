@@ -3,7 +3,7 @@ import ConfigIgnore from '../interfaces/config-ignore';
 import ConfigFilter from '../interfaces/config-filter';
 import SearchConfig from '../interfaces/search-config';
 import SearchDepth from '../interfaces/search-depth';
-import SearchType from '../interfaces/search-type';
+import TypeSearch from '../interfaces/type-search';
 import ConfigSort from '../interfaces/config-sort';
 import TypeLevel from '../interfaces/type-level';
 import javascriptSearch from '../utils/searches/javascript-search';
@@ -18,7 +18,7 @@ import phpSearch from '../utils/searches/php-search';
 
 export class Dictionary {
 
-    public readonly type: SearchType;
+    public readonly type: TypeSearch;
 
     public readonly searches = {
         'url': urlSearch,
@@ -32,7 +32,7 @@ export class Dictionary {
         'php': phpSearch,
     };
 
-    constructor(type: SearchType) {
+    constructor(type: TypeSearch) {
         this.type = type;
     }
 

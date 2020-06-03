@@ -1,4 +1,4 @@
-// const valid = '';
+// const valid = 'https://notelho.github.io';
 // const invalid = '';
 
 // describe("using patofinder search for css in a page", () => {
@@ -9,7 +9,7 @@
 
 //     });
 
-//     it('throw a request error', () => {
+//     it('should not find any paths', () => {
 
 //         expect(arith.mul(1, 1)).toBe(1);
 

@@ -1,5 +1,5 @@
 import absolutePathRegexp from '../regexp/absolute-path';
-import searchTypeRegexp from '../regexp/search-type';
+import TypeSearchRegexp from '../regexp/type-search';
 import logger from '../../models/logger';
 import commander from 'commander';
 
@@ -30,7 +30,7 @@ export class CliErrors {
             }
             if (!type) {
                 this.errors[notFoundTypeIndex].checked = true;
-            } else if (!type.match(searchTypeRegexp)) {
+            } else if (!type.match(TypeSearchRegexp)) {
                 this.errors[invalidTypeIndex].checked = true;
             }
         }
