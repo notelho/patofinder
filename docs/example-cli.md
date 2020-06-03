@@ -17,7 +17,7 @@ Search for a specific video and enable logs:
 
 ## Types
 
-Available search types (see [types](https://github.com/notelho/patofinder/blob/master/docs/example-types.md) for a more detailed description for each one):
+Available search types (see [types](./example-types.md) for a more detailed description for each one):
 
 ```bash
 - audio                  # Search in a url for audio types

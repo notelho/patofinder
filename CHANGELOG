@@ -2,8 +2,7 @@
 # 1.0.0-rc.2
 #############################################################
 
-- Change export default patofinder
-- Created unit tests
+- Created interfaces public file
 - Created docs
 
 #############################################################

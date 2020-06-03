@@ -7,16 +7,16 @@ Patofinder is a open-source node library (with CLI included) that resolve urls o
 Use the node package manager [NPM](https://www.npmjs.com/package/patofinder) to install it. You can install it locally to import the  into your javascript/typescript code or install it globally and use it directly as a command:
 
 ``` bash
-npm i patofinder
 npm i patofinder -g 
+npm i patofinder
 ```
 
 ## Usage
 
-Import the find function in your javascript code and pass the url target and the selected search type:
+Import the find function into your js/ts code and pass the url target and the selected search type:
 
-``` javascript
-import patofinder from 'patofinder';
+``` typescript
+import * as patofinder from 'patofinder';
 
 async function foo() {
 
@@ -26,20 +26,6 @@ async function foo() {
     const images = await patofinder.find('http://www.foobar.com/', 'img');
 
     console.log(images); // ['http://www.foobar.com/logo.jpg', 'http://www.foobar.com/sample.png']
-
-    /*
-     * Get all video paths from foobar.com
-     */
-    const videos = await patofinder.find('http://www.foobar.com/', 'video');
-
-    console.log(videos); // ['http://www.foobar.com/sample1.mp4', 'http://www.foobar.com/sample2.wmv']
-
-    /*
-     * Get first online streaming path found from foobar.com
-     */
-    const streams = await patofinder.find('http://www.foobar.com/', 'stream');
-
-    console.log(streams); // ['http://ice.somecast:8000/live']
 
 }
 
@@ -56,8 +42,8 @@ Or run directly from your prompt:
 
 The library does not throw errors. If a request fails or the provided path is invalid, it will just return a empty array, for example:
 
-``` javascript
-import patofinder from 'patofinder';
+``` typescript
+import * as patofinder from 'patofinder';
 
 async function foo() {
 
@@ -90,8 +76,6 @@ The library is currently in todo implementation and will be finished soon. You c
 
 * finish
     - create all tests
-    - take tests do lib examples
-    - finish examples
     - fix url search
     - update changelog 1.0.0
 
