@@ -6,10 +6,13 @@ describe("using patofinder search for css in a page", () => {
 
     it('should find one or more css files', async () => {
 
-        const searchPath = 'https://notelho.github.io';
+        const searchPath = 'https://www.youtube.com/';
         const resultPaths = await patofinder.find(searchPath, searchType);
 
-        expect(resultPaths).toContain(
+        console.log('result:');
+        console.log(resultPaths);
+
+        expect(resultPaths).toEqual(
             expect.arrayContaining([
                 expect.stringMatching(
                     patofinder.regexp.absolutePath
@@ -24,7 +27,7 @@ describe("using patofinder search for css in a page", () => {
         const searchPath = 'https://www.sampleinvalidpath.com/';
         const resultPaths = await patofinder.find(searchPath, searchType);
 
-        expect(searchPath).toBe([]);
+        expect(resultPaths).toStrictEqual([]);
 
     });
 

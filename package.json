@@ -10,11 +10,12 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:umd": "webpack",
-    "test": "npm run test:build && npm run test:install && npm run test:cli",
+    "test": "npm run test:build && npm run test:run",
     "test:build": "npm run build:cjs",
     "test:install": "npm i -g .",
     "test:cli": "patofinder",
-    "test:jest" : "jest"
+    "test:run": "node lib/index.js",
+    "test:jest": "jest"
   },
   "main": "lib/index.js",
   "module": "esm/index.js",
@@ -72,6 +73,7 @@
     "lint-staged": "^10.2.2",
     "prettier": "^2.0.5",
     "pretty-format": "^26.0.1",
+    "ts-jest": "^26.1.0",
     "ts-loader": "^7.0.4",
     "tslint": "^6.1.2",
     "typescript": "^3.9.2",
