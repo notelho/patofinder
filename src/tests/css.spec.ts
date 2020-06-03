@@ -1,18 +1,31 @@
-// const valid = 'https://notelho.github.io';
-// const invalid = '';
+import * as patofinder from '../';
 
-// describe("using patofinder search for css in a page", () => {
+describe("using patofinder search for css in a page", () => {
 
-//     it('should find one or more css files', () => {
+    const searchType = 'css';
 
-//         expect(xesque).toBe(desque);
+    it('should find one or more css files', async () => {
 
-//     });
+        const searchPath = 'https://notelho.github.io';
+        const resultPaths = await patofinder.find(searchPath, searchType);
 
-//     it('should not find any paths', () => {
+        expect(resultPaths).toContain(
+            expect.arrayContaining([
+                expect.stringMatching(
+                    patofinder.regexp.absolutePath
+                )
+            ])
+        );
 
-//         expect(arith.mul(1, 1)).toBe(1);
+    });
 
-//     });
+    it('should not find any paths', async () => {
 
-// });
+        const searchPath = 'https://www.sampleinvalidpath.com/';
+        const resultPaths = await patofinder.find(searchPath, searchType);
+
+        expect(searchPath).toBe([]);
+
+    });
+
+});

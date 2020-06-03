@@ -1,3 +1,3 @@
-export const endBarRegexp = new RegExp(/\/$/);
+export const endBar = new RegExp(/\/$/);
 
-export default endBarRegexp;
+export default endBar;

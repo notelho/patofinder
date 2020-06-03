@@ -14,7 +14,7 @@
     "test:build": "npm run build:cjs",
     "test:install": "npm i -g .",
     "test:cli": "patofinder",
-    "test:coverage" : "jest --coverage"
+    "test:jest" : "jest"
   },
   "main": "lib/index.js",
   "module": "esm/index.js",
