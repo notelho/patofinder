@@ -1,8 +1,9 @@
 import javascriptExtensions from '../extensions/javascript-extensions';
 import SearchConfig from '../../interfaces/search-config';
-import includesFilter from '../filters/includes-filter';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
+import includesRule from '../rules/includes-rule';
+import samePathRule from '../rules/same-path-rule';
 
 export const javascriptSearch: SearchConfig = {
 
@@ -18,7 +19,9 @@ export const javascriptSearch: SearchConfig = {
 
     ignore: emptyIgnore,
 
-    filter: includesFilter
+    filterRule: includesRule,
+
+    equalsRule: samePathRule
 
 };
 

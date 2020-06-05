@@ -1,8 +1,9 @@
 import videoExtensions from '../extensions/video-extensions';
 import SearchConfig from '../../interfaces/search-config';
-import endingFilter from '../filters/ending-filter';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
+import endingRule from '../rules/ending-rule';
+import samePathRule from '../rules/same-path-rule';
 
 export const videoSearch: SearchConfig = {
 
@@ -18,7 +19,9 @@ export const videoSearch: SearchConfig = {
 
     ignore: emptyIgnore,
 
-    filter: endingFilter
+    filterRule: endingRule,
+
+    equalsRule: samePathRule
 
 };
 

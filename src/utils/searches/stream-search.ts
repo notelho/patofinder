@@ -1,8 +1,9 @@
 import streamExtensions from '../extensions/stream-extensions';
 import SearchConfig from '../../interfaces/search-config';
 import streamIgnore from '../ignores/stream-ignore';
-import streamFilter from '../filters/stream-filter';
 import streamSort from '../sorts/stream-sort';
+import streamRule from '../rules/stream-rule';
+import emptyRule from '../rules/empty-rule';
 
 export const streamSearch: SearchConfig = {
 
@@ -18,7 +19,9 @@ export const streamSearch: SearchConfig = {
 
     ignore: streamIgnore,
 
-    filter: streamFilter
+    filterRule: streamRule,
+
+    equalsRule: emptyRule
 
 };
 
