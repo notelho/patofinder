@@ -1,11 +1,11 @@
 import ConfigExtensions from '../interfaces/config-extensions';
 import ConfigIgnore from '../interfaces/config-ignore';
-import ConfigFilter from '../interfaces/config-filter';
 import SearchConfig from '../interfaces/search-config';
 import SearchDepth from '../interfaces/search-depth';
 import TypeSearch from '../interfaces/type-search';
 import ConfigSort from '../interfaces/config-sort';
 import TypeLevel from '../interfaces/type-level';
+import ConfigRule from '../interfaces/config-rule';
 import javascriptSearch from '../utils/searches/javascript-search';
 import streamSearch from '../utils/searches/stream-search';
 import videoSearch from '../utils/searches/video-search';
@@ -60,8 +60,12 @@ export class Dictionary {
         return this.config.ignore;
     }
 
-    public get filter(): ConfigFilter {
-        return this.config.filter;
+    public get filterRule(): ConfigRule {
+        return this.config.filterRule;
+    }
+
+    public get equalsRule(): ConfigRule {
+        return this.config.equalsRule;
     }
 
 }

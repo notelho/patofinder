@@ -24,6 +24,10 @@ async function test() {
     // console.log(matches4 + '\n');
     // console.log('===================================================\n');
 
+    // condition
+    // if rule
+    // not-same-rule.ts
+
 }
 
 test();
