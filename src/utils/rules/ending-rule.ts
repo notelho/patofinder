@@ -1,8 +1,8 @@
 import ConfigExtensions from "../../interfaces/config-extensions";
-import ConfigFilter from "../../interfaces/config-filter";
+import ConfigRule from "../../interfaces/config-rule";
 import TypePath from "../../interfaces/type-path";
 
-export function endingFilter(path: TypePath, extensions: ConfigExtensions): Promise<boolean> {
+export function endingRule(path: TypePath, extensions: ConfigExtensions): Promise<boolean> {
 
     return new Promise(resolve => {
 
@@ -16,4 +16,4 @@ export function endingFilter(path: TypePath, extensions: ConfigExtensions): Prom
 
 }
 
-export default endingFilter as ConfigFilter;
+export default endingRule as ConfigRule;

@@ -1,11 +1,11 @@
 import ConfigExtensions from "../../interfaces/config-extensions";
+import ConfigRule from "../../interfaces/config-rule";
 import TypePath from "../../interfaces/type-path";
-import ConfigFilter from "../../interfaces/config-filter";
 
 const ffprobe = require("ffprobe");
 const ffprobeStatic = require("ffprobe-static");
 
-export async function streamFilter(path: TypePath, extensions: ConfigExtensions): Promise<boolean> {
+export async function streamRule(path: TypePath, extensions: ConfigExtensions): Promise<boolean> {
 
     const info = await ffprobe(path, { path: ffprobeStatic.path });
 
@@ -40,4 +40,4 @@ export async function streamFilter(path: TypePath, extensions: ConfigExtensions)
     return false;
 }
 
-export default streamFilter as ConfigFilter;
+export default streamRule as ConfigRule;
