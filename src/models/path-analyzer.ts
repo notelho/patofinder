@@ -21,12 +21,9 @@ export class PathAnalyzer {
         const sort = this.dictionary.sort;
         const ignore = this.dictionary.ignore;
         const extensions = this.dictionary.extensions;
+        const rules = this.dictionary.rules;
 
-        const filterRule = this.dictionary.filterRule;
-        const equalsRule = this.dictionary.equalsRule;
-
-        const equals = new LevelFilter([path], equalsRule);
-        const filter = new LevelFilter(extensions, filterRule);
+        const filter = new LevelFilter(path, extensions, rules);
         const storage = new LevelStorage(path, sort, ignore);
         const searcher = new LevelSearcher(limit);
 
@@ -34,8 +31,7 @@ export class PathAnalyzer {
 
         let search: SearchLevel;
         let paths: SearchLevel[];
-        let filterMatch: boolean;
-        let equalsMatch: boolean;
+        let match: boolean;
 
         logger.cli(true);
 
@@ -46,10 +42,9 @@ export class PathAnalyzer {
 
             search = storage.get();
             logger.log(`searching: ${search.path}`);
-            filterMatch = await filter.apply(search.path);
-            equalsMatch = await equals.apply(search.path);
+            match = await filter.apply(search.path);
 
-            if (filterMatch && equalsMatch) {
+            if (match) {
                 logger.log(`match: ${search.path}`, 'success');
                 matches.push(search.path);
             } else {

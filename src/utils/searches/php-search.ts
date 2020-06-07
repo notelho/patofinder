@@ -3,7 +3,7 @@ import phpExtensions from '../extensions/php-extensions';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
 import includesRule from '../rules/includes-rule';
-import samePathRule from '../rules/same-path-rule';
+import notSameRule from '../rules/not-same-rule';
 
 export const phpSearch: SearchConfig = {
 
@@ -19,9 +19,13 @@ export const phpSearch: SearchConfig = {
 
     ignore: emptyIgnore,
 
-    filterRule: includesRule,
+    rules: [
 
-    equalsRule: samePathRule
+        includesRule,
+
+        notSameRule,
+
+    ]
 
 };
 

@@ -19,9 +19,11 @@ export const imgSearch: SearchConfig = {
 
     ignore: emptyIgnore,
 
-    filterRule: includesRule,
+    rules: [
 
-    equalsRule: emptyRule
+        includesRule,
+
+    ]
 
 };
 

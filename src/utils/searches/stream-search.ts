@@ -19,9 +19,11 @@ export const streamSearch: SearchConfig = {
 
     ignore: streamIgnore,
 
-    filterRule: streamRule,
+    rules: [
 
-    equalsRule: emptyRule
+        streamRule,
+
+    ]
 
 };
 

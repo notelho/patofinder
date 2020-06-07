@@ -3,7 +3,7 @@ import SearchConfig from '../../interfaces/search-config';
 import emptyIgnore from '../ignores/empty-ignore';
 import emptySort from '../sorts/empty-sort';
 import endingRule from '../rules/ending-rule';
-import samePathRule from '../rules/same-path-rule';
+import notSameRule from '../rules/not-same-rule';
 
 export const audioSearch: SearchConfig = {
 
@@ -19,9 +19,13 @@ export const audioSearch: SearchConfig = {
 
     ignore: emptyIgnore,
 
-    filterRule: endingRule,
+    rules: [
 
-    equalsRule: samePathRule
+        endingRule,
+
+        notSameRule,
+
+    ]
 
 };
 

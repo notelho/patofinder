@@ -1,33 +1,55 @@
 import ConfigExtensions from "../interfaces/config-extensions";
 import ConfigRule from "../interfaces/config-rule";
 import TypePath from "../interfaces/type-path";
+import RuleData from "../interfaces/rule-data";
 
 export class LevelFilter {
 
     private readonly extensions: ConfigExtensions;
 
-    private readonly rule: ConfigRule;
+    private readonly basePath: TypePath;
 
-    constructor(extensions: ConfigExtensions, rule: ConfigRule) {
+    private readonly rules: ConfigRule[];
+
+    constructor(path: TypePath, extensions: ConfigExtensions, rules: ConfigRule[]) {
         this.extensions = extensions;
-        this.rule = rule;
+        this.basePath = path;
+        this.rules = rules;
     }
 
     public async apply(path: TypePath): Promise<boolean> {
 
-        try {
+        const data: RuleData = {
+            extensions: this.extensions,
+            basePath: this.basePath,
+            searchPath: path
+        }
 
-            const extensions = this.extensions;
-            const rule = this.rule;
+        const rules = this.rules;
 
-            return await rule(path, extensions);
+        const results: boolean[] = [];
 
-        } catch (error) {
+        for (const rule of rules) {
 
-            return false;
+            try {
+
+                const result = await rule(data);
+
+                results.push(result);
+
+            } catch (error) {
+
+                results.push(false);
+
+            }
 
         }
 
+        const validRules = rules.length;
+        const validResults = results.length;
+        const isValid = validResults === validRules;
+
+        return isValid;
     }
 
 }

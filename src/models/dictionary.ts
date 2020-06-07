@@ -60,12 +60,8 @@ export class Dictionary {
         return this.config.ignore;
     }
 
-    public get filterRule(): ConfigRule {
-        return this.config.filterRule;
-    }
-
-    public get equalsRule(): ConfigRule {
-        return this.config.equalsRule;
+    public get rules(): ConfigRule[] {
+        return this.config.rules;
     }
 
 }
