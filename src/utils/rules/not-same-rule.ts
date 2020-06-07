@@ -13,9 +13,9 @@ export function notSameRule(data: RuleData): Promise<boolean> {
 
         if (samePath || includePath) {
             resolve(false);
+        } else {
+            resolve(true);
         }
-
-        resolve(true);
 
     });
 

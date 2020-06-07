@@ -19,34 +19,26 @@ export class LevelFilter {
 
     public async apply(path: TypePath): Promise<boolean> {
 
+        const rules = this.rules;
+        const results: boolean[] = [];
         const data: RuleData = {
             extensions: this.extensions,
             basePath: this.basePath,
             searchPath: path
-        }
-
-        const rules = this.rules;
-
-        const results: boolean[] = [];
+        };
 
         for (const rule of rules) {
-
             try {
-
                 const result = await rule(data);
-
                 results.push(result);
-
             } catch (error) {
-
                 results.push(false);
-
             }
-
         }
 
+        const trueResults = results.filter(rule => rule);
+        const validResults = trueResults.length;
         const validRules = rules.length;
-        const validResults = results.length;
         const isValid = validResults === validRules;
 
         return isValid;

@@ -11,7 +11,7 @@ async function test() {
     // const url2 = 'http://youtube.com';
     console.log(url2);
     // const matches2 = await find(url2, 'stream');
-    const matches2 = await find(url2, 'url');
+    const matches2 = await find(url2, 'javascript');
     console.log(matches2);
     console.log('===================================================\n');
 
@@ -23,10 +23,6 @@ async function test() {
     // const matches4 = await find(url4, 'stream');
     // console.log(matches4 + '\n');
     // console.log('===================================================\n');
-
-    // condition
-    // if rule
-    // not-same-rule.ts
 
 }
 

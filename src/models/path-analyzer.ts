@@ -41,6 +41,7 @@ export class PathAnalyzer {
         ) {
 
             search = storage.get();
+
             logger.log(`searching: ${search.path}`);
             match = await filter.apply(search.path);
 
