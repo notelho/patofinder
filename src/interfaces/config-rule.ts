@@ -1,6 +1,5 @@
-import ConfigExtensions from "./config-extensions";
-import TypePath from "./type-path";
+import RuleData from "./rule-data";
 
-export type ConfigRule = (path: TypePath, extensions: ConfigExtensions) => Promise<boolean>;
+export type ConfigRule = (data: RuleData) => Promise<boolean>;
 
 export default ConfigRule;

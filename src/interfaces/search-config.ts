@@ -20,9 +20,7 @@ export interface SearchConfig {
 
     ignore: ConfigIgnore;
 
-    filterRule: ConfigRule;
-
-    equalsRule: ConfigRule;
+    rules: ConfigRule[];
 
 }
 

@@ -1,11 +1,13 @@
-import ConfigExtensions from "../../interfaces/config-extensions";
 import ConfigRule from "../../interfaces/config-rule";
-import TypePath from "../../interfaces/type-path";
+import RuleData from "../../interfaces/rule-data";
 
 const ffprobe = require("ffprobe");
 const ffprobeStatic = require("ffprobe-static");
 
-export async function streamRule(path: TypePath, extensions: ConfigExtensions): Promise<boolean> {
+export async function streamRule(data: RuleData): Promise<boolean> {
+
+    const extensions = data.extensions
+    const path = data.searchPath;
 
     const info = await ffprobe(path, { path: ffprobeStatic.path });
 

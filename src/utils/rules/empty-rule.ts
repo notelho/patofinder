@@ -1,8 +1,7 @@
-import ConfigExtensions from "../../interfaces/config-extensions";
 import ConfigRule from "../../interfaces/config-rule";
-import TypePath from "../../interfaces/type-path";
+import RuleData from "../../interfaces/rule-data";
 
-export function emptyRule(path: TypePath, extensions: ConfigExtensions): Promise<boolean> {
+export function emptyRule(data: RuleData): Promise<boolean> {
 
     return new Promise(resolve => resolve(true));
 

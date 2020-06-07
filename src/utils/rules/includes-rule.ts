@@ -1,8 +1,10 @@
-import ConfigExtensions from "../../interfaces/config-extensions";
 import ConfigRule from "../../interfaces/config-rule";
-import TypePath from "../../interfaces/type-path";
+import RuleData from "../../interfaces/rule-data";
 
-export function includesRule(path: TypePath, extensions: ConfigExtensions): Promise<boolean> {
+export function includesRule(data: RuleData): Promise<boolean> {
+
+    const extensions = data.extensions
+    const path = data.searchPath;
 
     return new Promise(resolve => {
 
