@@ -19,7 +19,6 @@ Import the find function into your js/ts code and pass the url target and the se
 import * as patofinder from 'patofinder';
 
 async function foo() {
-
     /*
      * Get all image paths from foobar.com
      */
@@ -48,11 +47,9 @@ import * as patofinder from 'patofinder';
 async function foo() {
 
     const valid = await patofinder.find('http://www.foobar.com/', 'css');
-
     const invalid = await patofinder.find('http://www.invalidpath.org/', 'php');
 
     console.log(valid); // ['http://www.foobar.com/styles/main.css']
-
     console.log(invalid); // []
 
 }
@@ -65,23 +62,12 @@ foo();
 The library has few functions and commands, but you can see some use cases in the docs folder:
 
 * Available command line calls: see [cli examples](./docs/example-cli.md)
-* Available library func calls: see [lib examples](./docs/example-lib.md)
-* Available types and extensions: see [type examples](./docs/example-type.md)
+* Available types and extensions: see [type examples](./docs/example-types.md)
+* Available find examples: see [find examples](./docs/example-find.md)
 
 ## Contributing
 
 The library is currently in todo implementation and will be finished soon. You can actually contribute by reporting errors or suggesting new features [here](https://github.com/notelho/patofinder/issues).
-
-## Todo
-
-* finish
-    - create all tests
-    - fix url search
-    - update changelog 1.0.0
-
-* todo
-    - add depth option
-    - add limit option
 
 ## License
 
