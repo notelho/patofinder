@@ -1,6 +1,7 @@
+./__tests__
+./dist
 ./www
 ./esm
-./dist
 ./umd
 ./src
 
