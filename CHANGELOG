@@ -1,13 +1,8 @@
 #############################################################
-# 1.0.0-rc.2
-#############################################################
-
-- Created interfaces public file
-- Created docs
-
-#############################################################
 # 1.0.0-rc.1
 #############################################################
 
 - Created find public function
+- Created interfaces public file
 - Created CLI integration
+- Created docs
