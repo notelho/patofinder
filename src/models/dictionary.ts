@@ -20,20 +20,21 @@ export class Dictionary {
 
     public readonly type: TypeSearch;
 
-    public readonly searches = {
-        'url': urlSearch,
-        'font': fontSearch,
-        'img': imgSearch,
-        'audio': audioSearch,
-        'video': videoSearch,
-        'stream': streamSearch,
-        'javascript': javascriptSearch,
-        'css': cssSearch,
-        'php': phpSearch,
-    };
+    public readonly searches: { [attr: string]: SearchConfig; };
 
     constructor(type: TypeSearch) {
         this.type = type;
+        this.searches = {
+            'url': urlSearch,
+            'font': fontSearch,
+            'img': imgSearch,
+            'audio': audioSearch,
+            'video': videoSearch,
+            'stream': streamSearch,
+            'javascript': javascriptSearch,
+            'css': cssSearch,
+            'php': phpSearch,
+        };
     }
 
     public get config(): SearchConfig {
