@@ -1,8 +1,16 @@
 #############################################################
-# 1.0.0-rc.2
+# 1.0.0-rc.3
 #############################################################
 
 - Fix all exports
+- Fix find autorun
+- Created interfaces docs
+- Created regexp docs
+
+#############################################################
+# 1.0.0-rc.2
+#############################################################
+
 - Update find docs
 - Update types docs
 
@@ -12,5 +20,6 @@
 
 - Created find public function
 - Created interfaces public file
+- Created regexp public file
 - Created CLI integration
 - Created docs

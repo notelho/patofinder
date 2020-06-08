@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "declaration": true,
-    "removeComments": true,
-    "sourceMap": true,
+    "removeComments": false,
+    "sourceMap": false,
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true
@@ -15,7 +15,5 @@
   "exclude": [
     "src/**/*.spec.*",
     "src/**/*.test.*",
-    "www",
-    "docs",
   ]
 }

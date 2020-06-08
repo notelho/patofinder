@@ -1,6 +1,6 @@
 {
   "name": "patofinder",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0-rc.3",
   "description": "An elegant way to search for urls with web scraping",
   "author": "Nathan Botelho <nimbotelho@gmail.com> (https://github.com/notelho)",
   "license": "MIT",
@@ -10,12 +10,10 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:umd": "webpack",
-    "test": "npm run test:build && npm run test:run",
+    "test": "npm run test:build && npm run test:install && npm run test:cli",
     "test:build": "npm run build:cjs",
     "test:install": "npm i -g .",
-    "test:cli": "patofinder",
-    "test:run": "node lib/index.js",
-    "test:jest": "npx jest --no-cache"
+    "test:cli": "patofinder"
   },
   "main": "lib/index.js",
   "module": "esm/index.js",
