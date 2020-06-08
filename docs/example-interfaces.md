@@ -5,11 +5,11 @@ There are basically two: TypePath and TypeSearch.
 
 ```typescript
 
-    import * as patofinder from 'patofinder';
+    import { TypePath, TypeSearch } from 'patofinder';
 
-    const path: patofinder.TypePath = 'https://www.heroku.com/'; // path to be searched
+    const path: TypePath = 'https://www.heroku.com/'; // path to be searched
 
-    const type: patofinder.TypeSearch = 'javascript'; // type of search
+    const type: TypeSearch = 'javascript'; // type of search
 
 ```
 
