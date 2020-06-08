@@ -2,6 +2,7 @@ import TypeSearch from "../interfaces/type-search";
 import TypePath from "../interfaces/type-path";
 import PathAnalyzer from "./path-analyzer";
 import Dictionary from "./dictionary";
+import typeSearch from "../utils/regexp/type-search";
 
 export class Patofinder {
 
@@ -14,11 +15,20 @@ export class Patofinder {
     public async find(path: TypePath): Promise<TypePath[]> {
 
         const type = this.type;
-        const dictionary = new Dictionary(type);
-        const analyzer = new PathAnalyzer(dictionary);
-        const matches = await analyzer.apply(path);
 
-        return matches;
+        if (typeSearch.test(type)) {
+
+            const dictionary = new Dictionary(type);
+            const analyzer = new PathAnalyzer(dictionary);
+            const matches = await analyzer.apply(path);
+
+            return matches;
+
+        } else {
+
+            throw new Error('Invalid search type');
+
+        }
 
     }
 

@@ -39,7 +39,7 @@ Or run directly from your prompt:
 
 ## Errors
 
-The library does not throw errors. If a request fails or the provided path is invalid, it will just return a empty array, for example:
+The library just throw a error. If a request fails or the provided path is invalid, it will just return a empty array, but if a invalid type was provided, a error will be throw:
 
 ``` typescript
 import * as patofinder from 'patofinder';
@@ -51,6 +51,8 @@ async function foo() {
 
     console.log(valid); // ['http://www.foobar.com/styles/main.css']
     console.log(invalid); // []
+
+    await patofinder.find('http://www.foobar.com/', 'foo'); // error
 
 }
 
