@@ -64,6 +64,8 @@ The library has few functions and commands, but you can see some use cases in th
 * Available command line calls: see [cli examples](./docs/example-cli.md)
 * Available types and extensions: see [type examples](./docs/example-types.md)
 * Available find examples: see [find examples](./docs/example-find.md)
+* Available regexp examples: see [regexp examples](./docs/example-regexp.md)
+* Available interfaces examples: see [interfaces examples](./docs/example-interfaces.md)
 
 ## Contributing
 
