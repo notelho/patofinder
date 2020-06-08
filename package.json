@@ -1,7 +1,7 @@
 {
   "name": "patofinder",
-  "version": "1.0.0-rc.5",
-  "description": "An elegant way to search for urls with web scraping",
+  "version": "1.0.0-rc.6",
+  "description": "An elegant way to search for urls with web scraping and javascript",
   "author": "Nathan Botelho <nimbotelho@gmail.com> (https://github.com/notelho)",
   "license": "MIT",
   "scripts": {
