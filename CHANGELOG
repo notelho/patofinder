@@ -1,53 +1,22 @@
 #############################################################
-# 1.0.0-rc.6
+# 1.0.0
 #############################################################
 
-- Update regexp exports
-- Update interfaces docs
-- Update regexp docs
+- Created live version
+- Created live documentation
+- Updated release candidate changelog
 
 #############################################################
-# 1.0.0-rc.5
-#############################################################
-
-- Created search type error
-
-#############################################################
-# 1.0.0-rc.4
-#############################################################
-
-- Update authors link
-- Fix lib folder
-
-#############################################################
-# 1.0.0-rc.4
-#############################################################
-
-- Update authors link
-- Fix lib folder
-
-#############################################################
-# 1.0.0-rc.3
-#############################################################
-
-- Fix all exports
-- Fix find autorun
-- Created interfaces docs
-- Created regexp docs
-
-#############################################################
-# 1.0.0-rc.2
-#############################################################
-
-- Update find docs
-- Update types docs
-
-#############################################################
-# 1.0.0-rc.1
+# 1.0.0-rc.1 ~ 1.0.0-rc.6
 #############################################################
 
 - Created find public function
-- Created interfaces public file
-- Created regexp public file
-- Created CLI integration
-- Created docs
+- Created TypePath public interface
+- Created TypeSearch public interface
+- Created absolute path public regexp
+- Created relative path public regexp
+- Created type search public regexp
+- Created general documentation
+- Finish CLI integration
+- Fix exports bugs
+- Fix autorun bugs
