@@ -1,6 +1,6 @@
 On the release of version 1.0.0 a test sample api was created on the heroku servers. The api is for demonstration only and no warranty is provided on it. Do not use in production.
 
-You can access it by sending a get for *https://patoserver.herokuapp.com/find*:
+You can access it by sending a get for https://patoserver.herokuapp.com/find:
 
 ```typescript
 
@@ -11,15 +11,11 @@ You can access it by sending a get for *https://patoserver.herokuapp.com/find*:
     const path = 'https://www.makeareadme.com/';
     const type = 'css';
 
-    /* ... */
-
-    const url = `https://patoserver.herokuapp.com/find?path=${path}&type=${type}`;
-
-    axios.get(url);
+    axios.get(`https://patoserver.herokuapp.com/find?path=${path}&type=${type}`);
 
 ```
 
-You can check api status sending a get for *https://patoserver.herokuapp.com/status*
+You can check api status sending a get for https://patoserver.herokuapp.com/status:
 
 ```typescript
 
@@ -27,9 +23,7 @@ You can check api status sending a get for *https://patoserver.herokuapp.com/sta
 
    /* ... */
 
-    const url = `https://patoserver.herokuapp.com/status`;
-
-    axios.get(url);
+    axios.get(`https://patoserver.herokuapp.com/status`);
 
 ```
 
