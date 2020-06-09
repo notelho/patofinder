@@ -69,9 +69,13 @@ The library has few functions and commands, but you can see some use cases in th
 * Available regexp examples: see [regexp examples](./docs/example-regexp.md)
 * Available interfaces examples: see [interfaces examples](./docs/example-interfaces.md)
 
+## Live
+
+On the release of version 1.0.0 a test sample api was created on the heroku servers. See [here](./docs/example-live.md) for more.
+
 ## Contributing
 
-The library is currently in todo implementation and will be finished soon. You can actually contribute by reporting errors or suggesting new features [here](https://github.com/notelho/patofinder/issues).
+Pull requests are welcome. For major changes or TypeSearches creation please open an issue first to discuss what you would like to change. You can also contribute by reporting errors or suggesting new features [here](https://github.com/notelho/patofinder/issues).
 
 ## License
 
